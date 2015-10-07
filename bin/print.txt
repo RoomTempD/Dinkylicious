@@ -1,0 +1,73 @@
+Totals for 12/1/2014 through 12/8/2014
+
+12/1/2014 - Monday
+   Total Sales: $490.34
+     Bar Total: $125.00
+    Food Total: $365.34
+          Card: $524.55
+         Check: $0.00
+     Gift Cert: $0.00
+
+12/2/2014 - Tuesday
+   Total Sales: $361.35
+     Bar Total: $118.75
+    Food Total: $242.60
+          Card: $337.27
+         Check: $0.00
+     Gift Cert: $0.00
+
+12/3/2014 - Wednesday
+   Total Sales: $159.80
+     Bar Total: $51.25
+    Food Total: $108.55
+          Card: $114.63
+         Check: $0.00
+     Gift Cert: $0.00
+
+12/4/2014 - Thursday
+   Total Sales: $371.20
+     Bar Total: $121.50
+    Food Total: $249.70
+          Card: $271.09
+         Check: $0.00
+     Gift Cert: $0.00
+
+12/5/2014 - Friday
+   Total Sales: $2,479.63
+     Bar Total: $567.90
+    Food Total: $1,911.73
+          Card: $1,776.15
+         Check: $35.96
+     Gift Cert: $80.00
+
+12/6/2014 - Saturday
+   Total Sales: $1,072.83
+     Bar Total: $288.75
+    Food Total: $784.08
+          Card: $744.47
+         Check: $56.60
+     Gift Cert: $0.00
+
+12/7/2014 - Sunday
+   Total Sales: $0.00
+     Bar Total: $0.00
+    Food Total: $0.00
+          Card: $0.00
+         Check: $0.00
+     Gift Cert: $0.00
+
+12/8/2014 - Monday
+   Total Sales: $0.00
+     Bar Total: $0.00
+    Food Total: $0.00
+          Card: $0.00
+         Check: $0.00
+     Gift Cert: $0.00
+
+Grand Totals
+   Total Sales: $4,935.15
+     Bar Total: $1,273.15
+    Food Total: $3,662.00
+          Card: $3,768.16
+         Check: $92.56
+     Gift Cert: $80.00

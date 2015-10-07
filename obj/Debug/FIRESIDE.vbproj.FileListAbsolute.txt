@@ -1,0 +1,79 @@
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\Interop.DAO.dll
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.vbproj.ResolveComReference.cache
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.ChangeServer.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.oldCloseTable.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.CloseTableNew.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.CustomItem.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.EmployList.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.EndOfDay.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.EnterGuestCount.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.Form1.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.Items.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.Misc.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.Resources.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.NumPad.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.PayRoll.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.POS.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.ReOpen.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.Resource1.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.SelectGuest.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.SelectTable.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.SignInOut.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.Totals.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.vbproj.GenerateResource.Cache
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.pdb
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin\FIRESIDE.exe.manifest
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin\FIRESIDE.application
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin\FIRESIDE.exe
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin\FIRESIDE.pdb
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin\FIRESIDE.xml
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin\Interop.DAO.dll
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.exe.manifest
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.application
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.exe
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\obj\Debug\FIRESIDE.xml
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin2\FIRESIDE.exe.manifest
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin2\FIRESIDE.application
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin2\FIRESIDE.exe
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin2\FIRESIDE.pdb
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin2\FIRESIDE.xml
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\2 - Copy\bin2\Interop.DAO.dll
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\Interop.DAO.dll
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.vbproj.ResolveComReference.cache
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.exe
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.xml
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.pdb
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\bin2\FIRESIDE.exe.manifest
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\bin2\FIRESIDE.application
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\bin2\FIRESIDE.exe
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\bin2\FIRESIDE.pdb
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\bin2\FIRESIDE.xml
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\bin2\Interop.DAO.dll
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.ChangeServer.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.oldCloseTable.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.CloseTableNew.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.CustomItem.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.EmployList.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.EndOfDay.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.EnterGuestCount.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.Form1.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.Items.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.Misc.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.Resources.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.NumPad.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.PayRoll.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.POS.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.ReOpen.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.Resource1.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.SelectTable.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.SignInOut.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.Totals.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.vbproj.GenerateResource.Cache
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.exe.manifest
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.application
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v3\obj\Debug\FIRESIDE.delSelectGuest.resources
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v4\obj\Debug\Interop.DAO.dll
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v4\obj\Debug\FIRESIDE.vbproj.ResolveComReference.cache
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v4\obj\Debug\FIRESIDE.exe
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v4\obj\Debug\FIRESIDE.xml
+C:\Users\DMoney\Desktop\Fireside Program\VB2003 working\v4\obj\Debug\FIRESIDE.pdb
