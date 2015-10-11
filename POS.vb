@@ -2,12 +2,6 @@ Imports System.Collections.Generic
 
 Public Class POS
     Inherits System.Windows.Forms.Form
-    Public currentTicket As New Ticket
-    Public currentTable As New Table
-    Public currentStool As New Stool
-    Public currentServer As New Server
-    Public currentFoodOrder As New FoodOrder
-    Public currentBarOrder As New BarOrder
     Friend WithEvents guest4 As System.Windows.Forms.Button
     Friend WithEvents guest5 As System.Windows.Forms.Button
     Friend WithEvents guest6 As System.Windows.Forms.Button
@@ -16,12 +10,7 @@ Public Class POS
     Friend WithEvents cmdDrinks As System.Windows.Forms.Button
     Friend WithEvents lblTotals As System.Windows.Forms.Label
 
-
-    Public ActiveOrderType As String
-
-    Public ActiveTicketNumber As Integer
-    Public ActiveGuestNumber As Integer
-
+    Public QuickSale As Boolean
 
 #Region " Windows Form Designer generated code "
 
@@ -5720,36 +5709,19 @@ Public Class POS
     Dim ds As New DataSet
     'Dim da As New OleDb.OleDbDataAdapter
 
-    Private Sub ClearCurrentInfo()
-        currentTicket = New Ticket
-        currentTable = New Table
-        currentStool = New Stool
-        currentServer = New Server
-        currentFoodOrder = New FoodOrder
-        currentBarOrder = New BarOrder
-
-        If active.Computer = "BAR" Then
-            ActiveOrderType = "Drinks"
-        ElseIf active.Computer = "SERVER" Then
-            ActiveOrderType = "Food"
-        End If
-
-    End Sub
-
-
     Private Sub cmdExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdExit.Click
         Close()
     End Sub
 
     Private Sub Update_Order()
-        lblTable.Text = currentTable.getTableName & " " & currentTicket.GetTicketNumber
+        lblTable.Text = d.GetTableName(Active.Table) & " " & Active.Ticket
 
         dgvOrder.DataSource = ""
 
-        If ActiveOrderType = "Food" Then
-            dgvOrder.DataSource = data.GetData("SELECT LINE_NUM, ITEM_NAME AS Name, QUOTED_PRICE AS Price FROM OPEN_ORDER INNER JOIN ITEM ON ITEM.ITEM_NUM = OPEN_ORDER.ITEM_NUM WHERE ORDER_NUM = " & d.GetOrderNumber(active.Ticket, ActiveGuestNumber)).Tables(0)
-        ElseIf ActiveOrderType = "Drinks" Then
-            dgvOrder.DataSource = data.GetData("SELECT LINE_NUM, ITEM_NAME AS Name, QUOTED_PRICE AS Price FROM OPEN_BAR_ORDER INNER JOIN BAR_ITEM ON BAR_ITEM.ITEM_NUM = OPEN_BAR_ORDER.ITEM_NUM WHERE ORDER_NUM = " & d.GetOrderNumber(active.Ticket, ActiveGuestNumber)).Tables(0)
+        If Active.OrderType = "Food" Then
+            dgvOrder.DataSource = data.GetData("SELECT LINE_NUM, ITEM_NAME AS Name, QUOTED_PRICE AS Price FROM OPEN_ORDER INNER JOIN ITEM ON ITEM.ITEM_NUM = OPEN_ORDER.ITEM_NUM WHERE ORDER_NUM = " & d.GetOrderNumber(Active.Ticket, Active.Guest)).Tables(0)
+        ElseIf Active.OrderType = "Drinks" Then
+            dgvOrder.DataSource = data.GetData("SELECT LINE_NUM, ITEM_NAME AS Name, QUOTED_PRICE AS Price FROM OPEN_BAR_ORDER INNER JOIN BAR_ITEM ON BAR_ITEM.ITEM_NUM = OPEN_BAR_ORDER.ITEM_NUM WHERE ORDER_NUM = " & d.GetOrderNumber(Active.Ticket, Active.Guest)).Tables(0)
         End If
 
         dgvOrder.Columns("LINE_NUM").Visible = False
@@ -5766,31 +5738,29 @@ Public Class POS
 
     Private Sub cmdServer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdServer.Click, lblTable.Click
 
-        If currentTicket.isQuickSale Then
+        If QuickSale Then
             MsgBox("Need to close current order before selecting a different one.")
         Else
-            ClearCurrentInfo()
+            Active.Clear()
             Dim formSelectTable As New SelectTable
             formSelectTable.ShowDialog()
             active.Guest = 1
+            QuickSale = False
         End If
 
         Update_Order()
         Update_Screen()
-        ''Update_Order()
-        'End If
-        ''Load_Screen()
     End Sub
 
     Private Sub Update_Screen()
 
-        If ActiveOrderType = "Food" Then
+        If Active.OrderType = "Food" Then
             TabControl1.Visible = True
             Panel1.Visible = False
             cmdFoods.BackColor = Color.LightGreen
             cmdDrinks.BackColor = Color.LightGray
             'cControl.BackColor = Color.DarkGreen
-        ElseIf ActiveOrderType = "Drinks" Then
+        ElseIf Active.OrderType = "Drinks" Then
             cmdFoods.BackColor = Color.LightGray
             cmdDrinks.BackColor = Color.LightGreen
             TabControl1.Visible = False
@@ -5798,7 +5768,7 @@ Public Class POS
         End If
 
 
-        'If Saved.LOGON = "BAR" Then
+        'If Active.Computer = "BAR" Then
         '    If Saved.STATUS = "OPEN" Then
         '        cmdRemoveTable.Visible = True
         '        cmdRemoveItem.Visible = True
@@ -5864,8 +5834,8 @@ Public Class POS
         '        cmdRemoveTable.Text = "Remove Table"
         '    End If
         'End If
-        If Saved.LOGON = "SERVER" Then
-            If currentTicket.GetTicketNumber <> 0 Then
+        If Active.Computer = "SERVER" Then
+            If Active.Ticket <> 0 Then
 
                 cmdRemoveTable.Visible = True
                 cmdRemoveItem.Visible = True
@@ -6106,14 +6076,14 @@ Public Class POS
     End Sub
 
     Private Sub cmdDone_Click(sender As System.Object, e As System.EventArgs) Handles cmdDone.Click
-        ClearCurrentInfo()
+        Active.Clear()
         Update_Screen()
     End Sub
 
     Private Sub cmdRemoveItem_Click(sender As System.Object, e As System.EventArgs) Handles cmdRemoveItem.Click
-        If ActiveOrderType = "Food" Then
+        If Active.OrderType = "Food" Then
             d.RemoveFoodItem(dgvOrder.SelectedRows(0).Cells(0).Value)
-        ElseIf ActiveOrderType = "Drinks" Then
+        ElseIf Active.OrderType = "Drinks" Then
             d.RemoveBarItem(dgvOrder.SelectedRows(0).Cells(0).Value)
         End If
 
@@ -6121,23 +6091,23 @@ Public Class POS
     End Sub
 
     Private Sub cmdFoods_Click(sender As System.Object, e As System.EventArgs) Handles cmdFoods.Click
-        If ActiveOrderType <> "Food" Then
-            ActiveOrderType = "Food"
+        If Active.OrderType <> "Food" Then
+            Active.OrderType = "Food"
             Update_Screen()
             Update_Order()
         End If
     End Sub
 
     Private Sub cmdDrinks_Click(sender As System.Object, e As System.EventArgs) Handles cmdDrinks.Click
-        If ActiveOrderType <> "Drinks" Then
-            ActiveOrderType = "Drinks"
+        If Active.OrderType <> "Drinks" Then
+            Active.OrderType = "Drinks"
             Update_Screen()
             Update_Order()
         End If
     End Sub
 
     Private Sub guest_Click(sender As System.Object, e As System.EventArgs) Handles guest1.Click, guest2.Click, guest3.Click, guest4.Click, guest5.Click, guest6.Click, guest7.Click, guest8.Click
-        ActiveGuestNumber = sender.tag
+        active.Guest = sender.tag
         Update_Order()
     End Sub
 End Class

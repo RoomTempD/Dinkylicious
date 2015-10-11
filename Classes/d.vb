@@ -54,7 +54,7 @@
     End Sub
 
     Public Function GetOrderNumber(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer) As Integer
-        Return data.GetValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
+        Return data.GetSingleValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
     End Function
 
     Public Sub AddFoodItem(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer, ByVal ItemNumber As Integer)
@@ -101,5 +101,11 @@
     Public Sub RemoveBarItem(ByVal LineNumber As Integer)
         data.RunSQL("DELETE FROM OPEN_BAR_ORDER WHERE LINE_NUM = " & LineNumber)
     End Sub
+
+#Region "TableInfo"
+    Public Function GetTableName(ByVal TableNumber As Integer) As String
+        Return data.GetSingleData("SELECT TABLE_NAME FROM OPEN_TABLEINFO WHERE TABLE_NUM = " & TableNumber)
+    End Function
+#End Region
 
 End Module

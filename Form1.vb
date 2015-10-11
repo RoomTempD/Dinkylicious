@@ -165,7 +165,7 @@ Public Class Form1
 #End Region
 
     Private Sub cmdPOS_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPOS.Click
-        Saved.STATUS = "CLOSE"
+
         Dim form As New POS
         form.ShowDialog()
     End Sub
@@ -260,7 +260,7 @@ Public Class Form1
             Dim objReader As New System.IO.StreamReader(FILE_NAME)
 
             Do While objReader.Peek() <> -1
-                Saved.LOGON = objReader.ReadLine()
+                Active.Computer = objReader.ReadLine()
             Loop
 
         Else
@@ -269,11 +269,11 @@ Public Class Form1
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdLogonBar.Click
-        Saved.LOGON = "BAR"
+        Active.Computer = "BAR"
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdLogonServer.Click
-        Saved.LOGON = "SERVER"
+        Active.Computer = "SERVER"
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdTotal.Click

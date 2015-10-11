@@ -202,12 +202,12 @@ Public Class SignInOut
         If GO(0) = True Then
             Dim ds As New DataSet
             
-            ds = data.GetData("SELECT COUNT(*) FROM SIGNINOUT WHERE EMP_NUM = " & Saved.EMPNUM & " AND SIGNOUT_TIME IS NULL")
+            ds = data.GetData("SELECT COUNT(*) FROM SIGNINOUT WHERE EMP_NUM = " & Active.Server & " AND SIGNOUT_TIME IS NULL")
 
             Dim count As Integer = ds.Tables(0).Rows(0).Item(0)
 
             If count = 0 Then
-                data.RunSQL("INSERT INTO SIGNINOUT (EMP_NUM,SIGNIN_DATE,SIGNIN_TIME,JOB_NUM )VALUES (" & Saved.EMPNUM & ",Now(),Now()," & Saved.JOBNUM & ");")
+                data.RunSQL("INSERT INTO SIGNINOUT (EMP_NUM,SIGNIN_DATE,SIGNIN_TIME,JOB_NUM )VALUES (" & Active.Server & ",Now(),Now()," & Active.Job & ");")
             Else
                 MsgBox("Employee is already signed in.")
             End If

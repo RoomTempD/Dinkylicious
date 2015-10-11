@@ -436,13 +436,13 @@ Public Class CloseTableNew
                 Saved.SavedReTrans.Value = Saved.SavedReTrans.Value + 1
                 Saved.SavedRST.Update()
 
-                Saved.OpenTicketRST.FindFirst("ORDER_NUM = " & Saved.CURORDER)
+                Saved.OpenTicketRST.FindFirst("ORDER_NUM = " & Active.Order)
                 If OpenTicketRST.NoMatch = False Then
                     'close for table
 
                     Saved.OpenTicketRST.MoveFirst()
                     Do Until Saved.OpenTicketRST.EOF
-                        If Saved.OpenTicketOrderNum.Value = Saved.CURORDER Then
+                        If Saved.OpenTicketOrderNum.Value = Active.Order Then
                             Saved.OpenTableInfoRST.FindFirst("RETABLE = " & Saved.CURRETABLE)
 
                             Saved.ClosedTicketRST.AddNew()
@@ -479,7 +479,7 @@ Public Class CloseTableNew
 
                     Saved.OpenOrderRST.MoveFirst()
                     Do Until Saved.OpenOrderRST.EOF
-                        If Saved.OpenOrderOrderNum.Value = Saved.CURORDER Then
+                        If Saved.OpenOrderOrderNum.Value = Active.Order Then
                             Saved.ClosedOrderRST.AddNew()
                             Saved.ClosedOrderOrderNum.Value = Saved.OpenOrderOrderNum.Value
                             Saved.ClosedOrderLineNum.Value = Saved.OpenOrderLineNum.Value
@@ -495,7 +495,7 @@ Public Class CloseTableNew
 
                     Saved.OpenBarOrderRST.MoveFirst()
                     Do Until Saved.OpenBarOrderRST.EOF
-                        If Saved.OpenBarOrderOrderNum.Value = Saved.CURORDER Then
+                        If Saved.OpenBarOrderOrderNum.Value = Active.Order Then
                             Saved.ClosedBarOrderRST.AddNew()
                             Saved.ClosedBarOrderOrderNum.Value = Saved.OpenBarOrderOrderNum.Value
                             Saved.ClosedBarOrderLineNum.Value = Saved.OpenBarOrderLineNum.Value
@@ -510,9 +510,9 @@ Public Class CloseTableNew
                     Loop
                 End If
 
-                Saved.OpenTicketRST.FindFirst("TABLE_NUM = " & Saved.CURTABLE)
+                Saved.OpenTicketRST.FindFirst("TABLE_NUM = " & Active.Table)
                 If Saved.OpenTicketRST.NoMatch = True Then
-                    Saved.OpenTableInfoRST.FindFirst("TABLE_NUM = " & Saved.CURTABLE)
+                    Saved.OpenTableInfoRST.FindFirst("TABLE_NUM = " & Active.Table)
                     If Saved.OpenTableInfoRST.NoMatch = False Then
                         Saved.ClosedTableInfoRST.AddNew()
                         Saved.ClosedTableInfoTableNum.Value = Saved.OpenTableInfoTableNum.Value
@@ -547,9 +547,9 @@ Public Class CloseTableNew
                 End If
 
                 'close for bar
-                Saved.OpenTicketRST.FindFirst("STOOL_NUM = " & Saved.CURSTOOL)
+                Saved.OpenTicketRST.FindFirst("STOOL_NUM = " & Active.Stool)
                 If Saved.OpenTicketRST.NoMatch = True Then
-                    Saved.OpenStoolInfoRST.FindFirst("STOOL_NUM = " & Saved.CURSTOOL)
+                    Saved.OpenStoolInfoRST.FindFirst("STOOL_NUM = " & Active.Stool)
                     If Saved.OpenStoolInfoRST.NoMatch = False Then
                         Saved.ClosedStoolInfoRST.AddNew()
                         Saved.ClosedStoolInfoStoolNum.Value = Saved.OpenStoolInfoStoolNum.Value
@@ -630,7 +630,7 @@ Public Class CloseTableNew
     End Sub
 
     Private Sub CloseTable_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        lblTableName.Text = Saved.CURTABLENAME
+        lblTableName.Text = d.GetTableName(Active.Table)
         Update_Guest()
     End Sub
 
@@ -686,7 +686,7 @@ Public Class CloseTableNew
         Saved.OpenTicketRST.FindFirst("ORDER_NUM = " & lstGNPK.SelectedItem)
         If Saved.OpenTicketRST.NoMatch = False Then
             txtGuestOwes.Text = Format(Saved.OpenTicketTotal.Value, "0.00")
-            Saved.CURORDER = Saved.OpenTicketOrderNum.Value
+            Active.Order = Saved.OpenTicketOrderNum.Value
         End If
 
         Saved.OpenTicket_Close()

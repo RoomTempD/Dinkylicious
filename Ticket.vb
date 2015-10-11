@@ -76,7 +76,7 @@
     End Function
 
     Public Function GetOrderNumber(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer) As Integer
-        Return data.GetValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
+        Return data.GetSingleValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
         'Return OrderNumber
     End Function
 
@@ -96,7 +96,7 @@
     'End Sub
 
     Public Function GetTicketInfoByTicketAndGuest(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer) As Integer
-        Return data.GetValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
+        Return data.GetSingleValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
     End Function
 
 End Class

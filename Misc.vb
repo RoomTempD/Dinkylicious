@@ -147,7 +147,7 @@ Public Class Misc
         'Get the number of guests
 
         If Saved.GO(0) = True Then
-            Saved.OpenTableInfoRST.FindFirst("TABLE_NUM = " & Saved.CURTABLE)
+            Saved.OpenTableInfoRST.FindFirst("TABLE_NUM = " & Active.Table)
             If Saved.OpenTableInfoRST.NoMatch = False Then
                 Saved.OpenTableInfoRST.Edit()
                 Saved.OpenTableInfoGuestCount.Value = Saved.CURGUESTCOUNT
@@ -170,10 +170,10 @@ Public Class Misc
         Dim frmChangeServer As New ChangeServer
         frmChangeServer.ShowDialog()
 
-        Saved.OpenTableInfoRST.FindFirst("TABLE_NUM = " & Saved.CURTABLE)
+        Saved.OpenTableInfoRST.FindFirst("TABLE_NUM = " & Active.Table)
         If Saved.OpenTableInfoRST.NoMatch = False Then
             Saved.OpenTableInfoRST.Edit()
-            Saved.OpenTableInfoEmpNum2.Value = Saved.CURSERVER2
+            'Saved.OpenTableInfoEmpNum2.Value = Saved.CURSERVER2
             Saved.OpenTableInfoRST.Update()
         End If
 
@@ -182,7 +182,7 @@ Public Class Misc
     End Sub
 
     Private Sub Misc_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If Saved.LOGON = "BAR" Then
+        If Active.Computer = "BAR" Then
             cmdSignInOut.Enabled = False
         End If
     End Sub
@@ -210,7 +210,7 @@ Public Class Misc
         Dim FOODTOTAL As Double = 0
         Dim TIPTOTAL As Double = 0
 
-        Saved.EmpRST.FindFirst("EMP_NUM = " & Saved.CURSERVER)
+        Saved.EmpRST.FindFirst("EMP_NUM = " & Active.Server)
 
         PrintLine(1, "Server: " & Saved.EmpEmpName.Value)
         PrintLine(1, "  Date: " & Format(Now(), "Short Date"))
@@ -222,7 +222,7 @@ Public Class Misc
             If Not IsDBNull(Saved.ClosedTicketTipAtBar.Value) Then
                 If Not IsDBNull(Saved.ClosedTicketTippedOn.Value) Then
                     If Format(Saved.ClosedTicketDateOut.Value, "Short Date") = Format(Now(), "Short Date") Then
-                        If Saved.ClosedTableInfoEmpNum1.Value = Saved.CURSERVER Then
+                        If Saved.ClosedTableInfoEmpNum1.Value = Active.Server Then
                             Saved.OpenTableInfoRST.FindFirst("TABLE_NUM = " & Saved.ClosedTicketTableNum.Value)
                             TOTALTICKETS += 1
                             TOTALGUESTS += Saved.ClosedTableInfoGuestCount.Value

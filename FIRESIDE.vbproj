@@ -197,9 +197,7 @@
     <Compile Include="Saved.vb">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="delSelectGuest.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="delSelectGuest.vb" />
     <Compile Include="SelectTable.vb">
       <SubType>Form</SubType>
     </Compile>

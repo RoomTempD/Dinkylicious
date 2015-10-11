@@ -752,8 +752,9 @@ Public Class SelectTable
 
 
         Ticket = Ticket.getTicketInfoByTicketNumber(Stool.getTicketNumber)
-        active.Reset()
+        active.Clear()
         active.Ticket = Stool.getTicketNumber
+        active.Stool = StoolNumber
         Close()
 
     End Sub
@@ -771,24 +772,24 @@ Public Class SelectTable
 
             If GuestCount > 0 Then
                 If TABLETOSEAT = 0 Then
-                    d.CreateNewTable(TableNumber, GuestCount, POS.currentServer.GetNumber)
+                    d.CreateNewTable(TableNumber, GuestCount, active.Guest)
                     OKToLoadTable = True
                     'MsgBox("table is available, guest count is " & GuestCount.ToString & ", there is not a bar stool selected")
                 Else
-                    d.SeatStoolToTable(TABLETOSEAT, TableNumber, GuestCount, POS.currentServer.GetNumber)
+                    d.SeatStoolToTable(TABLETOSEAT, TableNumber, GuestCount, active.Guest)
                     OKToLoadTable = True
                     'MsgBox("table is available, guest count is " & GuestCount.ToString & ", there is a bar stool selected")
                 End If
             End If
-        ElseIf Table.OwnedByServer(POS.currentServer.GetNumber) Then
+        ElseIf Table.OwnedByServer(active.Guest) Then
             OKToLoadTable = True
         ElseIf Table.isClaimable Then
 
             If MsgBox("Are you sure you want to claim this table?", vbYesNo, "Confirmation") = MsgBoxResult.Yes Then
-                d.ClaimTable(TableNumber, POS.currentServer.GetNumber)
+                d.ClaimTable(TableNumber, active.Guest)
             End If
 
-        ElseIf Not Table.OwnedByServer(POS.currentServer.GetNumber) Then
+        ElseIf Not Table.OwnedByServer(active.Guest) Then
 
             If MsgBox("This is not your table, are you sure you want to open it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 OKToLoadTable = True
@@ -804,8 +805,9 @@ Public Class SelectTable
 
         If OKToLoadTable = True Then
             Ticket = Ticket.getTicketInfoByTableNumber(TableNumber)
-            active.Reset()
+            active.Clear()
             active.Ticket = Ticket.GetTicketNumber
+            active.Table = TableNumber
             Close()
         End If
 
@@ -824,11 +826,11 @@ Public Class SelectTable
     'GTG
     Private Sub sto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sto10.Click, sto11.Click, sto12.Click, sto13.Click, sto14.Click, sto15.Click, sto16.Click, sto17.Click, sto18.Click, sto19.Click, sto20.Click, sto21.Click, sto22.Click, sto23.Click, sto24.Click, sto25.Click, sto01.Click, sto02.Click, sto03.Click, sto04.Click, sto05.Click, sto06.Click, sto07.Click, sto08.Click, sto09.Click, sto10.Click, sto11.Click, sto12.Click, sto13.Click, sto14.Click, sto15.Click, sto16.Click, sto17.Click, sto18.Click, sto19.Click, sto20.Click, sto21.Click, sto22.Click, sto23.Click, sto24.Click, sto25.Click
 
-        If Saved.LOGON = "BAR" And Saved.BarSeat = False Then
+        If Active.Computer = "BAR" And Saved.BarSeat = False Then
             StoolCheck(Mid(sender.name, 4, 2))
         End If
 
-        If Saved.LOGON = "SERVER" Or Saved.BarSeat = True Then
+        If Active.Computer = "SERVER" Or Saved.BarSeat = True Then
             If data.GetData("SELECT AVAILABLE FROM OPEN_STOOLINFO WHERE STOOL_NUM = " & Mid(sender.name, 4, 2)).Tables(0).Rows(0).Item(0) = False Then
                 TABLETOSEAT = (Mid(sender.Name, 4, 2))
                 Saved.GO(0) = True
@@ -871,7 +873,7 @@ Public Class SelectTable
 
     Private Sub ChangeServer()
         Dim newServer As New ChangeServer
-        POS.currentServer = newServer.getServer
+        active.Server = newServer.getServer.GetNumber
     End Sub
 
     Private Sub LoadTables()
@@ -882,7 +884,7 @@ Public Class SelectTable
                 isAVAILABLE(DataRow("TABLE_NUM")) = False
                 GUESTCOUNT(DataRow("TABLE_NUM")) = DataRow("GUEST_COUNT")
 
-                If DataRow("EMP_NUM") = POS.currentServer.GetNumber Or DataRow("EMP_NUM2") = POS.currentServer.GetNumber Then
+                If DataRow("EMP_NUM") = active.Guest Or DataRow("EMP_NUM2") = active.Guest Then
                     isOWN(DataRow("TABLE_NUM")) = True
                 Else
                     isOWN(DataRow("TABLE_NUM")) = False
@@ -937,10 +939,10 @@ Public Class SelectTable
                     If BARisAVAILABLE(Mid(cControl.Name, 4, 2)) = True Then
                         cControl.BackColor = Color.LightGray
                     Else
-                        If Saved.LOGON = "SERVER" Or Saved.BarSeat = True Then
+                        If Active.Computer = "SERVER" Or Saved.BarSeat = True Then
                             cControl.BackColor = Color.DarkGray
                         End If
-                        If Saved.LOGON = "BAR" And Saved.BarSeat = False Then
+                        If Active.Computer = "BAR" And Saved.BarSeat = False Then
                             cControl.BackColor = Color.DarkGreen
                         End If
                     End If

@@ -182,8 +182,8 @@ Public Class EmployList
 
     Private Sub cmdSignIn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles cmdSignIn.Click
 
-        Saved.EMPNUM = dgvEmp.SelectedRows(0).Cells(0).Value
-        Saved.JOBNUM = dgvJob.SelectedRows(0).Cells(0).Value
+        'Saved.EMPNUM = dgvEmp.SelectedRows(0).Cells(0).Value
+        'Saved.JOBNUM = dgvJob.SelectedRows(0).Cells(0).Value
         Saved.GO(0) = True
         Close()
 

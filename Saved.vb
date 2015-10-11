@@ -42,36 +42,36 @@ Module Saved
     Dim rs As DAO.Recordset
     Dim strCon As String
 
-    Public CurrentTicket As Ticket
-    Public CurrentTable As Table
-    Public CurrentStool As Stool
+    'Public CurrentTicket As Ticket
+    'Public CurrentTable As Table
+    'Public CurrentStool As Stool
 
     Public GO(5) As Boolean
-    Public EMPNUM As Integer = 0
-    Public JOBNUM As Integer = 0
-    Public CURSERVER As Integer = 0
-    Public CURSERVER2 As Integer = 0
-    Public CURSERVERNAME As String = ""
+    'Public EMPNUM As Integer = 0
+    'Public JOBNUM As Integer = 0
+    'Public CURSERVER As Integer = 0
+    'Public CURSERVER2 As Integer = 0
+    'Public CURSERVERNAME As String = ""
     Public CURGUESTCOUNT As Integer = 0
     Public CURCUSTOM As Double = 0
-    Public CURGUEST As Integer = 0
-    Public CURTABLE As Integer = 0
-    Public CURSTOOL As Integer = 0
-    Public CURORDER As Integer = 0
-    Public CURTICKET As Integer = 0
-    Public CURTABLENAME As String = ""
+    'Public CURGUEST As Integer = 0
+    'Public CURTABLE As Integer = 0
+    'Public CURSTOOL As Integer = 0
+    'Public CURORDER As Integer = 0
+    'Public CURTICKET As Integer = 0
+    'Public CURTABLENAME As String = ""
     Public CURRETABLE As Integer = 0
-    Public CURRETRANS As Integer = 0
-    'Public curTableSet As Integer = 0
-    Public GUESTTRANSFER As Boolean = False
+    'Public CURRETRANS As Integer = 0
+    ''Public curTableSet As Integer = 0
+    'Public GUESTTRANSFER As Boolean = False
     Public CURSPECIAL(6) As Integer
     Public SPECIALLINK(6) As Boolean
     Public SPECIALTEXT(6) As String
-    Public ACTIVEORDER As String ' BAR or TABLE
-    Public ORDERTYPE As String ' BAR or TABLE
-    Public LOGON As String ' SERVER or BAR
-    Public TABLEFOR As String
-    Public STATUS As String 'OPEN or CLOSED or QUICK
+    'Public ACTIVEORDER As String ' BAR or TABLE
+    'Public ORDERTYPE As String ' BAR or TABLE
+    'Public LOGON As String ' SERVER or BAR
+    'Public TABLEFOR As String
+    'Public STATUS As String 'OPEN or CLOSED or QUICK
     Public TEMPMONEY As Double
     Public BarSeat As Boolean = False
 
@@ -726,19 +726,19 @@ Module Saved
         BarItemRST = Nothing
     End Sub
 
-    Public Sub Clear_Currents()
-        EMPNUM = 0
-        JOBNUM = 0
-        CURSERVER = 0
-        CURSERVERNAME = ""
-        CURGUESTCOUNT = 0
-        CURGUEST = 0
-        CURTABLE = 0
-        CURSTOOL = 0
-        CURORDER = 0
-        CURTICKET = 0
-        CURTABLENAME = ""
-        CURRETABLE = 0
-        CURRETRANS = 0
-    End Sub
+    'Public Sub Clear_Currents()
+    '    EMPNUM = 0
+    '    JOBNUM = 0
+    '    CURSERVER = 0
+    '    CURSERVERNAME = ""
+    '    CURGUESTCOUNT = 0
+    '    CURGUEST = 0
+    '    CURTABLE = 0
+    '    CURSTOOL = 0
+    '    CURORDER = 0
+    '    CURTICKET = 0
+    '    CURTABLENAME = ""
+    '    CURRETABLE = 0
+    '    CURRETRANS = 0
+    'End Sub
 End Module
