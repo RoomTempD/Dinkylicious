@@ -5655,6 +5655,7 @@ Public Class POS
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1292, 732)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblTotals)
         Me.Controls.Add(Me.cmdDrinks)
         Me.Controls.Add(Me.guest8)
@@ -5686,7 +5687,6 @@ Public Class POS
         Me.Controls.Add(Me.cmdServer)
         Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me.cmdCloseTable)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.dgvOrder)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "POS"
@@ -5931,7 +5931,7 @@ Public Class POS
 
     Private Sub Item_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmd010101.Click, cmd010102.Click, cmd010103.Click, cmd010104.Click, cmd010105.Click, cmd010106.Click, cmd010201.Click, cmd010202.Click, cmd010203.Click, cmd010204.Click, cmd010205.Click, cmd010206.Click, cmd010301.Click, cmd010302.Click, cmd010303.Click, cmd010304.Click, cmd010305.Click, cmd010306.Click, cmd010401.Click, cmd010402.Click, cmd010403.Click, cmd010404.Click, cmd010405.Click, cmd010406.Click, cmd010501.Click, cmd010502.Click, cmd010503.Click, cmd010504.Click, cmd010505.Click, cmd010506.Click, cmd010601.Click, cmd010602.Click, cmd010603.Click, cmd010604.Click, cmd010605.Click, cmd010606.Click, cmd010701.Click, cmd010702.Click, cmd010703.Click, cmd010704.Click, cmd010705.Click, cmd010706.Click, cmd010801.Click, cmd010802.Click, cmd010803.Click, cmd010804.Click, cmd010805.Click, cmd010806.Click, cmd020101.Click, cmd020102.Click, cmd020103.Click, cmd020104.Click, cmd020105.Click, cmd020106.Click, cmd020201.Click, cmd020202.Click, cmd020203.Click, cmd020204.Click, cmd020205.Click, cmd020206.Click, cmd020301.Click, cmd020302.Click, cmd020303.Click, cmd020304.Click, cmd020305.Click, cmd020306.Click, cmd020401.Click, cmd020402.Click, cmd020403.Click, cmd020404.Click, cmd020405.Click, cmd020406.Click, cmd020501.Click, cmd020502.Click, cmd020503.Click, cmd020504.Click, cmd020505.Click, cmd020506.Click, cmd020601.Click, cmd020602.Click, cmd020603.Click, cmd020604.Click, cmd020605.Click, cmd020606.Click, cmd020701.Click, cmd020702.Click, cmd020703.Click, cmd020704.Click, cmd020705.Click, cmd020706.Click, cmd020801.Click, cmd020802.Click, cmd020803.Click, cmd020804.Click, cmd020805.Click, cmd020806.Click, cmd030101.Click, cmd030102.Click, cmd030103.Click, cmd030104.Click, cmd030105.Click, cmd030106.Click, cmd030201.Click, cmd030202.Click, cmd030203.Click, cmd030204.Click, cmd030205.Click, cmd030206.Click, cmd030301.Click, cmd030302.Click, cmd030303.Click, cmd030304.Click, cmd030305.Click, cmd030306.Click, cmd030401.Click, cmd030402.Click, cmd030403.Click, cmd030404.Click, cmd030405.Click, cmd030406.Click, cmd030501.Click, cmd030502.Click, cmd030503.Click, cmd030504.Click, cmd030505.Click, cmd030506.Click, cmd030601.Click, cmd030602.Click, cmd030603.Click, cmd030604.Click, cmd030605.Click, cmd030606.Click, cmd030701.Click, cmd030702.Click, cmd030703.Click, cmd030704.Click, cmd030705.Click, cmd030706.Click, cmd030801.Click, cmd030802.Click, cmd030803.Click, cmd030804.Click, cmd030805.Click, cmd030806.Click, cmd040101.Click, cmd040102.Click, cmd040103.Click, cmd040104.Click, cmd040105.Click, cmd040106.Click, cmd040201.Click, cmd040202.Click, cmd040203.Click, cmd040204.Click, cmd040205.Click, cmd040206.Click, cmd040301.Click, cmd040302.Click, cmd040303.Click, cmd040304.Click, cmd040305.Click, cmd040306.Click, cmd040401.Click, cmd040402.Click, cmd040403.Click, cmd040404.Click, cmd040405.Click, cmd040406.Click, cmd040501.Click, cmd040502.Click, cmd040503.Click, cmd040504.Click, cmd040505.Click, cmd040506.Click, cmd040601.Click, cmd040602.Click, cmd040603.Click, cmd040604.Click, cmd040605.Click, cmd040606.Click, cmd040701.Click, cmd040702.Click, cmd040703.Click, cmd040704.Click, cmd040705.Click, cmd040706.Click, cmd040801.Click, cmd040802.Click, cmd040803.Click, cmd040804.Click, cmd040805.Click, cmd040806.Click, cmd050101.Click, cmd050102.Click, cmd050103.Click, cmd050104.Click, cmd050105.Click, cmd050106.Click, cmd050201.Click, cmd050202.Click, cmd050203.Click, cmd050204.Click, cmd050205.Click, cmd050206.Click, cmd050301.Click, cmd050302.Click, cmd050303.Click, cmd050304.Click, cmd050305.Click, cmd050306.Click, cmd050401.Click, cmd050402.Click, cmd050403.Click, cmd050404.Click, cmd050405.Click, cmd050406.Click, cmd050501.Click, cmd050502.Click, cmd050503.Click, cmd050504.Click, cmd050505.Click, cmd050506.Click, cmd050601.Click, cmd050602.Click, cmd050603.Click, cmd050604.Click, cmd050605.Click, cmd050606.Click, cmd050701.Click, cmd050702.Click, cmd050703.Click, cmd050704.Click, cmd050705.Click, cmd050706.Click, cmd050801.Click, cmd050802.Click, cmd050803.Click, cmd050804.Click, cmd050805.Click, cmd050806.Click, cmd060101.Click, cmd060102.Click, cmd060103.Click, cmd060104.Click, cmd060105.Click, cmd060106.Click, cmd060201.Click, cmd060202.Click, cmd060203.Click, cmd060204.Click, cmd060205.Click, cmd060206.Click, cmd060301.Click, cmd060302.Click, cmd060303.Click, cmd060304.Click, cmd060305.Click, cmd060306.Click, cmd060401.Click, cmd060402.Click, cmd060403.Click, cmd060404.Click, cmd060405.Click, cmd060406.Click, cmd060501.Click, cmd060502.Click, cmd060503.Click, cmd060504.Click, cmd060505.Click, cmd060506.Click, cmd060601.Click, cmd060602.Click, cmd060603.Click, cmd060604.Click, cmd060605.Click, cmd060606.Click, cmd060701.Click, cmd060702.Click, cmd060703.Click, cmd060704.Click, cmd060705.Click, cmd060706.Click, cmd060801.Click, cmd060802.Click, cmd060803.Click, cmd060804.Click, cmd060805.Click, cmd060806.Click
 
-        'currentFoodOrder.addItem(currentTicket.GetOrderNumber(currentTicket.GetTicketNumber, ActiveGuestNumber), Mid(sender.Tag, 4, 3))
+        d.AddFoodItem(Active.Ticket, Active.Guest, Mid(sender.Tag, 4, 3))
         Update_Order()
     End Sub
 
@@ -6108,6 +6108,11 @@ Public Class POS
 
     Private Sub guest_Click(sender As System.Object, e As System.EventArgs) Handles guest1.Click, guest2.Click, guest3.Click, guest4.Click, guest5.Click, guest6.Click, guest7.Click, guest8.Click
         active.Guest = sender.tag
+        Update_Order()
+    End Sub
+
+    Private Sub barItem_Click(sender As System.Object, e As System.EventArgs) Handles bar001.Click, bar002.Click, bar003.Click, bar004.Click, bar005.Click, bar006.Click, bar007.Click, bar008.Click, bar009.Click, bar010.Click, bar011.Click, bar012.Click, bar013.Click, bar014.Click, bar015.Click, bar016.Click, bar017.Click, bar018.Click, bar019.Click, bar020.Click, bar021.Click, bar022.Click, bar023.Click, bar024.Click, bar025.Click, bar026.Click, bar027.Click, bar028.Click, bar029.Click, bar030.Click, bar031.Click, bar032.Click, bar033.Click, bar034.Click, bar035.Click, bar036.Click, bar037.Click, bar038.Click, bar039.Click, bar040.Click, bar041.Click, bar042.Click, bar043.Click, bar044.Click, bar045.Click, bar046.Click, bar047.Click, bar048.Click, bar049.Click, bar050.Click, bar051.Click, bar052.Click, bar053.Click, bar054.Click, bar055.Click, bar056.Click
+        d.AddBarItem(Active.Ticket, Active.Guest, Mid(sender.name, 4, 3))
         Update_Order()
     End Sub
 End Class
