@@ -1,4 +1,4 @@
-﻿Public Class d
+﻿Module d
 
     Public Sub CreateNewTicket(Optional ByVal StoolNumber As Integer = 0, Optional ByVal TableNumber As Integer = 0)
 
@@ -54,7 +54,7 @@
     End Sub
 
     Public Function GetOrderNumber(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer) As Integer
-
+        Return data.GetValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
     End Function
 
     Public Sub AddFoodItem(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer, ByVal ItemNumber As Integer)
@@ -102,4 +102,4 @@
         data.RunSQL("DELETE FROM OPEN_BAR_ORDER WHERE LINE_NUM = " & LineNumber)
     End Sub
 
-End Class
+End Module

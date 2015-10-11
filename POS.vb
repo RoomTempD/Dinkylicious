@@ -5728,15 +5728,9 @@ Public Class POS
         currentFoodOrder = New FoodOrder
         currentBarOrder = New BarOrder
 
-        active.Ticket = 0
-        active.Table = 0
-        active.Stool = 0
-        active.Order = 0
-        active.Guest = 0
-
         If active.Computer = "BAR" Then
             ActiveOrderType = "Drinks"
-        ElseIf Saved.LOGON = "SERVER" Then
+        ElseIf active.Computer = "SERVER" Then
             ActiveOrderType = "Food"
         End If
 
@@ -5752,11 +5746,11 @@ Public Class POS
 
         dgvOrder.DataSource = ""
 
-        'If ActiveOrder = "Food" Then
-        'dgvOrder.DataSource = data.GetData("SELECT LINE_NUM, ITEM_NAME AS Name, QUOTED_PRICE AS Price FROM OPEN_ORDER INNER JOIN ITEM ON ITEM.ITEM_NUM = OPEN_ORDER.ITEM_NUM WHERE ORDER_NUM = " & Saved.GetOrderNumber(currentTicket.GetTicketNumber, ActiveGuestNumber)).Tables(0)
-        'ElseIf ActiveOrder = "Drinks" Then
-        'dgvOrder.DataSource = data.GetData("SELECT LINE_NUM, ITEM_NAME AS Name, QUOTED_PRICE AS Price FROM OPEN_BAR_ORDER INNER JOIN BAR_ITEM ON BAR_ITEM.ITEM_NUM = OPEN_BAR_ORDER.ITEM_NUM WHERE ORDER_NUM = " & currentTicket.GetOrderNumber(currentTicket.GetTicketNumber, ActiveGuestNumber)).Tables(0)
-        'End If
+        If ActiveOrderType = "Food" Then
+            dgvOrder.DataSource = data.GetData("SELECT LINE_NUM, ITEM_NAME AS Name, QUOTED_PRICE AS Price FROM OPEN_ORDER INNER JOIN ITEM ON ITEM.ITEM_NUM = OPEN_ORDER.ITEM_NUM WHERE ORDER_NUM = " & d.GetOrderNumber(active.Ticket, ActiveGuestNumber)).Tables(0)
+        ElseIf ActiveOrderType = "Drinks" Then
+            dgvOrder.DataSource = data.GetData("SELECT LINE_NUM, ITEM_NAME AS Name, QUOTED_PRICE AS Price FROM OPEN_BAR_ORDER INNER JOIN BAR_ITEM ON BAR_ITEM.ITEM_NUM = OPEN_BAR_ORDER.ITEM_NUM WHERE ORDER_NUM = " & d.GetOrderNumber(active.Ticket, ActiveGuestNumber)).Tables(0)
+        End If
 
         dgvOrder.Columns("LINE_NUM").Visible = False
         dgvOrder.Columns("Name").Width = 175
@@ -5778,6 +5772,7 @@ Public Class POS
             ClearCurrentInfo()
             Dim formSelectTable As New SelectTable
             formSelectTable.ShowDialog()
+            active.Guest = 1
         End If
 
         Update_Order()
@@ -6116,7 +6111,12 @@ Public Class POS
     End Sub
 
     Private Sub cmdRemoveItem_Click(sender As System.Object, e As System.EventArgs) Handles cmdRemoveItem.Click
-        currentFoodOrder.removeItem(dgvOrder.SelectedRows(0).Cells(0).Value)
+        If ActiveOrderType = "Food" Then
+            d.RemoveFoodItem(dgvOrder.SelectedRows(0).Cells(0).Value)
+        ElseIf ActiveOrderType = "Drinks" Then
+            d.RemoveBarItem(dgvOrder.SelectedRows(0).Cells(0).Value)
+        End If
+
         Update_Order()
     End Sub
 

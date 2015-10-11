@@ -747,13 +747,13 @@ Public Class SelectTable
         Stool = Stool.getStoolInfo(StoolNumber)
 
         If Stool.isAvailable Then
-            Stool.CreateNewStool(StoolNumber)
+            d.CreateNewStool(StoolNumber)
         End If
 
 
         Ticket = Ticket.getTicketInfoByTicketNumber(Stool.getTicketNumber)
-        POS.currentStool = Stool
-        POS.currentTicket = Ticket
+        active.Reset()
+        active.Ticket = Stool.getTicketNumber
         Close()
 
     End Sub
@@ -771,11 +771,11 @@ Public Class SelectTable
 
             If GuestCount > 0 Then
                 If TABLETOSEAT = 0 Then
-                    Table.CreateNewTable(TableNumber, GuestCount, POS.currentServer.GetNumber)
+                    d.CreateNewTable(TableNumber, GuestCount, POS.currentServer.GetNumber)
                     OKToLoadTable = True
                     'MsgBox("table is available, guest count is " & GuestCount.ToString & ", there is not a bar stool selected")
                 Else
-                    Ticket.SeatStoolToTable(TABLETOSEAT, TableNumber, GuestCount, POS.currentServer.GetNumber)
+                    d.SeatStoolToTable(TABLETOSEAT, TableNumber, GuestCount, POS.currentServer.GetNumber)
                     OKToLoadTable = True
                     'MsgBox("table is available, guest count is " & GuestCount.ToString & ", there is a bar stool selected")
                 End If
@@ -785,7 +785,7 @@ Public Class SelectTable
         ElseIf Table.isClaimable Then
 
             If MsgBox("Are you sure you want to claim this table?", vbYesNo, "Confirmation") = MsgBoxResult.Yes Then
-                Ticket.ClaimTable(TableNumber, POS.currentServer.GetNumber)
+                d.ClaimTable(TableNumber, POS.currentServer.GetNumber)
             End If
 
         ElseIf Not Table.OwnedByServer(POS.currentServer.GetNumber) Then
@@ -804,8 +804,8 @@ Public Class SelectTable
 
         If OKToLoadTable = True Then
             Ticket = Ticket.getTicketInfoByTableNumber(TableNumber)
-            POS.currentTable = Table
-            POS.currentTicket = Ticket
+            active.Reset()
+            active.Ticket = Ticket.GetTicketNumber
             Close()
         End If
 

@@ -99,26 +99,6 @@
         Return data.GetValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
     End Function
 
-    Public Class Stool
-        Public Sub addItem(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer, ByVal ItemNumber As Integer)
-            Dim Price As Decimal
-            Dim LineNumber As Integer
-
-            If active.OrderNumber = 0 Then
-                'insert into ticket
-            End If
-
-            Price = data.GetSingleData("SELECT ITEM_PRICE FROM ITEM WHERE ITEM_NUM = " & ItemNumber)
-            LineNumber = data.GetNextNum("LINE_NUM")
-
-            data.RunSQL("INSERT INTO OPEN_ORDER (ORDER_NUM, LINE_NUM, ITEM_NUM, QUOTED_PRICE, RETRANS) VALUES (" & OrderNumber & "," & LineNumber & "," & ItemNumber & "," & Price & ",0)")
-        End Sub
-
-        Public Sub removeItem(ByVal LineNumber As Integer)
-            data.RunSQL("DELETE FROM OPEN_ORDER WHERE LINE_NUM = " & LineNumber)
-        End Sub
-    End Class
-
 End Class
 
 
