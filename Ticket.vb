@@ -20,16 +20,16 @@
         Return QuickSale
     End Function
 
-    Public Sub CreateNewTicket(Optional ByVal StoolNumber As Integer = 0, Optional ByVal TableNumber As Integer = 0)
+    'Public Sub CreateNewTicket(Optional ByVal StoolNumber As Integer = 0, Optional ByVal TableNumber As Integer = 0)
 
-        ' Dim TableSet As Integer = Saved.GetNextNum("TableSet")
-        Dim TicketNum As Integer = data.GetNextNum("TICKET_NUM")
-        'will need to revisit when order is added...
-        Dim OrderNum As Integer = data.GetNextNum("ORDER_NUM")
+    '    ' Dim TableSet As Integer = Saved.GetNextNum("TableSet")
+    '    Dim TicketNum As Integer = data.GetNextNum("TICKET_NUM")
+    '    'will need to revisit when order is added...
+    '    Dim OrderNum As Integer = data.GetNextNum("ORDER_NUM")
 
-        data.RunSQL("INSERT INTO OPEN_TICKET (STOOL_NUM, TABLE_NUM, TICKET_NUM, GUEST_NUM, ORDER_NUM, TIME_IN, DATE_IN)VALUES(" & StoolNumber & "," & TableNumber & "," & TicketNum & ",1," & OrderNum & ",Now(),Now())")
+    '    data.RunSQL("INSERT INTO OPEN_TICKET (STOOL_NUM, TABLE_NUM, TICKET_NUM, GUEST_NUM, ORDER_NUM, TIME_IN, DATE_IN)VALUES(" & StoolNumber & "," & TableNumber & "," & TicketNum & ",1," & OrderNum & ",Now(),Now())")
 
-    End Sub
+    'End Sub
 
     Private Function getTicketInfo(ByVal SQL As String) As Ticket
         Dim indTicket As New Ticket
@@ -80,24 +80,45 @@
         'Return OrderNumber
     End Function
 
-    Public Sub SeatStoolToTable(ByVal StoolNumber As Integer, ByVal TableNumber As Integer, Optional ByVal GuestCount As Integer = 0, Optional ByVal EmpNum As Integer = 0)
-        'copy stool info to table
-        data.RunSQL("UPDATE OPEN_TABLEINFO SET AVAILABLE = FALSE, STOOL_NUM = " & StoolNumber & ", " & "GUEST_COUNT = " & GuestCount & ", EMP_NUM = " & EmpNum & ", EMP_NUM2 = 0, TIP_AT_BAR = 'NEED' WHERE TABLE_NUM = " & TableNumber)
+    'Public Sub SeatStoolToTable(ByVal StoolNumber As Integer, ByVal TableNumber As Integer, Optional ByVal GuestCount As Integer = 0, Optional ByVal EmpNum As Integer = 0)
+    '    'copy stool info to table
+    '    data.RunSQL("UPDATE OPEN_TABLEINFO SET AVAILABLE = FALSE, STOOL_NUM = " & StoolNumber & ", " & "GUEST_COUNT = " & GuestCount & ", EMP_NUM = " & EmpNum & ", EMP_NUM2 = 0, TIP_AT_BAR = 'NEED' WHERE TABLE_NUM = " & TableNumber)
 
-        'make stool available
-        data.RunSQL("UPDATE OPEN_STOOLINFO SET AVAILABLE = TRUE, RETRANS = 0 WHERE STOOL_NUM = " & StoolNumber)
+    '    'make stool available
+    '    data.RunSQL("UPDATE OPEN_STOOLINFO SET AVAILABLE = TRUE, RETRANS = 0 WHERE STOOL_NUM = " & StoolNumber)
 
-        'add information to ticket
-        data.RunSQL("UPDATE OPEN_TICKET SET STOOL_NUM = STOOL_NUM * -1, TABLE_NUM = " & TableNumber & ", TIPPED_ON = BAR_TOTAL + FOOD_TOTAL, TIME_SAT = Now() WHERE STOOL_NUM = " & StoolNumber)
-    End Sub
+    '    'add information to ticket
+    '    data.RunSQL("UPDATE OPEN_TICKET SET STOOL_NUM = STOOL_NUM * -1, TABLE_NUM = " & TableNumber & ", TIPPED_ON = BAR_TOTAL + FOOD_TOTAL, TIME_SAT = Now() WHERE STOOL_NUM = " & StoolNumber)
+    'End Sub
 
-    Public Sub ClaimTable(ByVal TableNumber As Integer, ByVal ServerNumber As Integer)
-        data.RunSQL("UPDATE OPEN_TABLEINFO SET EMP_NUM = " & ServerNumber & ", WHERE TABLE_NUM = " & TableNumber)
-    End Sub
+    'Public Sub ClaimTable(ByVal TableNumber As Integer, ByVal ServerNumber As Integer)
+    '    data.RunSQL("UPDATE OPEN_TABLEINFO SET EMP_NUM = " & ServerNumber & ", WHERE TABLE_NUM = " & TableNumber)
+    'End Sub
 
     Public Function GetTicketInfoByTicketAndGuest(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer) As Integer
         Return data.GetValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
     End Function
+
+    Public Class Stool
+        Public Sub addItem(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer, ByVal ItemNumber As Integer)
+            Dim Price As Decimal
+            Dim LineNumber As Integer
+
+            If active.OrderNumber = 0 Then
+                'insert into ticket
+            End If
+
+            Price = data.GetSingleData("SELECT ITEM_PRICE FROM ITEM WHERE ITEM_NUM = " & ItemNumber)
+            LineNumber = data.GetNextNum("LINE_NUM")
+
+            data.RunSQL("INSERT INTO OPEN_ORDER (ORDER_NUM, LINE_NUM, ITEM_NUM, QUOTED_PRICE, RETRANS) VALUES (" & OrderNumber & "," & LineNumber & "," & ItemNumber & "," & Price & ",0)")
+        End Sub
+
+        Public Sub removeItem(ByVal LineNumber As Integer)
+            data.RunSQL("DELETE FROM OPEN_ORDER WHERE LINE_NUM = " & LineNumber)
+        End Sub
+    End Class
+
 End Class
 
 

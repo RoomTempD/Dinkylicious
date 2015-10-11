@@ -17,7 +17,7 @@ Public Class POS
     Friend WithEvents lblTotals As System.Windows.Forms.Label
 
 
-    Public ActiveOrder As String
+    Public ActiveOrderType As String
 
     Public ActiveTicketNumber As Integer
     Public ActiveGuestNumber As Integer
@@ -5728,10 +5728,16 @@ Public Class POS
         currentFoodOrder = New FoodOrder
         currentBarOrder = New BarOrder
 
-        If Saved.LOGON = "BAR" Then
-            ActiveOrder = "Drinks"
+        active.Ticket = 0
+        active.Table = 0
+        active.Stool = 0
+        active.Order = 0
+        active.Guest = 0
+
+        If active.Computer = "BAR" Then
+            ActiveOrderType = "Drinks"
         ElseIf Saved.LOGON = "SERVER" Then
-            ActiveOrder = "Food"
+            ActiveOrderType = "Food"
         End If
 
     End Sub
@@ -5783,13 +5789,13 @@ Public Class POS
 
     Private Sub Update_Screen()
 
-        If ActiveOrder = "Food" Then
+        If ActiveOrderType = "Food" Then
             TabControl1.Visible = True
             Panel1.Visible = False
             cmdFoods.BackColor = Color.LightGreen
             cmdDrinks.BackColor = Color.LightGray
             'cControl.BackColor = Color.DarkGreen
-        ElseIf ActiveOrder = "Drinks" Then
+        ElseIf ActiveOrderType = "Drinks" Then
             cmdFoods.BackColor = Color.LightGray
             cmdDrinks.BackColor = Color.LightGreen
             TabControl1.Visible = False
@@ -6115,16 +6121,16 @@ Public Class POS
     End Sub
 
     Private Sub cmdFoods_Click(sender As System.Object, e As System.EventArgs) Handles cmdFoods.Click
-        If ActiveOrder <> "Food" Then
-            ActiveOrder = "Food"
+        If ActiveOrderType <> "Food" Then
+            ActiveOrderType = "Food"
             Update_Screen()
             Update_Order()
         End If
     End Sub
 
     Private Sub cmdDrinks_Click(sender As System.Object, e As System.EventArgs) Handles cmdDrinks.Click
-        If ActiveOrder <> "Drinks" Then
-            ActiveOrder = "Drinks"
+        If ActiveOrderType <> "Drinks" Then
+            ActiveOrderType = "Drinks"
             Update_Screen()
             Update_Order()
         End If

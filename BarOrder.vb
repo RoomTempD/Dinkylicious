@@ -26,19 +26,19 @@ Public Class BarOrder
 
     End Function
 
-    Public Sub addItem(ByVal ItemNumber As Integer)
-        Dim Price As Decimal
-        Dim LineNumber As Integer
+    'Public Sub addItem(ByVal ItemNumber As Integer)
+    '    Dim Price As Decimal
+    '    Dim LineNumber As Integer
 
-        Price = data.GetSingleData("SELECT ITEM_PRICE FROM BAR_ITEM WHERE ITEM_NUM = " & ItemNumber)
-        LineNumber = data.GetNextNum("LINE_NUM")
+    '    Price = data.GetSingleData("SELECT ITEM_PRICE FROM BAR_ITEM WHERE ITEM_NUM = " & ItemNumber)
+    '    LineNumber = data.GetNextNum("LINE_NUM")
 
-        data.RunSQL("INSERT INTO OPEN_BAR_ORDER (ORDER_NUM, LINE_NUM, ITEM_NUM, QUOTED_PRICE, RETRANS) VALUES (" & OrderNumber & "," & LineNumber & "," & ItemNumber & "," & Price & ",0)")
-    End Sub
+    '    data.RunSQL("INSERT INTO OPEN_BAR_ORDER (ORDER_NUM, LINE_NUM, ITEM_NUM, QUOTED_PRICE, RETRANS) VALUES (" & OrderNumber & "," & LineNumber & "," & ItemNumber & "," & Price & ",0)")
+    'End Sub
 
-    Public Sub removeItem(ByVal ItemNumber As Integer)
-        data.RunSQL("DELETE FROM OPEN_BAR_ORDER WHERE LINE_NUM = " & LineNumber)
-    End Sub
+    'Public Sub removeItem(ByVal ItemNumber As Integer)
+    '    data.RunSQL("DELETE FROM OPEN_BAR_ORDER WHERE LINE_NUM = " & LineNumber)
+    'End Sub
 
 End Class
 

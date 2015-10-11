@@ -27,14 +27,14 @@
         Return indStool
     End Function
 
-    Public Sub CreateNewStool(ByVal StoolNumber As Integer)
+    'Public Sub CreateNewStool(ByVal StoolNumber As Integer)
 
-        Dim indTicket As New Ticket
+    '    Dim indTicket As New Ticket
 
-        indTicket.CreateNewTicket(StoolNumber)
-        indTicket = indTicket.getTicketInfoByStoolNumber(StoolNumber)
+    '    indTicket.CreateNewTicket(StoolNumber)
+    '    indTicket = indTicket.getTicketInfoByStoolNumber(StoolNumber)
 
-        data.RunSQL("UPDATE OPEN_STOOLINFO SET AVAILABLE = FALSE, TICKET_NUM = " & indTicket.GetTicketNumber & " WHERE STOOL_NUM = " & StoolNumber)
+    '    data.RunSQL("UPDATE OPEN_STOOLINFO SET AVAILABLE = FALSE, TICKET_NUM = " & indTicket.GetTicketNumber & " WHERE STOOL_NUM = " & StoolNumber)
 
-    End Sub
+    'End Sub
 End Class

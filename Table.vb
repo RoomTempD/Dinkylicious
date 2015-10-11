@@ -57,15 +57,15 @@
         Return indTable
     End Function
 
-    Public Sub CreateNewTable(ByVal TableNumber As Integer, Optional ByVal GuestCount As Integer = 0, Optional ByVal EmpNum As Integer = 0)
+    'Public Sub CreateNewTable(ByVal TableNumber As Integer, Optional ByVal GuestCount As Integer = 0, Optional ByVal EmpNum As Integer = 0)
 
-        Dim indTicket As New Ticket
+    '    Dim indTicket As New Ticket
 
-        indTicket.CreateNewTicket(, TableNumber)
-        indTicket = indTicket.getTicketInfoByTableNumber(TableNumber)
+    '    indTicket.CreateNewTicket(, TableNumber)
+    '    indTicket = indTicket.getTicketInfoByTableNumber(TableNumber)
 
-        data.RunSQL("UPDATE OPEN_TABLEINFO SET AVAILABLE = FALSE, TICKET_NUM = " & indTicket.GetTicketNumber & ", GUEST_COUNT = " & GuestCount & ", EMP_NUM = " & EmpNum & " WHERE TABLE_NUM = " & TableNumber)
+    '    data.RunSQL("UPDATE OPEN_TABLEINFO SET AVAILABLE = FALSE, TICKET_NUM = " & indTicket.GetTicketNumber & ", GUEST_COUNT = " & GuestCount & ", EMP_NUM = " & EmpNum & " WHERE TABLE_NUM = " & TableNumber)
 
 
-    End Sub
+    'End Sub
 End Class

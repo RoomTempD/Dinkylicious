@@ -26,23 +26,23 @@ Public Class FoodOrder
 
     End Function
 
-    Public Sub addItem(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer, ByVal ItemNumber As Integer)
-        Dim Price As Decimal
-        Dim LineNumber As Integer
+    'Public Sub addItem(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer, ByVal ItemNumber As Integer)
+    '    Dim Price As Decimal
+    '    Dim LineNumber As Integer
 
-        If OrderNumber = 0 Then
-            'insert into ticket
-        End If
+    '    If OrderNumber = 0 Then
+    '        'insert into ticket
+    '    End If
 
-        Price = data.GetSingleData("SELECT ITEM_PRICE FROM ITEM WHERE ITEM_NUM = " & ItemNumber)
-        LineNumber = data.GetNextNum("LINE_NUM")
+    '    Price = data.GetSingleData("SELECT ITEM_PRICE FROM ITEM WHERE ITEM_NUM = " & ItemNumber)
+    '    LineNumber = data.GetNextNum("LINE_NUM")
 
-        data.RunSQL("INSERT INTO OPEN_ORDER (ORDER_NUM, LINE_NUM, ITEM_NUM, QUOTED_PRICE, RETRANS) VALUES (" & OrderNumber & "," & LineNumber & "," & ItemNumber & "," & Price & ",0)")
-    End Sub
+    '    data.RunSQL("INSERT INTO OPEN_ORDER (ORDER_NUM, LINE_NUM, ITEM_NUM, QUOTED_PRICE, RETRANS) VALUES (" & OrderNumber & "," & LineNumber & "," & ItemNumber & "," & Price & ",0)")
+    'End Sub
 
-    Public Sub removeItem(ByVal LineNumber As Integer)
-        data.RunSQL("DELETE FROM OPEN_ORDER WHERE LINE_NUM = " & LineNumber)
-    End Sub
+    'Public Sub removeItem(ByVal LineNumber As Integer)
+    '    data.RunSQL("DELETE FROM OPEN_ORDER WHERE LINE_NUM = " & LineNumber)
+    'End Sub
    
 End Class
 
