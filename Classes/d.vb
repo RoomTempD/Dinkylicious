@@ -54,7 +54,17 @@
     End Sub
 
     Public Function GetOrderNumber(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer) As Integer
-        Return data.GetSingleValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
+        Dim OrderNumber As Integer = 0
+
+        OrderNumber = data.GetSingleValue("SELECT ORDER_NUM FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber & " AND GUEST_NUM = " & GuestNumber)
+
+        If OrderNumber = 0 Then
+            OrderNumber = data.GetNextNum("ORDER_NUM")
+            'insert into OPEN_TICKET 
+            data.RunSQL("INSERT INTO OPEN_TICKET (TICKET_NUM, GUEST_NUM, ORDER_NUM)VALUES(" & TicketNumber & "," & GuestNumber & "," & OrderNumber & ")")
+        End If
+
+        Return OrderNumber
     End Function
 
     Public Sub AddFoodItem(ByVal TicketNumber As Integer, ByVal GuestNumber As Integer, ByVal ItemNumber As Integer)
@@ -63,11 +73,6 @@
         Dim OrderNumber As Integer
 
         OrderNumber = GetOrderNumber(TicketNumber, GuestNumber)
-
-
-        If OrderNumber = 0 Then
-            'insert into ticket
-        End If
 
         Price = data.GetSingleData("SELECT ITEM_PRICE FROM ITEM WHERE ITEM_NUM = " & ItemNumber)
         LineNumber = data.GetNextNum("LINE_NUM")
@@ -86,11 +91,6 @@
         Dim OrderNumber As Integer
 
         OrderNumber = GetOrderNumber(TicketNumber, GuestNumber)
-
-
-        If OrderNumber = 0 Then
-            'insert into ticket
-        End If
 
         Price = data.GetSingleData("SELECT ITEM_PRICE FROM BAR_ITEM WHERE ITEM_NUM = " & ItemNumber)
         LineNumber = data.GetNextNum("LINE_NUM")

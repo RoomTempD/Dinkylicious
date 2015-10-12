@@ -5744,7 +5744,7 @@ Public Class POS
             Active.Clear()
             Dim formSelectTable As New SelectTable
             formSelectTable.ShowDialog()
-            active.Guest = 1
+            Active.Guest = 1
             QuickSale = False
         End If
 
@@ -5767,6 +5767,22 @@ Public Class POS
             Panel1.Visible = True
         End If
 
+
+        'loop through guests, color them based on guest status
+
+        'For K As Integer = 1 To 9
+        guest1.BackColor = Color.DarkGray
+        guest2.BackColor = Color.DarkGray
+        guest3.BackColor = Color.DarkGray
+        guest4.BackColor = Color.DarkGray
+        guest5.BackColor = Color.DarkGray
+        guest6.BackColor = Color.DarkGray
+        guest7.BackColor = Color.DarkGray
+        guest8.BackColor = Color.DarkGray
+
+
+
+        'Next
 
         'If Active.Computer = "BAR" Then
         '    If Saved.STATUS = "OPEN" Then
@@ -6107,7 +6123,7 @@ Public Class POS
     End Sub
 
     Private Sub guest_Click(sender As System.Object, e As System.EventArgs) Handles guest1.Click, guest2.Click, guest3.Click, guest4.Click, guest5.Click, guest6.Click, guest7.Click, guest8.Click
-        active.Guest = sender.tag
+        Active.Guest = sender.tag
         Update_Order()
     End Sub
 

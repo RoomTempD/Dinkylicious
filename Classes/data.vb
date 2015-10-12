@@ -45,7 +45,7 @@
 
         da.Fill(ds, "dbTable")
         If ds.Tables(0).Rows.Count < 1 Then
-            ds.Tables(0).Rows.Add(-1000)
+            ds.Tables(0).Rows.Add(0)
         End If
 
         Return ds
