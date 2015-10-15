@@ -1,4 +1,6 @@
-﻿Module Active
+﻿Imports System.Collections.Generic
+
+Module Active
     Public Computer As String
     Public OrderType As String
 
@@ -11,6 +13,8 @@
     Public Server As Integer
     Public Guest As Integer
 
+    Public Guests As New List(Of Integer)
+
     Public Sub Clear()
         Ticket = 0
         Table = 0
@@ -18,6 +22,7 @@
         Order = 0
         Server = 0
         Guest = 0
+        Guests.Clear()
 
         If Computer = "BAR" Then
             OrderType = "Drinks"

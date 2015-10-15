@@ -5733,6 +5733,37 @@ Public Class POS
             dgvOrder.Rows(dgvOrder.RowCount - 1).Selected = True
         End If
 
+        'loop through guests, color them based on guest status
+        Dim indGuests As New List(Of Integer)
+        indGuests = d.GetGuestsOfTicket(Active.Ticket)
+
+        IIf(indGuests.Contains(1), guest1.BackColor = Color.LightGray, guest1.BackColor = Color.DarkGray)
+        IIf(indGuests.Contains(2), guest2.BackColor = Color.LightGray, guest2.BackColor = Color.DarkGray)
+        IIf(indGuests.Contains(3), guest3.BackColor = Color.LightGray, guest3.BackColor = Color.DarkGray)
+        IIf(indGuests.Contains(4), guest4.BackColor = Color.LightGray, guest4.BackColor = Color.DarkGray)
+        IIf(indGuests.Contains(5), guest5.BackColor = Color.LightGray, guest5.BackColor = Color.DarkGray)
+        IIf(indGuests.Contains(6), guest6.BackColor = Color.LightGray, guest6.BackColor = Color.DarkGray)
+        IIf(indGuests.Contains(7), guest7.BackColor = Color.LightGray, guest7.BackColor = Color.DarkGray)
+        IIf(indGuests.Contains(8), guest8.BackColor = Color.LightGray, guest8.BackColor = Color.DarkGray)
+
+        Select Case Active.Guest
+            Case 1
+                guest1.BackColor = Color.Green
+            Case 2
+                guest2.BackColor = Color.Green
+            Case 3
+                guest3.BackColor = Color.Green
+            Case 4
+                guest4.BackColor = Color.Green
+            Case 5
+                guest5.BackColor = Color.Green
+            Case 6
+                guest6.BackColor = Color.Green
+            Case 7
+                guest7.BackColor = Color.Green
+            Case 8
+                guest8.BackColor = Color.Green
+        End Select
 
     End Sub
 
@@ -5768,21 +5799,8 @@ Public Class POS
         End If
 
 
-        'loop through guests, color them based on guest status
+        
 
-        'For K As Integer = 1 To 9
-        guest1.BackColor = Color.DarkGray
-        guest2.BackColor = Color.DarkGray
-        guest3.BackColor = Color.DarkGray
-        guest4.BackColor = Color.DarkGray
-        guest5.BackColor = Color.DarkGray
-        guest6.BackColor = Color.DarkGray
-        guest7.BackColor = Color.DarkGray
-        guest8.BackColor = Color.DarkGray
-
-
-
-        'Next
 
         'If Active.Computer = "BAR" Then
         '    If Saved.STATUS = "OPEN" Then

@@ -1,4 +1,6 @@
-﻿Module d
+﻿Imports System.Collections.Generic
+
+Module d
 
     Public Sub CreateNewTicket(Optional ByVal StoolNumber As Integer = 0, Optional ByVal TableNumber As Integer = 0)
 
@@ -102,10 +104,23 @@
         data.RunSQL("DELETE FROM OPEN_BAR_ORDER WHERE LINE_NUM = " & LineNumber)
     End Sub
 
-#Region "TableInfo"
     Public Function GetTableName(ByVal TableNumber As Integer) As String
         Return data.GetSingleData("SELECT TABLE_NAME FROM OPEN_TABLEINFO WHERE TABLE_NUM = " & TableNumber)
     End Function
-#End Region
 
+    Public Function GetGuestsOfTicket(ByVal TicketNumber As Integer) As List(Of Integer)
+        Dim tmpList As New List(Of Integer)
+
+        Dim ds As DataSet
+        ds = data.GetData("SELECT * FROM OPEN_TICKET WHERE TICKET_NUM = " & TicketNumber)
+
+        For Each DataRow As DataRow In ds.Tables(0).Rows
+            If DataRow("GUEST_NUM").ToString() <> "" Then
+                tmpList.Add(DataRow("GUEST_NUM").ToString())
+            End If
+        Next
+
+
+        Return tmpList
+    End Function
 End Module
