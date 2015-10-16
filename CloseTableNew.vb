@@ -446,20 +446,13 @@ Public Class CloseTableNew
     Private Sub cmdOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCloseGuest.Click
         If Not txtNetDue.Text = "" Then
             If Val(txtNetDue.Text) < 0.01 Then
-                '    CHANGE = Val(txtNetDue.Text)
+                CHANGE = Val(txtNetDue.Text)
 
-                '    'Saved.Database_Connect()
-                '    Saved.OpenTicket_Open()
-                '    Saved.OpenOrder_Open()
-                '    Saved.OpenBarOrder_Open()
-                '    Saved.OpenTableInfo_Open()
-                '    Saved.OpenStoolInfo_Open()
-                '    Saved.ClosedTicket_Open()
-                '    Saved.ClosedOrder_Open()
-                '    Saved.ClosedBarOrder_Open()
-                '    Saved.ClosedTableInfo_Open()
-                '    Saved.ClosedStoolInfo_Open()
-                '    Saved.Saved_Open()
+                d.CloseOrder(d.GetOrderNumber(Active.Ticket, dgvGuestList.SelectedRows(0).Cells(0).Value), IIf(txtCHK.Text <> "", txtCHK.Text, 0), IIf(txtCSH.Text <> "", txtCSH.Text, 0), IIf(txtCRD.Text <> "", txtCRD.Text, 0), IIf(txtCRT.Text <> "", txtCRT.Text, 0), CHANGE)
+
+                'insert all open ticket info (table, ticket, order) into closed ticket orders, with payment methods.
+
+                'remove all open ticket info for order
 
                 '    Saved.SavedRST.Edit()
                 '    Saved.SavedReTrans.Value = Saved.SavedReTrans.Value + 1
@@ -611,18 +604,6 @@ Public Class CloseTableNew
                 '    MsgBox("Guest still owes money.  They are not closed.")
                 'End If
 
-                'Saved.OpenTicket_Close()
-                'Saved.OpenOrder_Close()
-                'Saved.OpenBarOrder_Close()
-                'Saved.OpenTableInfo_Close()
-                'Saved.OpenStoolInfo_Close()
-                'Saved.ClosedTicket_Close()
-                'Saved.ClosedOrder_Close()
-                'Saved.ClosedBarOrder_Close()
-                'Saved.ClosedTableInfo_Close()
-                'Saved.ClosedStoolInfo_Close()
-                'Saved.Saved_Close()
-                ' ''Saved.Database_Disconnect()
             Else
                 MsgBox("Guest still owes money.  They are not closed.")
             End If

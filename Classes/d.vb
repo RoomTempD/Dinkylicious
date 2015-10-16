@@ -139,4 +139,10 @@ Module d
     Public Function GetTotalOwed(ByVal OrderNumber As Integer) As Double
         Return data.GetDoubleValue("SELECT TOTAL FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)
     End Function
+
+    Public Sub CloseOrder(ByVal OrderNumber As Integer, ByVal Check As Double, ByVal Cash As Double, ByVal Card As Double, ByVal GiftCert As Double, ByVal Change As Double)
+        data.RunSQL("INSERT INTO CLOSED_TICKET SELECT * FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)
+        data.RunSQL("UPDATE CLOSED_TICKET SET CHECK = " & Check & ", CASH = " & Cash & ", CARD = " & Card & ", GIFT_CERT = " & GiftCert & ", CHANGE = " & Change & " WHERE ORDER_NUM = " & OrderNumber)
+    End Sub
+
 End Module
