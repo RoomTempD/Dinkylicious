@@ -125,7 +125,18 @@ Module d
     End Function
 
     Public Sub UpdateOrderTotals(ByVal OrderNumber As Integer, ByRef FoodTotal As Double, ByRef BarTotal As Double, ByRef TotalTotal As Double)
+        Dim SubTotal As Double = 0
+        Dim Tax As Double = 0
+        FoodTotal = Math.Round(data.GetSingleValue("SELECT Sum(QUOTED_PRICE) AS SumOfQUOTED_PRICE FROM OPEN_ORDER WHERE ORDER_NUM = " & OrderNumber & " GROUP BY ORDER_NUM"), 2)
+        BarTotal = Math.Round(data.GetSingleValue("SELECT Sum(QUOTED_PRICE) AS SumOfQUOTED_PRICE FROM OPEN_BAR_ORDER WHERE ORDER_NUM = " & OrderNumber & " GROUP BY ORDER_NUM"), 2)
+        SubTotal = Math.Round(FoodTotal + BarTotal, 2)
+        Tax = Math.Round(FoodTotal * 0.055, 2)
+        TotalTotal = Math.Round(SubTotal + Tax, 2)
 
-
+        data.RunSQL("UPDATE OPEN_TICKET SET SUBTOTAL = " & SubTotal & ", TAX = " & Tax & ",FOOD_TOTAL = " & FoodTotal & ", BAR_TOTAL = " & BarTotal & ", TOTAL = " & TotalTotal & " WHERE ORDER_NUM = " & OrderNumber)
     End Sub
+
+    Public Function GetTotalOwed(ByVal OrderNumber As Integer) As Double
+        Return data.GetDoubleValue("SELECT TOTAL FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)
+    End Function
 End Module

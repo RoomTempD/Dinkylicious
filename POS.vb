@@ -5686,9 +5686,9 @@ Public Class POS
         Me.Controls.Add(Me.lblTable)
         Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.cmdServer)
-        Me.Controls.Add(Me.cmdPrint)
         Me.Controls.Add(Me.cmdCloseTable)
         Me.Controls.Add(Me.dgvOrder)
+        Me.Controls.Add(Me.cmdPrint)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "POS"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -5806,7 +5806,7 @@ Public Class POS
         Dim BarTotal As Double = 0
         Dim TotalTotal As Double = 0
 
-        d.UpdateOrderTotals(Active.Order, FoodTotal, BarTotal, TotalTotal)
+        d.UpdateOrderTotals(d.GetOrderNumber(Active.Ticket, Active.Guest), FoodTotal, BarTotal, TotalTotal)
 
         lblTotals.Text = "Bar Total: " & FormatCurrency(BarTotal) & vbCrLf & "Food Total: " & FormatCurrency(FoodTotal) & vbCrLf & "Total: " & FormatCurrency(TotalTotal)
 
@@ -5833,8 +5833,8 @@ Public Class POS
     Private Sub Update_Screen()
 
         If Active.OrderType = "Food" Then
-            TabControl1.Visible = True
             Panel1.Visible = False
+            TabControl1.Visible = True
             cmdFoods.BackColor = Color.LightGreen
             cmdDrinks.BackColor = Color.LightGray
             'cControl.BackColor = Color.DarkGreen
@@ -5916,6 +5916,9 @@ Public Class POS
         '    End If
         'End If
         If Active.Computer = "SERVER" Then
+            cmdCloseTable.Visible = False
+            cmdPrint.Visible = True
+
             If Active.Ticket <> 0 Then
 
                 cmdRemoveTable.Visible = True
@@ -5935,14 +5938,51 @@ Public Class POS
                 guest7.Visible = True
                 guest8.Visible = True
                 cmdPrint.Visible = True
+            Else
+                cmdRemoveTable.Visible = False
+                cmdRemoveItem.Visible = False
+                cmdSeatStool.Visible = False
+                cmdFoods.Visible = False
+                cmdDrinks.Visible = False
+                dgvOrder.Visible = False
+                lblTotals.Visible = False
+                cmdCustom.Visible = False
+                guest1.Visible = False
+                guest2.Visible = False
+                guest3.Visible = False
+                guest4.Visible = False
+                guest5.Visible = False
+                guest6.Visible = False
+                guest7.Visible = False
+                guest8.Visible = False
+                cmdPrint.Visible = False
+                lblTable.Text = "Select a Table"
+                Panel1.Visible = False
+                TabControl1.Visible = False
+            End If
+        ElseIf Active.Computer = "BAR" Then
+            cmdPrint.Visible = False
+            cmdCloseTable.Visible = True
+            If Active.Ticket <> 0 Then
+                cmdRemoveTable.Visible = True
+                cmdRemoveItem.Visible = True
+                cmdFoods.Visible = True
+                cmdDrinks.Visible = True
+                dgvOrder.Visible = True
+                lblTotals.Visible = True
+                cmdCustom.Visible = True
+                cmdSeatStool.Visible = False
+                guest1.Visible = True
+                guest2.Visible = True
+                guest3.Visible = True
+                guest4.Visible = True
+                guest5.Visible = True
+                guest6.Visible = True
+                guest7.Visible = True
+                guest8.Visible = True
+                cmdPrint.Visible = True
 
             Else
-
-
-
-
-
-
                 cmdRemoveTable.Visible = False
                 cmdRemoveItem.Visible = False
                 cmdSeatStool.Visible = False
@@ -6195,5 +6235,10 @@ Public Class POS
     Private Sub barItem_Click(sender As System.Object, e As System.EventArgs) Handles bar001.Click, bar002.Click, bar003.Click, bar004.Click, bar005.Click, bar006.Click, bar007.Click, bar008.Click, bar009.Click, bar010.Click, bar011.Click, bar012.Click, bar013.Click, bar014.Click, bar015.Click, bar016.Click, bar017.Click, bar018.Click, bar019.Click, bar020.Click, bar021.Click, bar022.Click, bar023.Click, bar024.Click, bar025.Click, bar026.Click, bar027.Click, bar028.Click, bar029.Click, bar030.Click, bar031.Click, bar032.Click, bar033.Click, bar034.Click, bar035.Click, bar036.Click, bar037.Click, bar038.Click, bar039.Click, bar040.Click, bar041.Click, bar042.Click, bar043.Click, bar044.Click, bar045.Click, bar046.Click, bar047.Click, bar048.Click, bar049.Click, bar050.Click, bar051.Click, bar052.Click, bar053.Click, bar054.Click, bar055.Click, bar056.Click
         d.AddBarItem(Active.Ticket, Active.Guest, Mid(sender.name, 4, 3))
         Update_Order()
+    End Sub
+
+    Private Sub cmdCloseTable_Click(sender As System.Object, e As System.EventArgs) Handles cmdCloseTable.Click
+        Dim formCloseTable As New CloseTableNew
+        formCloseTable.ShowDialog()
     End Sub
 End Class

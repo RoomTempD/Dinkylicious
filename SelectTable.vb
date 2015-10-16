@@ -751,9 +751,9 @@ Public Class SelectTable
         End If
 
 
-        Ticket = Ticket.getTicketInfoByTicketNumber(Stool.getTicketNumber)
+        Ticket = Ticket.getTicketInfoByStoolNumber(StoolNumber)
         active.Clear()
-        active.Ticket = Stool.getTicketNumber
+        Active.Ticket = Ticket.GetTicketNumber
         active.Stool = StoolNumber
         Close()
 
@@ -794,7 +794,7 @@ Public Class SelectTable
             If MsgBox("This is not your table, are you sure you want to open it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 OKToLoadTable = True
             End If
-            'if table is someone else's ask to open
+
         Else
 
             MsgBox("table is not available")
@@ -847,8 +847,10 @@ Public Class SelectTable
     End Sub
 
     Private Sub SelectTable_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        If Active.Computer = "SERVER" Then
+            ChangeServer()
+        End If
 
-        ChangeServer()
         LoadTables()
         dgvCustomTables.ClearSelection()
 

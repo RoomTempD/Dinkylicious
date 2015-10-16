@@ -106,10 +106,7 @@
 
     Private Sub PickSpecial_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        Dim ds As New DataSet
-        ds = data.GetData("SELECT ITEM_NUM, ITEM_NAME FROM Specials WHERE ITEM_NUM <> 96")
-   
-        dgvSpecials.DataSource = ds.Tables("Table")
+        dgvSpecials.DataSource = data.GetData("SELECT ITEM_NUM, ITEM_NAME FROM Specials WHERE ITEM_NUM <> 96").Tables(0)
         dgvSpecials.Columns("ITEM_NUM").Visible = False
         dgvSpecials.Columns("ITEM_NAME").Width = 600
 

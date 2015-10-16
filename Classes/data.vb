@@ -35,6 +35,7 @@
     End Sub
 
     Public Function GetData(ByVal Query As String) As DataSet
+        Console.WriteLine(Query)
         Dim Connection As OleDb.OleDbConnection = New OleDb.OleDbConnection(GetDBConnectionString)
         Dim ds As New DataSet
         Dim da As New OleDb.OleDbDataAdapter
@@ -57,6 +58,10 @@
     End Function
 
     Public Function GetSingleValue(ByVal SQL As String) As Integer
+        Return GetData(SQL).Tables(0).Rows(0).Item(0)
+    End Function
+
+    Public Function GetDoubleValue(ByVal SQL As String) As Double
         Return GetData(SQL).Tables(0).Rows(0).Item(0)
     End Function
 
