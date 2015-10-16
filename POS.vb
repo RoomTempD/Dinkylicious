@@ -5645,9 +5645,10 @@ Public Class POS
         Me.lblTotals.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotals.Location = New System.Drawing.Point(992, 566)
         Me.lblTotals.Name = "lblTotals"
-        Me.lblTotals.Size = New System.Drawing.Size(280, 60)
+        Me.lblTotals.Size = New System.Drawing.Size(223, 60)
         Me.lblTotals.TabIndex = 40
         Me.lblTotals.Text = "   Bar Total:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Food Total:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         Total:"
+        Me.lblTotals.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.lblTotals.Visible = False
         '
         'POS
@@ -5713,6 +5714,8 @@ Public Class POS
         Close()
     End Sub
 
+
+
     Private Sub Update_Order()
         lblTable.Text = d.GetTableName(Active.Table) & " " & Active.Ticket
 
@@ -5737,14 +5740,48 @@ Public Class POS
         Dim indGuests As New List(Of Integer)
         indGuests = d.GetGuestsOfTicket(Active.Ticket)
 
-        IIf(indGuests.Contains(1), guest1.BackColor = Color.LightGray, guest1.BackColor = Color.DarkGray)
-        IIf(indGuests.Contains(2), guest2.BackColor = Color.LightGray, guest2.BackColor = Color.DarkGray)
-        IIf(indGuests.Contains(3), guest3.BackColor = Color.LightGray, guest3.BackColor = Color.DarkGray)
-        IIf(indGuests.Contains(4), guest4.BackColor = Color.LightGray, guest4.BackColor = Color.DarkGray)
-        IIf(indGuests.Contains(5), guest5.BackColor = Color.LightGray, guest5.BackColor = Color.DarkGray)
-        IIf(indGuests.Contains(6), guest6.BackColor = Color.LightGray, guest6.BackColor = Color.DarkGray)
-        IIf(indGuests.Contains(7), guest7.BackColor = Color.LightGray, guest7.BackColor = Color.DarkGray)
-        IIf(indGuests.Contains(8), guest8.BackColor = Color.LightGray, guest8.BackColor = Color.DarkGray)
+        If indGuests.Contains(1) Then
+            guest1.BackColor = Color.LightGray
+        Else
+            guest1.BackColor = Color.DarkGray
+        End If
+        If indGuests.Contains(2) Then
+            guest2.BackColor = Color.LightGray
+        Else
+            guest2.BackColor = Color.DarkGray
+        End If
+        If indGuests.Contains(3) Then
+            guest3.BackColor = Color.LightGray
+        Else
+            guest3.BackColor = Color.DarkGray
+        End If
+
+        If indGuests.Contains(4) Then
+            guest4.BackColor = Color.LightGray
+        Else
+            guest4.BackColor = Color.DarkGray
+        End If
+        If indGuests.Contains(5) Then
+            guest5.BackColor = Color.LightGray
+        Else
+            guest5.BackColor = Color.DarkGray
+        End If
+        If indGuests.Contains(6) Then
+            guest6.BackColor = Color.LightGray
+        Else
+            guest6.BackColor = Color.DarkGray
+        End If
+        If indGuests.Contains(7) Then
+            guest7.BackColor = Color.LightGray
+        Else
+            guest7.BackColor = Color.DarkGray
+        End If
+        If indGuests.Contains(8) Then
+            guest8.BackColor = Color.LightGray
+        Else
+            guest8.BackColor = Color.DarkGray
+        End If
+
 
         Select Case Active.Guest
             Case 1
@@ -5764,6 +5801,16 @@ Public Class POS
             Case 8
                 guest8.BackColor = Color.Green
         End Select
+
+        Dim FoodTotal As Double = 0
+        Dim BarTotal As Double = 0
+        Dim TotalTotal As Double = 0
+
+        d.UpdateOrderTotals(Active.Order, FoodTotal, BarTotal, TotalTotal)
+
+        lblTotals.Text = "Bar Total: " & FormatCurrency(BarTotal) & vbCrLf & "Food Total: " & FormatCurrency(FoodTotal) & vbCrLf & "Total: " & FormatCurrency(TotalTotal)
+
+
 
     End Sub
 

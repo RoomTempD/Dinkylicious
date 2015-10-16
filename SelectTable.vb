@@ -781,7 +781,7 @@ Public Class SelectTable
                     'MsgBox("table is available, guest count is " & GuestCount.ToString & ", there is a bar stool selected")
                 End If
             End If
-        ElseIf Table.OwnedByServer(active.Guest) Then
+        ElseIf Table.OwnedByServer(Active.Server) Then
             OKToLoadTable = True
         ElseIf Table.isClaimable Then
 
@@ -789,7 +789,7 @@ Public Class SelectTable
                 d.ClaimTable(TableNumber, active.Guest)
             End If
 
-        ElseIf Not Table.OwnedByServer(active.Guest) Then
+        ElseIf Not Table.OwnedByServer(Active.Server) Then
 
             If MsgBox("This is not your table, are you sure you want to open it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 OKToLoadTable = True
@@ -884,7 +884,7 @@ Public Class SelectTable
                 isAVAILABLE(DataRow("TABLE_NUM")) = False
                 GUESTCOUNT(DataRow("TABLE_NUM")) = DataRow("GUEST_COUNT")
 
-                If DataRow("EMP_NUM") = active.Guest Or DataRow("EMP_NUM2") = active.Guest Then
+                If DataRow("EMP_NUM") = Active.Server Or DataRow("EMP_NUM2") = Active.Server Then
                     isOWN(DataRow("TABLE_NUM")) = True
                 Else
                     isOWN(DataRow("TABLE_NUM")) = False

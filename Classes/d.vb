@@ -123,4 +123,9 @@ Module d
 
         Return tmpList
     End Function
+
+    Public Sub UpdateOrderTotals(ByVal OrderNumber As Integer, ByRef FoodTotal As Double, ByRef BarTotal As Double, ByRef TotalTotal As Double)
+
+
+    End Sub
 End Module
