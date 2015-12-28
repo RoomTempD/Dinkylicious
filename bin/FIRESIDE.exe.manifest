@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="FIRESIDE.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="FIRESIDE" version="1.0.5606.32792" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="FIRESIDE" version="1.0.5780.37944" language="neutral" processorArchitecture="msil" />
     <commandLine file="FIRESIDE.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FIRESIDE.exe" size="20876288">
-      <assemblyIdentity name="FIRESIDE" version="1.0.5606.32792" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FIRESIDE.exe" size="14813696">
+      <assemblyIdentity name="FIRESIDE" version="1.0.5780.37944" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>BZRqAJ/RXWotgu0A7xkeA1MMFBc=</dsig:DigestValue>
+        <dsig:DigestValue>9wBPSehsHFCikt0W6wUmJaExU34=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>2A7gYsR9ljozZ1xfanMUcBnn9JU=</dsig:DigestValue>
+        <dsig:DigestValue>QOuKpp8+yEQJl7DD7gG+sQbKbP4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

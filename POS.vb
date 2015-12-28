@@ -9,6 +9,8 @@ Public Class POS
     Friend WithEvents guest8 As System.Windows.Forms.Button
     Friend WithEvents cmdDrinks As System.Windows.Forms.Button
     Friend WithEvents lblTotals As System.Windows.Forms.Label
+    Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
+    Friend WithEvents cmdSandwiches As System.Windows.Forms.Button
 
     Public QuickSale As Boolean
 
@@ -53,8 +55,6 @@ Public Class POS
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
     Friend WithEvents cmd010101 As System.Windows.Forms.Button
     Friend WithEvents cmd010802 As System.Windows.Forms.Button
     Friend WithEvents cmd010803 As System.Windows.Forms.Button
@@ -125,45 +125,6 @@ Public Class POS
     Friend WithEvents cmd030401 As System.Windows.Forms.Button
     Friend WithEvents cmd030301 As System.Windows.Forms.Button
     Friend WithEvents cmd030201 As System.Windows.Forms.Button
-    Friend WithEvents cmd040802 As System.Windows.Forms.Button
-    Friend WithEvents cmd040803 As System.Windows.Forms.Button
-    Friend WithEvents cmd040804 As System.Windows.Forms.Button
-    Friend WithEvents cmd040801 As System.Windows.Forms.Button
-    Friend WithEvents cmd040702 As System.Windows.Forms.Button
-    Friend WithEvents cmd040703 As System.Windows.Forms.Button
-    Friend WithEvents cmd040704 As System.Windows.Forms.Button
-    Friend WithEvents cmd040701 As System.Windows.Forms.Button
-    Friend WithEvents cmd040602 As System.Windows.Forms.Button
-    Friend WithEvents cmd040603 As System.Windows.Forms.Button
-    Friend WithEvents cmd040604 As System.Windows.Forms.Button
-    Friend WithEvents cmd040601 As System.Windows.Forms.Button
-    Friend WithEvents cmd040302 As System.Windows.Forms.Button
-    Friend WithEvents cmd040301 As System.Windows.Forms.Button
-    Friend WithEvents cmd040202 As System.Windows.Forms.Button
-    Friend WithEvents cmd040201 As System.Windows.Forms.Button
-    Friend WithEvents cmd040102 As System.Windows.Forms.Button
-    Friend WithEvents cmd040103 As System.Windows.Forms.Button
-    Friend WithEvents cmd040101 As System.Windows.Forms.Button
-    Friend WithEvents cmd050802 As System.Windows.Forms.Button
-    Friend WithEvents cmd050801 As System.Windows.Forms.Button
-    Friend WithEvents cmd050702 As System.Windows.Forms.Button
-    Friend WithEvents cmd050704 As System.Windows.Forms.Button
-    Friend WithEvents cmd050705 As System.Windows.Forms.Button
-    Friend WithEvents cmd050602 As System.Windows.Forms.Button
-    Friend WithEvents cmd050604 As System.Windows.Forms.Button
-    Friend WithEvents cmd050605 As System.Windows.Forms.Button
-    Friend WithEvents cmd050601 As System.Windows.Forms.Button
-    Friend WithEvents cmd050502 As System.Windows.Forms.Button
-    Friend WithEvents cmd050504 As System.Windows.Forms.Button
-    Friend WithEvents cmd050505 As System.Windows.Forms.Button
-    Friend WithEvents cmd050501 As System.Windows.Forms.Button
-    Friend WithEvents cmd050302 As System.Windows.Forms.Button
-    Friend WithEvents cmd050301 As System.Windows.Forms.Button
-    Friend WithEvents cmd050202 As System.Windows.Forms.Button
-    Friend WithEvents cmd050201 As System.Windows.Forms.Button
-    Friend WithEvents cmd050102 As System.Windows.Forms.Button
-    Friend WithEvents cmd050103 As System.Windows.Forms.Button
-    Friend WithEvents cmd050101 As System.Windows.Forms.Button
     Friend WithEvents cmd060801 As System.Windows.Forms.Button
     Friend WithEvents cmd060701 As System.Windows.Forms.Button
     Friend WithEvents cmd060602 As System.Windows.Forms.Button
@@ -292,21 +253,13 @@ Public Class POS
     Friend WithEvents cmdFive As System.Windows.Forms.Button
     Friend WithEvents cmdOne As System.Windows.Forms.Button
     Friend WithEvents cmdSeatStool As System.Windows.Forms.Button
-    Friend WithEvents cmd040805 As System.Windows.Forms.Button
     Friend WithEvents cmdOpen As System.Windows.Forms.Button
     Friend WithEvents cmdPrint As System.Windows.Forms.Button
     Friend WithEvents cmdCustom As System.Windows.Forms.Button
     Friend WithEvents bar056 As System.Windows.Forms.Button
     Friend WithEvents cmdCustomBar As System.Windows.Forms.Button
-    Friend WithEvents cmd040504 As System.Windows.Forms.Button
     Friend WithEvents cmd010603 As System.Windows.Forms.Button
     Friend WithEvents cmdDone As System.Windows.Forms.Button
-    Friend WithEvents cmd040206 As System.Windows.Forms.Button
-    Friend WithEvents cmd040306 As System.Windows.Forms.Button
-    Friend WithEvents cmd040106 As System.Windows.Forms.Button
-    Friend WithEvents cmd050206 As System.Windows.Forms.Button
-    Friend WithEvents cmd050306 As System.Windows.Forms.Button
-    Friend WithEvents cmd050106 As System.Windows.Forms.Button
     Friend WithEvents cmd010804 As System.Windows.Forms.Button
     Friend WithEvents cmd010705 As System.Windows.Forms.Button
     Friend WithEvents cmd010605 As System.Windows.Forms.Button
@@ -361,55 +314,6 @@ Public Class POS
     Friend WithEvents cmd030105 As System.Windows.Forms.Button
     Friend WithEvents cmd030104 As System.Windows.Forms.Button
     Friend WithEvents cmd030103 As System.Windows.Forms.Button
-    Friend WithEvents cmd040806 As System.Windows.Forms.Button
-    Friend WithEvents cmd040706 As System.Windows.Forms.Button
-    Friend WithEvents cmd040705 As System.Windows.Forms.Button
-    Friend WithEvents cmd040606 As System.Windows.Forms.Button
-    Friend WithEvents cmd040605 As System.Windows.Forms.Button
-    Friend WithEvents cmd040506 As System.Windows.Forms.Button
-    Friend WithEvents cmd040505 As System.Windows.Forms.Button
-    Friend WithEvents cmd040503 As System.Windows.Forms.Button
-    Friend WithEvents cmd040502 As System.Windows.Forms.Button
-    Friend WithEvents cmd040501 As System.Windows.Forms.Button
-    Friend WithEvents cmd040406 As System.Windows.Forms.Button
-    Friend WithEvents cmd040405 As System.Windows.Forms.Button
-    Friend WithEvents cmd040404 As System.Windows.Forms.Button
-    Friend WithEvents cmd040403 As System.Windows.Forms.Button
-    Friend WithEvents cmd040402 As System.Windows.Forms.Button
-    Friend WithEvents cmd040401 As System.Windows.Forms.Button
-    Friend WithEvents cmd040305 As System.Windows.Forms.Button
-    Friend WithEvents cmd040304 As System.Windows.Forms.Button
-    Friend WithEvents cmd040303 As System.Windows.Forms.Button
-    Friend WithEvents cmd040205 As System.Windows.Forms.Button
-    Friend WithEvents cmd040204 As System.Windows.Forms.Button
-    Friend WithEvents cmd040203 As System.Windows.Forms.Button
-    Friend WithEvents cmd040105 As System.Windows.Forms.Button
-    Friend WithEvents cmd040104 As System.Windows.Forms.Button
-    Friend WithEvents cmd050806 As System.Windows.Forms.Button
-    Friend WithEvents cmd050805 As System.Windows.Forms.Button
-    Friend WithEvents cmd050804 As System.Windows.Forms.Button
-    Friend WithEvents cmd050803 As System.Windows.Forms.Button
-    Friend WithEvents cmd050706 As System.Windows.Forms.Button
-    Friend WithEvents cmd050703 As System.Windows.Forms.Button
-    Friend WithEvents cmd050701 As System.Windows.Forms.Button
-    Friend WithEvents cmd050606 As System.Windows.Forms.Button
-    Friend WithEvents cmd050603 As System.Windows.Forms.Button
-    Friend WithEvents cmd050506 As System.Windows.Forms.Button
-    Friend WithEvents cmd050503 As System.Windows.Forms.Button
-    Friend WithEvents cmd050406 As System.Windows.Forms.Button
-    Friend WithEvents cmd050405 As System.Windows.Forms.Button
-    Friend WithEvents cmd050404 As System.Windows.Forms.Button
-    Friend WithEvents cmd050403 As System.Windows.Forms.Button
-    Friend WithEvents cmd050402 As System.Windows.Forms.Button
-    Friend WithEvents cmd050401 As System.Windows.Forms.Button
-    Friend WithEvents cmd050305 As System.Windows.Forms.Button
-    Friend WithEvents cmd050304 As System.Windows.Forms.Button
-    Friend WithEvents cmd050303 As System.Windows.Forms.Button
-    Friend WithEvents cmd050205 As System.Windows.Forms.Button
-    Friend WithEvents cmd050204 As System.Windows.Forms.Button
-    Friend WithEvents cmd050203 As System.Windows.Forms.Button
-    Friend WithEvents cmd050105 As System.Windows.Forms.Button
-    Friend WithEvents cmd050104 As System.Windows.Forms.Button
     Friend WithEvents cmd060806 As System.Windows.Forms.Button
     Friend WithEvents cmd060805 As System.Windows.Forms.Button
     Friend WithEvents cmd060804 As System.Windows.Forms.Button
@@ -605,104 +509,6 @@ Public Class POS
         Me.cmd030106 = New System.Windows.Forms.Button()
         Me.cmd030102 = New System.Windows.Forms.Button()
         Me.cmd030101 = New System.Windows.Forms.Button()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.cmd040806 = New System.Windows.Forms.Button()
-        Me.cmd040706 = New System.Windows.Forms.Button()
-        Me.cmd040705 = New System.Windows.Forms.Button()
-        Me.cmd040606 = New System.Windows.Forms.Button()
-        Me.cmd040605 = New System.Windows.Forms.Button()
-        Me.cmd040506 = New System.Windows.Forms.Button()
-        Me.cmd040505 = New System.Windows.Forms.Button()
-        Me.cmd040503 = New System.Windows.Forms.Button()
-        Me.cmd040502 = New System.Windows.Forms.Button()
-        Me.cmd040501 = New System.Windows.Forms.Button()
-        Me.cmd040406 = New System.Windows.Forms.Button()
-        Me.cmd040405 = New System.Windows.Forms.Button()
-        Me.cmd040404 = New System.Windows.Forms.Button()
-        Me.cmd040403 = New System.Windows.Forms.Button()
-        Me.cmd040402 = New System.Windows.Forms.Button()
-        Me.cmd040401 = New System.Windows.Forms.Button()
-        Me.cmd040305 = New System.Windows.Forms.Button()
-        Me.cmd040304 = New System.Windows.Forms.Button()
-        Me.cmd040303 = New System.Windows.Forms.Button()
-        Me.cmd040205 = New System.Windows.Forms.Button()
-        Me.cmd040204 = New System.Windows.Forms.Button()
-        Me.cmd040203 = New System.Windows.Forms.Button()
-        Me.cmd040105 = New System.Windows.Forms.Button()
-        Me.cmd040104 = New System.Windows.Forms.Button()
-        Me.cmd040206 = New System.Windows.Forms.Button()
-        Me.cmd040306 = New System.Windows.Forms.Button()
-        Me.cmd040106 = New System.Windows.Forms.Button()
-        Me.cmd040504 = New System.Windows.Forms.Button()
-        Me.cmd040805 = New System.Windows.Forms.Button()
-        Me.cmd040802 = New System.Windows.Forms.Button()
-        Me.cmd040803 = New System.Windows.Forms.Button()
-        Me.cmd040804 = New System.Windows.Forms.Button()
-        Me.cmd040801 = New System.Windows.Forms.Button()
-        Me.cmd040702 = New System.Windows.Forms.Button()
-        Me.cmd040703 = New System.Windows.Forms.Button()
-        Me.cmd040704 = New System.Windows.Forms.Button()
-        Me.cmd040701 = New System.Windows.Forms.Button()
-        Me.cmd040602 = New System.Windows.Forms.Button()
-        Me.cmd040603 = New System.Windows.Forms.Button()
-        Me.cmd040604 = New System.Windows.Forms.Button()
-        Me.cmd040601 = New System.Windows.Forms.Button()
-        Me.cmd040302 = New System.Windows.Forms.Button()
-        Me.cmd040301 = New System.Windows.Forms.Button()
-        Me.cmd040202 = New System.Windows.Forms.Button()
-        Me.cmd040201 = New System.Windows.Forms.Button()
-        Me.cmd040102 = New System.Windows.Forms.Button()
-        Me.cmd040103 = New System.Windows.Forms.Button()
-        Me.cmd040101 = New System.Windows.Forms.Button()
-        Me.TabPage7 = New System.Windows.Forms.TabPage()
-        Me.cmd050806 = New System.Windows.Forms.Button()
-        Me.cmd050805 = New System.Windows.Forms.Button()
-        Me.cmd050804 = New System.Windows.Forms.Button()
-        Me.cmd050803 = New System.Windows.Forms.Button()
-        Me.cmd050706 = New System.Windows.Forms.Button()
-        Me.cmd050703 = New System.Windows.Forms.Button()
-        Me.cmd050701 = New System.Windows.Forms.Button()
-        Me.cmd050606 = New System.Windows.Forms.Button()
-        Me.cmd050603 = New System.Windows.Forms.Button()
-        Me.cmd050506 = New System.Windows.Forms.Button()
-        Me.cmd050503 = New System.Windows.Forms.Button()
-        Me.cmd050406 = New System.Windows.Forms.Button()
-        Me.cmd050405 = New System.Windows.Forms.Button()
-        Me.cmd050404 = New System.Windows.Forms.Button()
-        Me.cmd050403 = New System.Windows.Forms.Button()
-        Me.cmd050402 = New System.Windows.Forms.Button()
-        Me.cmd050401 = New System.Windows.Forms.Button()
-        Me.cmd050305 = New System.Windows.Forms.Button()
-        Me.cmd050304 = New System.Windows.Forms.Button()
-        Me.cmd050303 = New System.Windows.Forms.Button()
-        Me.cmd050205 = New System.Windows.Forms.Button()
-        Me.cmd050204 = New System.Windows.Forms.Button()
-        Me.cmd050203 = New System.Windows.Forms.Button()
-        Me.cmd050105 = New System.Windows.Forms.Button()
-        Me.cmd050104 = New System.Windows.Forms.Button()
-        Me.cmd050206 = New System.Windows.Forms.Button()
-        Me.cmd050306 = New System.Windows.Forms.Button()
-        Me.cmd050106 = New System.Windows.Forms.Button()
-        Me.cmd050802 = New System.Windows.Forms.Button()
-        Me.cmd050801 = New System.Windows.Forms.Button()
-        Me.cmd050702 = New System.Windows.Forms.Button()
-        Me.cmd050704 = New System.Windows.Forms.Button()
-        Me.cmd050705 = New System.Windows.Forms.Button()
-        Me.cmd050602 = New System.Windows.Forms.Button()
-        Me.cmd050604 = New System.Windows.Forms.Button()
-        Me.cmd050605 = New System.Windows.Forms.Button()
-        Me.cmd050601 = New System.Windows.Forms.Button()
-        Me.cmd050502 = New System.Windows.Forms.Button()
-        Me.cmd050504 = New System.Windows.Forms.Button()
-        Me.cmd050505 = New System.Windows.Forms.Button()
-        Me.cmd050501 = New System.Windows.Forms.Button()
-        Me.cmd050302 = New System.Windows.Forms.Button()
-        Me.cmd050301 = New System.Windows.Forms.Button()
-        Me.cmd050202 = New System.Windows.Forms.Button()
-        Me.cmd050201 = New System.Windows.Forms.Button()
-        Me.cmd050102 = New System.Windows.Forms.Button()
-        Me.cmd050103 = New System.Windows.Forms.Button()
-        Me.cmd050101 = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.cmd060806 = New System.Windows.Forms.Button()
         Me.cmd060805 = New System.Windows.Forms.Button()
@@ -863,12 +669,12 @@ Public Class POS
         Me.guest8 = New System.Windows.Forms.Button()
         Me.cmdDrinks = New System.Windows.Forms.Button()
         Me.lblTotals = New System.Windows.Forms.Label()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.cmdSandwiches = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
-        Me.TabPage7.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvOrder, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -957,8 +763,6 @@ Public Class POS
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Controls.Add(Me.TabPage5)
-        Me.TabControl1.Controls.Add(Me.TabPage7)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Font = New System.Drawing.Font("Impact", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.ItemSize = New System.Drawing.Size(200, 28)
@@ -1026,7 +830,7 @@ Public Class POS
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Size = New System.Drawing.Size(952, 500)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Steaks/Chops"
+        Me.TabPage1.Text = "Breakfast"
         '
         'cmd010804
         '
@@ -1593,7 +1397,7 @@ Public Class POS
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Size = New System.Drawing.Size(952, 500)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Fish/Seafood"
+        Me.TabPage2.Text = "Lunch"
         '
         'cmd020804
         '
@@ -2166,7 +1970,7 @@ Public Class POS
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Size = New System.Drawing.Size(952, 500)
         Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Pasta/Ribs/Chicken"
+        Me.TabPage3.Text = "Kids"
         '
         'cmd030804
         '
@@ -2671,1129 +2475,6 @@ Public Class POS
         Me.cmd030101.Tag = "itm052"
         Me.cmd030101.Visible = False
         '
-        'TabPage5
-        '
-        Me.TabPage5.BackgroundImage = CType(resources.GetObject("TabPage5.BackgroundImage"), System.Drawing.Image)
-        Me.TabPage5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.TabPage5.Controls.Add(Me.cmd040806)
-        Me.TabPage5.Controls.Add(Me.cmd040706)
-        Me.TabPage5.Controls.Add(Me.cmd040705)
-        Me.TabPage5.Controls.Add(Me.cmd040606)
-        Me.TabPage5.Controls.Add(Me.cmd040605)
-        Me.TabPage5.Controls.Add(Me.cmd040506)
-        Me.TabPage5.Controls.Add(Me.cmd040505)
-        Me.TabPage5.Controls.Add(Me.cmd040503)
-        Me.TabPage5.Controls.Add(Me.cmd040502)
-        Me.TabPage5.Controls.Add(Me.cmd040501)
-        Me.TabPage5.Controls.Add(Me.cmd040406)
-        Me.TabPage5.Controls.Add(Me.cmd040405)
-        Me.TabPage5.Controls.Add(Me.cmd040404)
-        Me.TabPage5.Controls.Add(Me.cmd040403)
-        Me.TabPage5.Controls.Add(Me.cmd040402)
-        Me.TabPage5.Controls.Add(Me.cmd040401)
-        Me.TabPage5.Controls.Add(Me.cmd040305)
-        Me.TabPage5.Controls.Add(Me.cmd040304)
-        Me.TabPage5.Controls.Add(Me.cmd040303)
-        Me.TabPage5.Controls.Add(Me.cmd040205)
-        Me.TabPage5.Controls.Add(Me.cmd040204)
-        Me.TabPage5.Controls.Add(Me.cmd040203)
-        Me.TabPage5.Controls.Add(Me.cmd040105)
-        Me.TabPage5.Controls.Add(Me.cmd040104)
-        Me.TabPage5.Controls.Add(Me.cmd040206)
-        Me.TabPage5.Controls.Add(Me.cmd040306)
-        Me.TabPage5.Controls.Add(Me.cmd040106)
-        Me.TabPage5.Controls.Add(Me.cmd040504)
-        Me.TabPage5.Controls.Add(Me.cmd040805)
-        Me.TabPage5.Controls.Add(Me.cmd040802)
-        Me.TabPage5.Controls.Add(Me.cmd040803)
-        Me.TabPage5.Controls.Add(Me.cmd040804)
-        Me.TabPage5.Controls.Add(Me.cmd040801)
-        Me.TabPage5.Controls.Add(Me.cmd040702)
-        Me.TabPage5.Controls.Add(Me.cmd040703)
-        Me.TabPage5.Controls.Add(Me.cmd040704)
-        Me.TabPage5.Controls.Add(Me.cmd040701)
-        Me.TabPage5.Controls.Add(Me.cmd040602)
-        Me.TabPage5.Controls.Add(Me.cmd040603)
-        Me.TabPage5.Controls.Add(Me.cmd040604)
-        Me.TabPage5.Controls.Add(Me.cmd040601)
-        Me.TabPage5.Controls.Add(Me.cmd040302)
-        Me.TabPage5.Controls.Add(Me.cmd040301)
-        Me.TabPage5.Controls.Add(Me.cmd040202)
-        Me.TabPage5.Controls.Add(Me.cmd040201)
-        Me.TabPage5.Controls.Add(Me.cmd040102)
-        Me.TabPage5.Controls.Add(Me.cmd040103)
-        Me.TabPage5.Controls.Add(Me.cmd040101)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(952, 500)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Dessert/Kids Menu"
-        '
-        'cmd040806
-        '
-        Me.cmd040806.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040806.Location = New System.Drawing.Point(836, 416)
-        Me.cmd040806.Name = "cmd040806"
-        Me.cmd040806.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040806.TabIndex = 149
-        Me.cmd040806.Tag = ""
-        Me.cmd040806.Visible = False
-        '
-        'cmd040706
-        '
-        Me.cmd040706.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040706.Location = New System.Drawing.Point(719, 416)
-        Me.cmd040706.Name = "cmd040706"
-        Me.cmd040706.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040706.TabIndex = 148
-        Me.cmd040706.Tag = ""
-        Me.cmd040706.Visible = False
-        '
-        'cmd040705
-        '
-        Me.cmd040705.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040705.Location = New System.Drawing.Point(719, 336)
-        Me.cmd040705.Name = "cmd040705"
-        Me.cmd040705.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040705.TabIndex = 147
-        Me.cmd040705.Tag = ""
-        Me.cmd040705.Visible = False
-        '
-        'cmd040606
-        '
-        Me.cmd040606.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040606.Location = New System.Drawing.Point(602, 416)
-        Me.cmd040606.Name = "cmd040606"
-        Me.cmd040606.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040606.TabIndex = 146
-        Me.cmd040606.Tag = ""
-        Me.cmd040606.Visible = False
-        '
-        'cmd040605
-        '
-        Me.cmd040605.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040605.Location = New System.Drawing.Point(602, 336)
-        Me.cmd040605.Name = "cmd040605"
-        Me.cmd040605.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040605.TabIndex = 145
-        Me.cmd040605.Tag = ""
-        Me.cmd040605.Visible = False
-        '
-        'cmd040506
-        '
-        Me.cmd040506.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040506.Location = New System.Drawing.Point(485, 416)
-        Me.cmd040506.Name = "cmd040506"
-        Me.cmd040506.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040506.TabIndex = 144
-        Me.cmd040506.Tag = ""
-        Me.cmd040506.Visible = False
-        '
-        'cmd040505
-        '
-        Me.cmd040505.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040505.Location = New System.Drawing.Point(485, 336)
-        Me.cmd040505.Name = "cmd040505"
-        Me.cmd040505.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040505.TabIndex = 143
-        Me.cmd040505.Tag = ""
-        Me.cmd040505.Visible = False
-        '
-        'cmd040503
-        '
-        Me.cmd040503.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040503.Location = New System.Drawing.Point(485, 176)
-        Me.cmd040503.Name = "cmd040503"
-        Me.cmd040503.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040503.TabIndex = 142
-        Me.cmd040503.Tag = ""
-        Me.cmd040503.Visible = False
-        '
-        'cmd040502
-        '
-        Me.cmd040502.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040502.Location = New System.Drawing.Point(485, 96)
-        Me.cmd040502.Name = "cmd040502"
-        Me.cmd040502.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040502.TabIndex = 141
-        Me.cmd040502.Tag = ""
-        Me.cmd040502.Visible = False
-        '
-        'cmd040501
-        '
-        Me.cmd040501.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040501.Location = New System.Drawing.Point(485, 16)
-        Me.cmd040501.Name = "cmd040501"
-        Me.cmd040501.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040501.TabIndex = 140
-        Me.cmd040501.Tag = ""
-        Me.cmd040501.Visible = False
-        '
-        'cmd040406
-        '
-        Me.cmd040406.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040406.Location = New System.Drawing.Point(368, 416)
-        Me.cmd040406.Name = "cmd040406"
-        Me.cmd040406.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040406.TabIndex = 139
-        Me.cmd040406.Tag = ""
-        Me.cmd040406.Visible = False
-        '
-        'cmd040405
-        '
-        Me.cmd040405.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040405.Location = New System.Drawing.Point(368, 336)
-        Me.cmd040405.Name = "cmd040405"
-        Me.cmd040405.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040405.TabIndex = 138
-        Me.cmd040405.Tag = ""
-        Me.cmd040405.Visible = False
-        '
-        'cmd040404
-        '
-        Me.cmd040404.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040404.Location = New System.Drawing.Point(368, 256)
-        Me.cmd040404.Name = "cmd040404"
-        Me.cmd040404.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040404.TabIndex = 137
-        Me.cmd040404.Tag = ""
-        Me.cmd040404.Visible = False
-        '
-        'cmd040403
-        '
-        Me.cmd040403.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040403.Location = New System.Drawing.Point(368, 176)
-        Me.cmd040403.Name = "cmd040403"
-        Me.cmd040403.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040403.TabIndex = 136
-        Me.cmd040403.Tag = ""
-        Me.cmd040403.Visible = False
-        '
-        'cmd040402
-        '
-        Me.cmd040402.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040402.Location = New System.Drawing.Point(368, 96)
-        Me.cmd040402.Name = "cmd040402"
-        Me.cmd040402.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040402.TabIndex = 135
-        Me.cmd040402.Tag = ""
-        Me.cmd040402.Visible = False
-        '
-        'cmd040401
-        '
-        Me.cmd040401.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040401.Location = New System.Drawing.Point(368, 16)
-        Me.cmd040401.Name = "cmd040401"
-        Me.cmd040401.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040401.TabIndex = 134
-        Me.cmd040401.Tag = ""
-        Me.cmd040401.Visible = False
-        '
-        'cmd040305
-        '
-        Me.cmd040305.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040305.Location = New System.Drawing.Point(251, 336)
-        Me.cmd040305.Name = "cmd040305"
-        Me.cmd040305.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040305.TabIndex = 133
-        Me.cmd040305.Tag = ""
-        Me.cmd040305.Visible = False
-        '
-        'cmd040304
-        '
-        Me.cmd040304.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040304.Location = New System.Drawing.Point(251, 256)
-        Me.cmd040304.Name = "cmd040304"
-        Me.cmd040304.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040304.TabIndex = 132
-        Me.cmd040304.Tag = ""
-        Me.cmd040304.Visible = False
-        '
-        'cmd040303
-        '
-        Me.cmd040303.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040303.Location = New System.Drawing.Point(251, 176)
-        Me.cmd040303.Name = "cmd040303"
-        Me.cmd040303.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040303.TabIndex = 131
-        Me.cmd040303.Tag = ""
-        Me.cmd040303.Visible = False
-        '
-        'cmd040205
-        '
-        Me.cmd040205.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040205.Location = New System.Drawing.Point(134, 336)
-        Me.cmd040205.Name = "cmd040205"
-        Me.cmd040205.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040205.TabIndex = 130
-        Me.cmd040205.Tag = ""
-        Me.cmd040205.Visible = False
-        '
-        'cmd040204
-        '
-        Me.cmd040204.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040204.Location = New System.Drawing.Point(134, 256)
-        Me.cmd040204.Name = "cmd040204"
-        Me.cmd040204.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040204.TabIndex = 129
-        Me.cmd040204.Tag = ""
-        Me.cmd040204.Visible = False
-        '
-        'cmd040203
-        '
-        Me.cmd040203.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040203.Location = New System.Drawing.Point(134, 176)
-        Me.cmd040203.Name = "cmd040203"
-        Me.cmd040203.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040203.TabIndex = 128
-        Me.cmd040203.Tag = ""
-        Me.cmd040203.Visible = False
-        '
-        'cmd040105
-        '
-        Me.cmd040105.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040105.Location = New System.Drawing.Point(17, 336)
-        Me.cmd040105.Name = "cmd040105"
-        Me.cmd040105.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040105.TabIndex = 127
-        Me.cmd040105.Tag = ""
-        Me.cmd040105.Visible = False
-        '
-        'cmd040104
-        '
-        Me.cmd040104.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040104.Location = New System.Drawing.Point(17, 256)
-        Me.cmd040104.Name = "cmd040104"
-        Me.cmd040104.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040104.TabIndex = 126
-        Me.cmd040104.Tag = ""
-        Me.cmd040104.Visible = False
-        '
-        'cmd040206
-        '
-        Me.cmd040206.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040206.Image = CType(resources.GetObject("cmd040206.Image"), System.Drawing.Image)
-        Me.cmd040206.Location = New System.Drawing.Point(134, 416)
-        Me.cmd040206.Name = "cmd040206"
-        Me.cmd040206.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040206.TabIndex = 111
-        Me.cmd040206.Tag = "itm016"
-        Me.cmd040206.Visible = False
-        '
-        'cmd040306
-        '
-        Me.cmd040306.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040306.Image = CType(resources.GetObject("cmd040306.Image"), System.Drawing.Image)
-        Me.cmd040306.Location = New System.Drawing.Point(251, 416)
-        Me.cmd040306.Name = "cmd040306"
-        Me.cmd040306.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040306.TabIndex = 110
-        Me.cmd040306.Tag = "itm017"
-        Me.cmd040306.Visible = False
-        '
-        'cmd040106
-        '
-        Me.cmd040106.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040106.Image = CType(resources.GetObject("cmd040106.Image"), System.Drawing.Image)
-        Me.cmd040106.Location = New System.Drawing.Point(17, 416)
-        Me.cmd040106.Name = "cmd040106"
-        Me.cmd040106.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040106.TabIndex = 109
-        Me.cmd040106.Tag = "itm015"
-        Me.cmd040106.Visible = False
-        '
-        'cmd040504
-        '
-        Me.cmd040504.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040504.Image = CType(resources.GetObject("cmd040504.Image"), System.Drawing.Image)
-        Me.cmd040504.Location = New System.Drawing.Point(485, 256)
-        Me.cmd040504.Name = "cmd040504"
-        Me.cmd040504.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040504.TabIndex = 108
-        Me.cmd040504.Tag = "itm140"
-        Me.cmd040504.Visible = False
-        '
-        'cmd040805
-        '
-        Me.cmd040805.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040805.Image = CType(resources.GetObject("cmd040805.Image"), System.Drawing.Image)
-        Me.cmd040805.Location = New System.Drawing.Point(836, 336)
-        Me.cmd040805.Name = "cmd040805"
-        Me.cmd040805.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040805.TabIndex = 107
-        Me.cmd040805.Tag = "itm153"
-        Me.cmd040805.Visible = False
-        '
-        'cmd040802
-        '
-        Me.cmd040802.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040802.Image = CType(resources.GetObject("cmd040802.Image"), System.Drawing.Image)
-        Me.cmd040802.Location = New System.Drawing.Point(836, 96)
-        Me.cmd040802.Name = "cmd040802"
-        Me.cmd040802.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040802.TabIndex = 106
-        Me.cmd040802.Tag = "itm120"
-        Me.cmd040802.Visible = False
-        '
-        'cmd040803
-        '
-        Me.cmd040803.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040803.Image = CType(resources.GetObject("cmd040803.Image"), System.Drawing.Image)
-        Me.cmd040803.Location = New System.Drawing.Point(836, 176)
-        Me.cmd040803.Name = "cmd040803"
-        Me.cmd040803.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040803.TabIndex = 105
-        Me.cmd040803.Tag = "itm121"
-        Me.cmd040803.Visible = False
-        '
-        'cmd040804
-        '
-        Me.cmd040804.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040804.Image = CType(resources.GetObject("cmd040804.Image"), System.Drawing.Image)
-        Me.cmd040804.Location = New System.Drawing.Point(836, 256)
-        Me.cmd040804.Name = "cmd040804"
-        Me.cmd040804.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040804.TabIndex = 104
-        Me.cmd040804.Tag = "itm125"
-        Me.cmd040804.Visible = False
-        '
-        'cmd040801
-        '
-        Me.cmd040801.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040801.Image = CType(resources.GetObject("cmd040801.Image"), System.Drawing.Image)
-        Me.cmd040801.Location = New System.Drawing.Point(836, 16)
-        Me.cmd040801.Name = "cmd040801"
-        Me.cmd040801.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040801.TabIndex = 102
-        Me.cmd040801.Tag = "itm119"
-        Me.cmd040801.Visible = False
-        '
-        'cmd040702
-        '
-        Me.cmd040702.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040702.Image = CType(resources.GetObject("cmd040702.Image"), System.Drawing.Image)
-        Me.cmd040702.Location = New System.Drawing.Point(719, 96)
-        Me.cmd040702.Name = "cmd040702"
-        Me.cmd040702.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040702.TabIndex = 101
-        Me.cmd040702.Tag = "itm114"
-        Me.cmd040702.Visible = False
-        '
-        'cmd040703
-        '
-        Me.cmd040703.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040703.Image = CType(resources.GetObject("cmd040703.Image"), System.Drawing.Image)
-        Me.cmd040703.Location = New System.Drawing.Point(719, 176)
-        Me.cmd040703.Name = "cmd040703"
-        Me.cmd040703.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040703.TabIndex = 100
-        Me.cmd040703.Tag = "itm116"
-        Me.cmd040703.Visible = False
-        '
-        'cmd040704
-        '
-        Me.cmd040704.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040704.Image = CType(resources.GetObject("cmd040704.Image"), System.Drawing.Image)
-        Me.cmd040704.Location = New System.Drawing.Point(719, 256)
-        Me.cmd040704.Name = "cmd040704"
-        Me.cmd040704.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040704.TabIndex = 99
-        Me.cmd040704.Tag = "itm124"
-        Me.cmd040704.Visible = False
-        '
-        'cmd040701
-        '
-        Me.cmd040701.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040701.Image = CType(resources.GetObject("cmd040701.Image"), System.Drawing.Image)
-        Me.cmd040701.Location = New System.Drawing.Point(719, 16)
-        Me.cmd040701.Name = "cmd040701"
-        Me.cmd040701.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040701.TabIndex = 97
-        Me.cmd040701.Tag = "itm113"
-        Me.cmd040701.Visible = False
-        '
-        'cmd040602
-        '
-        Me.cmd040602.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040602.Image = CType(resources.GetObject("cmd040602.Image"), System.Drawing.Image)
-        Me.cmd040602.Location = New System.Drawing.Point(602, 96)
-        Me.cmd040602.Name = "cmd040602"
-        Me.cmd040602.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040602.TabIndex = 96
-        Me.cmd040602.Tag = "itm115"
-        Me.cmd040602.Visible = False
-        '
-        'cmd040603
-        '
-        Me.cmd040603.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040603.Image = CType(resources.GetObject("cmd040603.Image"), System.Drawing.Image)
-        Me.cmd040603.Location = New System.Drawing.Point(602, 176)
-        Me.cmd040603.Name = "cmd040603"
-        Me.cmd040603.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040603.TabIndex = 95
-        Me.cmd040603.Tag = "itm122"
-        Me.cmd040603.Visible = False
-        '
-        'cmd040604
-        '
-        Me.cmd040604.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040604.Image = CType(resources.GetObject("cmd040604.Image"), System.Drawing.Image)
-        Me.cmd040604.Location = New System.Drawing.Point(602, 256)
-        Me.cmd040604.Name = "cmd040604"
-        Me.cmd040604.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040604.TabIndex = 94
-        Me.cmd040604.Tag = "itm123"
-        Me.cmd040604.Visible = False
-        '
-        'cmd040601
-        '
-        Me.cmd040601.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040601.Image = CType(resources.GetObject("cmd040601.Image"), System.Drawing.Image)
-        Me.cmd040601.Location = New System.Drawing.Point(602, 16)
-        Me.cmd040601.Name = "cmd040601"
-        Me.cmd040601.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040601.TabIndex = 92
-        Me.cmd040601.Tag = "itm117"
-        Me.cmd040601.Visible = False
-        '
-        'cmd040302
-        '
-        Me.cmd040302.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040302.Image = CType(resources.GetObject("cmd040302.Image"), System.Drawing.Image)
-        Me.cmd040302.Location = New System.Drawing.Point(251, 96)
-        Me.cmd040302.Name = "cmd040302"
-        Me.cmd040302.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040302.TabIndex = 81
-        Me.cmd040302.Tag = "itm132"
-        Me.cmd040302.Visible = False
-        '
-        'cmd040301
-        '
-        Me.cmd040301.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040301.Image = CType(resources.GetObject("cmd040301.Image"), System.Drawing.Image)
-        Me.cmd040301.Location = New System.Drawing.Point(251, 16)
-        Me.cmd040301.Name = "cmd040301"
-        Me.cmd040301.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040301.TabIndex = 77
-        Me.cmd040301.Tag = "itm131"
-        Me.cmd040301.Visible = False
-        '
-        'cmd040202
-        '
-        Me.cmd040202.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040202.Image = CType(resources.GetObject("cmd040202.Image"), System.Drawing.Image)
-        Me.cmd040202.Location = New System.Drawing.Point(134, 96)
-        Me.cmd040202.Name = "cmd040202"
-        Me.cmd040202.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040202.TabIndex = 76
-        Me.cmd040202.Tag = "itm130"
-        Me.cmd040202.Visible = False
-        '
-        'cmd040201
-        '
-        Me.cmd040201.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040201.Image = CType(resources.GetObject("cmd040201.Image"), System.Drawing.Image)
-        Me.cmd040201.Location = New System.Drawing.Point(134, 16)
-        Me.cmd040201.Name = "cmd040201"
-        Me.cmd040201.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040201.TabIndex = 72
-        Me.cmd040201.Tag = "itm129"
-        Me.cmd040201.Visible = False
-        '
-        'cmd040102
-        '
-        Me.cmd040102.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040102.Image = CType(resources.GetObject("cmd040102.Image"), System.Drawing.Image)
-        Me.cmd040102.Location = New System.Drawing.Point(17, 96)
-        Me.cmd040102.Name = "cmd040102"
-        Me.cmd040102.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040102.TabIndex = 63
-        Me.cmd040102.Tag = "itm127"
-        Me.cmd040102.Visible = False
-        '
-        'cmd040103
-        '
-        Me.cmd040103.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040103.Image = CType(resources.GetObject("cmd040103.Image"), System.Drawing.Image)
-        Me.cmd040103.Location = New System.Drawing.Point(17, 176)
-        Me.cmd040103.Name = "cmd040103"
-        Me.cmd040103.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040103.TabIndex = 62
-        Me.cmd040103.Tag = "itm128"
-        Me.cmd040103.Visible = False
-        '
-        'cmd040101
-        '
-        Me.cmd040101.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd040101.Image = CType(resources.GetObject("cmd040101.Image"), System.Drawing.Image)
-        Me.cmd040101.Location = New System.Drawing.Point(17, 16)
-        Me.cmd040101.Name = "cmd040101"
-        Me.cmd040101.Size = New System.Drawing.Size(96, 64)
-        Me.cmd040101.TabIndex = 59
-        Me.cmd040101.Tag = "itm126"
-        Me.cmd040101.Visible = False
-        '
-        'TabPage7
-        '
-        Me.TabPage7.BackgroundImage = CType(resources.GetObject("TabPage7.BackgroundImage"), System.Drawing.Image)
-        Me.TabPage7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.TabPage7.Controls.Add(Me.cmd050806)
-        Me.TabPage7.Controls.Add(Me.cmd050805)
-        Me.TabPage7.Controls.Add(Me.cmd050804)
-        Me.TabPage7.Controls.Add(Me.cmd050803)
-        Me.TabPage7.Controls.Add(Me.cmd050706)
-        Me.TabPage7.Controls.Add(Me.cmd050703)
-        Me.TabPage7.Controls.Add(Me.cmd050701)
-        Me.TabPage7.Controls.Add(Me.cmd050606)
-        Me.TabPage7.Controls.Add(Me.cmd050603)
-        Me.TabPage7.Controls.Add(Me.cmd050506)
-        Me.TabPage7.Controls.Add(Me.cmd050503)
-        Me.TabPage7.Controls.Add(Me.cmd050406)
-        Me.TabPage7.Controls.Add(Me.cmd050405)
-        Me.TabPage7.Controls.Add(Me.cmd050404)
-        Me.TabPage7.Controls.Add(Me.cmd050403)
-        Me.TabPage7.Controls.Add(Me.cmd050402)
-        Me.TabPage7.Controls.Add(Me.cmd050401)
-        Me.TabPage7.Controls.Add(Me.cmd050305)
-        Me.TabPage7.Controls.Add(Me.cmd050304)
-        Me.TabPage7.Controls.Add(Me.cmd050303)
-        Me.TabPage7.Controls.Add(Me.cmd050205)
-        Me.TabPage7.Controls.Add(Me.cmd050204)
-        Me.TabPage7.Controls.Add(Me.cmd050203)
-        Me.TabPage7.Controls.Add(Me.cmd050105)
-        Me.TabPage7.Controls.Add(Me.cmd050104)
-        Me.TabPage7.Controls.Add(Me.cmd050206)
-        Me.TabPage7.Controls.Add(Me.cmd050306)
-        Me.TabPage7.Controls.Add(Me.cmd050106)
-        Me.TabPage7.Controls.Add(Me.cmd050802)
-        Me.TabPage7.Controls.Add(Me.cmd050801)
-        Me.TabPage7.Controls.Add(Me.cmd050702)
-        Me.TabPage7.Controls.Add(Me.cmd050704)
-        Me.TabPage7.Controls.Add(Me.cmd050705)
-        Me.TabPage7.Controls.Add(Me.cmd050602)
-        Me.TabPage7.Controls.Add(Me.cmd050604)
-        Me.TabPage7.Controls.Add(Me.cmd050605)
-        Me.TabPage7.Controls.Add(Me.cmd050601)
-        Me.TabPage7.Controls.Add(Me.cmd050502)
-        Me.TabPage7.Controls.Add(Me.cmd050504)
-        Me.TabPage7.Controls.Add(Me.cmd050505)
-        Me.TabPage7.Controls.Add(Me.cmd050501)
-        Me.TabPage7.Controls.Add(Me.cmd050302)
-        Me.TabPage7.Controls.Add(Me.cmd050301)
-        Me.TabPage7.Controls.Add(Me.cmd050202)
-        Me.TabPage7.Controls.Add(Me.cmd050201)
-        Me.TabPage7.Controls.Add(Me.cmd050102)
-        Me.TabPage7.Controls.Add(Me.cmd050103)
-        Me.TabPage7.Controls.Add(Me.cmd050101)
-        Me.TabPage7.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Size = New System.Drawing.Size(952, 500)
-        Me.TabPage7.TabIndex = 6
-        Me.TabPage7.Text = "Beverages/Ala Cart"
-        '
-        'cmd050806
-        '
-        Me.cmd050806.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050806.Location = New System.Drawing.Point(836, 416)
-        Me.cmd050806.Name = "cmd050806"
-        Me.cmd050806.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050806.TabIndex = 150
-        Me.cmd050806.Tag = ""
-        Me.cmd050806.Visible = False
-        '
-        'cmd050805
-        '
-        Me.cmd050805.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050805.Location = New System.Drawing.Point(836, 336)
-        Me.cmd050805.Name = "cmd050805"
-        Me.cmd050805.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050805.TabIndex = 149
-        Me.cmd050805.Tag = ""
-        Me.cmd050805.Visible = False
-        '
-        'cmd050804
-        '
-        Me.cmd050804.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050804.Location = New System.Drawing.Point(836, 256)
-        Me.cmd050804.Name = "cmd050804"
-        Me.cmd050804.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050804.TabIndex = 148
-        Me.cmd050804.Tag = ""
-        Me.cmd050804.Visible = False
-        '
-        'cmd050803
-        '
-        Me.cmd050803.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050803.Location = New System.Drawing.Point(836, 176)
-        Me.cmd050803.Name = "cmd050803"
-        Me.cmd050803.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050803.TabIndex = 147
-        Me.cmd050803.Tag = ""
-        Me.cmd050803.Visible = False
-        '
-        'cmd050706
-        '
-        Me.cmd050706.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050706.Location = New System.Drawing.Point(719, 416)
-        Me.cmd050706.Name = "cmd050706"
-        Me.cmd050706.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050706.TabIndex = 146
-        Me.cmd050706.Tag = ""
-        Me.cmd050706.Visible = False
-        '
-        'cmd050703
-        '
-        Me.cmd050703.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050703.Location = New System.Drawing.Point(719, 176)
-        Me.cmd050703.Name = "cmd050703"
-        Me.cmd050703.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050703.TabIndex = 145
-        Me.cmd050703.Tag = ""
-        Me.cmd050703.Visible = False
-        '
-        'cmd050701
-        '
-        Me.cmd050701.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050701.Location = New System.Drawing.Point(719, 16)
-        Me.cmd050701.Name = "cmd050701"
-        Me.cmd050701.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050701.TabIndex = 144
-        Me.cmd050701.Tag = ""
-        Me.cmd050701.Visible = False
-        '
-        'cmd050606
-        '
-        Me.cmd050606.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050606.Location = New System.Drawing.Point(602, 416)
-        Me.cmd050606.Name = "cmd050606"
-        Me.cmd050606.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050606.TabIndex = 143
-        Me.cmd050606.Tag = ""
-        Me.cmd050606.Visible = False
-        '
-        'cmd050603
-        '
-        Me.cmd050603.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050603.Location = New System.Drawing.Point(602, 176)
-        Me.cmd050603.Name = "cmd050603"
-        Me.cmd050603.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050603.TabIndex = 142
-        Me.cmd050603.Tag = ""
-        Me.cmd050603.Visible = False
-        '
-        'cmd050506
-        '
-        Me.cmd050506.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050506.Location = New System.Drawing.Point(485, 416)
-        Me.cmd050506.Name = "cmd050506"
-        Me.cmd050506.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050506.TabIndex = 141
-        Me.cmd050506.Tag = ""
-        Me.cmd050506.Visible = False
-        '
-        'cmd050503
-        '
-        Me.cmd050503.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050503.Location = New System.Drawing.Point(485, 176)
-        Me.cmd050503.Name = "cmd050503"
-        Me.cmd050503.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050503.TabIndex = 140
-        Me.cmd050503.Tag = ""
-        Me.cmd050503.Visible = False
-        '
-        'cmd050406
-        '
-        Me.cmd050406.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050406.Location = New System.Drawing.Point(368, 416)
-        Me.cmd050406.Name = "cmd050406"
-        Me.cmd050406.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050406.TabIndex = 139
-        Me.cmd050406.Tag = ""
-        Me.cmd050406.Visible = False
-        '
-        'cmd050405
-        '
-        Me.cmd050405.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050405.Location = New System.Drawing.Point(368, 336)
-        Me.cmd050405.Name = "cmd050405"
-        Me.cmd050405.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050405.TabIndex = 138
-        Me.cmd050405.Tag = ""
-        Me.cmd050405.Visible = False
-        '
-        'cmd050404
-        '
-        Me.cmd050404.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050404.Location = New System.Drawing.Point(368, 256)
-        Me.cmd050404.Name = "cmd050404"
-        Me.cmd050404.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050404.TabIndex = 137
-        Me.cmd050404.Tag = ""
-        Me.cmd050404.Visible = False
-        '
-        'cmd050403
-        '
-        Me.cmd050403.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050403.Location = New System.Drawing.Point(368, 176)
-        Me.cmd050403.Name = "cmd050403"
-        Me.cmd050403.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050403.TabIndex = 136
-        Me.cmd050403.Tag = ""
-        Me.cmd050403.Visible = False
-        '
-        'cmd050402
-        '
-        Me.cmd050402.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050402.Location = New System.Drawing.Point(368, 96)
-        Me.cmd050402.Name = "cmd050402"
-        Me.cmd050402.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050402.TabIndex = 135
-        Me.cmd050402.Tag = ""
-        Me.cmd050402.Visible = False
-        '
-        'cmd050401
-        '
-        Me.cmd050401.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050401.Location = New System.Drawing.Point(368, 16)
-        Me.cmd050401.Name = "cmd050401"
-        Me.cmd050401.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050401.TabIndex = 134
-        Me.cmd050401.Tag = ""
-        Me.cmd050401.Visible = False
-        '
-        'cmd050305
-        '
-        Me.cmd050305.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050305.Location = New System.Drawing.Point(251, 336)
-        Me.cmd050305.Name = "cmd050305"
-        Me.cmd050305.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050305.TabIndex = 133
-        Me.cmd050305.Tag = ""
-        Me.cmd050305.Visible = False
-        '
-        'cmd050304
-        '
-        Me.cmd050304.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050304.Location = New System.Drawing.Point(251, 256)
-        Me.cmd050304.Name = "cmd050304"
-        Me.cmd050304.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050304.TabIndex = 132
-        Me.cmd050304.Tag = ""
-        Me.cmd050304.Visible = False
-        '
-        'cmd050303
-        '
-        Me.cmd050303.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050303.Location = New System.Drawing.Point(251, 176)
-        Me.cmd050303.Name = "cmd050303"
-        Me.cmd050303.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050303.TabIndex = 131
-        Me.cmd050303.Tag = ""
-        Me.cmd050303.Visible = False
-        '
-        'cmd050205
-        '
-        Me.cmd050205.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050205.Location = New System.Drawing.Point(134, 336)
-        Me.cmd050205.Name = "cmd050205"
-        Me.cmd050205.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050205.TabIndex = 130
-        Me.cmd050205.Tag = ""
-        Me.cmd050205.Visible = False
-        '
-        'cmd050204
-        '
-        Me.cmd050204.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050204.Location = New System.Drawing.Point(134, 256)
-        Me.cmd050204.Name = "cmd050204"
-        Me.cmd050204.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050204.TabIndex = 129
-        Me.cmd050204.Tag = ""
-        Me.cmd050204.Visible = False
-        '
-        'cmd050203
-        '
-        Me.cmd050203.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050203.Location = New System.Drawing.Point(134, 176)
-        Me.cmd050203.Name = "cmd050203"
-        Me.cmd050203.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050203.TabIndex = 128
-        Me.cmd050203.Tag = ""
-        Me.cmd050203.Visible = False
-        '
-        'cmd050105
-        '
-        Me.cmd050105.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050105.Location = New System.Drawing.Point(17, 336)
-        Me.cmd050105.Name = "cmd050105"
-        Me.cmd050105.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050105.TabIndex = 127
-        Me.cmd050105.Tag = ""
-        Me.cmd050105.Visible = False
-        '
-        'cmd050104
-        '
-        Me.cmd050104.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050104.Location = New System.Drawing.Point(17, 256)
-        Me.cmd050104.Name = "cmd050104"
-        Me.cmd050104.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050104.TabIndex = 126
-        Me.cmd050104.Tag = ""
-        Me.cmd050104.Visible = False
-        '
-        'cmd050206
-        '
-        Me.cmd050206.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050206.Image = CType(resources.GetObject("cmd050206.Image"), System.Drawing.Image)
-        Me.cmd050206.Location = New System.Drawing.Point(134, 416)
-        Me.cmd050206.Name = "cmd050206"
-        Me.cmd050206.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050206.TabIndex = 109
-        Me.cmd050206.Tag = "itm016"
-        Me.cmd050206.Visible = False
-        '
-        'cmd050306
-        '
-        Me.cmd050306.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050306.Image = CType(resources.GetObject("cmd050306.Image"), System.Drawing.Image)
-        Me.cmd050306.Location = New System.Drawing.Point(251, 416)
-        Me.cmd050306.Name = "cmd050306"
-        Me.cmd050306.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050306.TabIndex = 108
-        Me.cmd050306.Tag = "itm017"
-        Me.cmd050306.Visible = False
-        '
-        'cmd050106
-        '
-        Me.cmd050106.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050106.Image = CType(resources.GetObject("cmd050106.Image"), System.Drawing.Image)
-        Me.cmd050106.Location = New System.Drawing.Point(17, 416)
-        Me.cmd050106.Name = "cmd050106"
-        Me.cmd050106.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050106.TabIndex = 107
-        Me.cmd050106.Tag = "itm015"
-        Me.cmd050106.Visible = False
-        '
-        'cmd050802
-        '
-        Me.cmd050802.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050802.Image = CType(resources.GetObject("cmd050802.Image"), System.Drawing.Image)
-        Me.cmd050802.Location = New System.Drawing.Point(836, 96)
-        Me.cmd050802.Name = "cmd050802"
-        Me.cmd050802.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050802.TabIndex = 106
-        Me.cmd050802.Tag = "itm135"
-        Me.cmd050802.Visible = False
-        '
-        'cmd050801
-        '
-        Me.cmd050801.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050801.Image = CType(resources.GetObject("cmd050801.Image"), System.Drawing.Image)
-        Me.cmd050801.Location = New System.Drawing.Point(836, 16)
-        Me.cmd050801.Name = "cmd050801"
-        Me.cmd050801.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050801.TabIndex = 102
-        Me.cmd050801.Tag = "itm136"
-        Me.cmd050801.Visible = False
-        '
-        'cmd050702
-        '
-        Me.cmd050702.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050702.Image = CType(resources.GetObject("cmd050702.Image"), System.Drawing.Image)
-        Me.cmd050702.Location = New System.Drawing.Point(719, 96)
-        Me.cmd050702.Name = "cmd050702"
-        Me.cmd050702.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050702.TabIndex = 101
-        Me.cmd050702.Tag = "itm140"
-        Me.cmd050702.Visible = False
-        '
-        'cmd050704
-        '
-        Me.cmd050704.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050704.Image = CType(resources.GetObject("cmd050704.Image"), System.Drawing.Image)
-        Me.cmd050704.Location = New System.Drawing.Point(719, 256)
-        Me.cmd050704.Name = "cmd050704"
-        Me.cmd050704.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050704.TabIndex = 99
-        Me.cmd050704.Tag = "itm139"
-        Me.cmd050704.Visible = False
-        '
-        'cmd050705
-        '
-        Me.cmd050705.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050705.Image = CType(resources.GetObject("cmd050705.Image"), System.Drawing.Image)
-        Me.cmd050705.Location = New System.Drawing.Point(719, 336)
-        Me.cmd050705.Name = "cmd050705"
-        Me.cmd050705.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050705.TabIndex = 98
-        Me.cmd050705.Tag = "itm145"
-        Me.cmd050705.Visible = False
-        '
-        'cmd050602
-        '
-        Me.cmd050602.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050602.Image = CType(resources.GetObject("cmd050602.Image"), System.Drawing.Image)
-        Me.cmd050602.Location = New System.Drawing.Point(602, 96)
-        Me.cmd050602.Name = "cmd050602"
-        Me.cmd050602.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050602.TabIndex = 96
-        Me.cmd050602.Tag = "itm143"
-        Me.cmd050602.Visible = False
-        '
-        'cmd050604
-        '
-        Me.cmd050604.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050604.Image = CType(resources.GetObject("cmd050604.Image"), System.Drawing.Image)
-        Me.cmd050604.Location = New System.Drawing.Point(602, 256)
-        Me.cmd050604.Name = "cmd050604"
-        Me.cmd050604.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050604.TabIndex = 94
-        Me.cmd050604.Tag = "itm137"
-        Me.cmd050604.Visible = False
-        '
-        'cmd050605
-        '
-        Me.cmd050605.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050605.Image = CType(resources.GetObject("cmd050605.Image"), System.Drawing.Image)
-        Me.cmd050605.Location = New System.Drawing.Point(602, 336)
-        Me.cmd050605.Name = "cmd050605"
-        Me.cmd050605.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050605.TabIndex = 93
-        Me.cmd050605.Tag = "itm138"
-        Me.cmd050605.Visible = False
-        '
-        'cmd050601
-        '
-        Me.cmd050601.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050601.Image = CType(resources.GetObject("cmd050601.Image"), System.Drawing.Image)
-        Me.cmd050601.Location = New System.Drawing.Point(602, 16)
-        Me.cmd050601.Name = "cmd050601"
-        Me.cmd050601.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050601.TabIndex = 92
-        Me.cmd050601.Tag = "itm144"
-        Me.cmd050601.Visible = False
-        '
-        'cmd050502
-        '
-        Me.cmd050502.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050502.Image = CType(resources.GetObject("cmd050502.Image"), System.Drawing.Image)
-        Me.cmd050502.Location = New System.Drawing.Point(485, 96)
-        Me.cmd050502.Name = "cmd050502"
-        Me.cmd050502.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050502.TabIndex = 91
-        Me.cmd050502.Tag = "itm141"
-        Me.cmd050502.Visible = False
-        '
-        'cmd050504
-        '
-        Me.cmd050504.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050504.Image = CType(resources.GetObject("cmd050504.Image"), System.Drawing.Image)
-        Me.cmd050504.Location = New System.Drawing.Point(485, 256)
-        Me.cmd050504.Name = "cmd050504"
-        Me.cmd050504.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050504.TabIndex = 89
-        Me.cmd050504.Tag = "itm134"
-        Me.cmd050504.Visible = False
-        '
-        'cmd050505
-        '
-        Me.cmd050505.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050505.Image = CType(resources.GetObject("cmd050505.Image"), System.Drawing.Image)
-        Me.cmd050505.Location = New System.Drawing.Point(485, 336)
-        Me.cmd050505.Name = "cmd050505"
-        Me.cmd050505.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050505.TabIndex = 88
-        Me.cmd050505.Tag = "itm133"
-        Me.cmd050505.Visible = False
-        '
-        'cmd050501
-        '
-        Me.cmd050501.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050501.Image = CType(resources.GetObject("cmd050501.Image"), System.Drawing.Image)
-        Me.cmd050501.Location = New System.Drawing.Point(485, 16)
-        Me.cmd050501.Name = "cmd050501"
-        Me.cmd050501.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050501.TabIndex = 87
-        Me.cmd050501.Tag = "itm142"
-        Me.cmd050501.Visible = False
-        '
-        'cmd050302
-        '
-        Me.cmd050302.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050302.Image = CType(resources.GetObject("cmd050302.Image"), System.Drawing.Image)
-        Me.cmd050302.Location = New System.Drawing.Point(251, 96)
-        Me.cmd050302.Name = "cmd050302"
-        Me.cmd050302.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050302.TabIndex = 81
-        Me.cmd050302.Tag = "itm151"
-        Me.cmd050302.Visible = False
-        '
-        'cmd050301
-        '
-        Me.cmd050301.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050301.Image = CType(resources.GetObject("cmd050301.Image"), System.Drawing.Image)
-        Me.cmd050301.Location = New System.Drawing.Point(251, 16)
-        Me.cmd050301.Name = "cmd050301"
-        Me.cmd050301.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050301.TabIndex = 77
-        Me.cmd050301.Tag = "itm152"
-        Me.cmd050301.Visible = False
-        '
-        'cmd050202
-        '
-        Me.cmd050202.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050202.Image = CType(resources.GetObject("cmd050202.Image"), System.Drawing.Image)
-        Me.cmd050202.Location = New System.Drawing.Point(134, 96)
-        Me.cmd050202.Name = "cmd050202"
-        Me.cmd050202.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050202.TabIndex = 76
-        Me.cmd050202.Tag = "itm149"
-        Me.cmd050202.Visible = False
-        '
-        'cmd050201
-        '
-        Me.cmd050201.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050201.Image = CType(resources.GetObject("cmd050201.Image"), System.Drawing.Image)
-        Me.cmd050201.Location = New System.Drawing.Point(134, 16)
-        Me.cmd050201.Name = "cmd050201"
-        Me.cmd050201.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050201.TabIndex = 72
-        Me.cmd050201.Tag = "itm150"
-        Me.cmd050201.Visible = False
-        '
-        'cmd050102
-        '
-        Me.cmd050102.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050102.Image = CType(resources.GetObject("cmd050102.Image"), System.Drawing.Image)
-        Me.cmd050102.Location = New System.Drawing.Point(17, 96)
-        Me.cmd050102.Name = "cmd050102"
-        Me.cmd050102.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050102.TabIndex = 63
-        Me.cmd050102.Tag = "itm147"
-        Me.cmd050102.Visible = False
-        '
-        'cmd050103
-        '
-        Me.cmd050103.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050103.Image = CType(resources.GetObject("cmd050103.Image"), System.Drawing.Image)
-        Me.cmd050103.Location = New System.Drawing.Point(17, 176)
-        Me.cmd050103.Name = "cmd050103"
-        Me.cmd050103.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050103.TabIndex = 62
-        Me.cmd050103.Tag = "itm148"
-        Me.cmd050103.Visible = False
-        '
-        'cmd050101
-        '
-        Me.cmd050101.Font = New System.Drawing.Font("Impact", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd050101.Image = CType(resources.GetObject("cmd050101.Image"), System.Drawing.Image)
-        Me.cmd050101.Location = New System.Drawing.Point(17, 16)
-        Me.cmd050101.Name = "cmd050101"
-        Me.cmd050101.Size = New System.Drawing.Size(96, 64)
-        Me.cmd050101.TabIndex = 59
-        Me.cmd050101.Tag = "itm146"
-        Me.cmd050101.Visible = False
-        '
         'TabPage4
         '
         Me.TabPage4.BackgroundImage = CType(resources.GetObject("TabPage4.BackgroundImage"), System.Drawing.Image)
@@ -3850,7 +2531,7 @@ Public Class POS
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Size = New System.Drawing.Size(952, 500)
         Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Appetizers"
+        Me.TabPage4.Text = "Specials"
         '
         'cmd060806
         '
@@ -5446,7 +4127,7 @@ Public Class POS
         'cmdCloseTable
         '
         Me.cmdCloseTable.Font = New System.Drawing.Font("Impact", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdCloseTable.Location = New System.Drawing.Point(544, 628)
+        Me.cmdCloseTable.Location = New System.Drawing.Point(544, 679)
         Me.cmdCloseTable.Name = "cmdCloseTable"
         Me.cmdCloseTable.Size = New System.Drawing.Size(280, 48)
         Me.cmdCloseTable.TabIndex = 20
@@ -5651,12 +4332,23 @@ Public Class POS
         Me.lblTotals.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.lblTotals.Visible = False
         '
+        'PrintDocument1
+        '
+        '
+        'cmdSandwiches
+        '
+        Me.cmdSandwiches.Location = New System.Drawing.Point(392, 681)
+        Me.cmdSandwiches.Name = "cmdSandwiches"
+        Me.cmdSandwiches.Size = New System.Drawing.Size(136, 48)
+        Me.cmdSandwiches.TabIndex = 41
+        Me.cmdSandwiches.Text = "Sandwiches"
+        '
         'POS
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1292, 732)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.cmdSandwiches)
         Me.Controls.Add(Me.lblTotals)
         Me.Controls.Add(Me.cmdDrinks)
         Me.Controls.Add(Me.guest8)
@@ -5689,6 +4381,7 @@ Public Class POS
         Me.Controls.Add(Me.cmdCloseTable)
         Me.Controls.Add(Me.dgvOrder)
         Me.Controls.Add(Me.cmdPrint)
+        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "POS"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -5697,8 +4390,6 @@ Public Class POS
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
-        Me.TabPage5.ResumeLayout(False)
-        Me.TabPage7.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         CType(Me.dgvOrder, System.ComponentModel.ISupportInitialize).EndInit()
@@ -5846,7 +4537,7 @@ Public Class POS
         End If
 
 
-        
+
 
 
         'If Active.Computer = "BAR" Then
@@ -6050,7 +4741,7 @@ Public Class POS
         Update_Screen()
     End Sub
 
-    Private Sub Item_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmd010101.Click, cmd010102.Click, cmd010103.Click, cmd010104.Click, cmd010105.Click, cmd010106.Click, cmd010201.Click, cmd010202.Click, cmd010203.Click, cmd010204.Click, cmd010205.Click, cmd010206.Click, cmd010301.Click, cmd010302.Click, cmd010303.Click, cmd010304.Click, cmd010305.Click, cmd010306.Click, cmd010401.Click, cmd010402.Click, cmd010403.Click, cmd010404.Click, cmd010405.Click, cmd010406.Click, cmd010501.Click, cmd010502.Click, cmd010503.Click, cmd010504.Click, cmd010505.Click, cmd010506.Click, cmd010601.Click, cmd010602.Click, cmd010603.Click, cmd010604.Click, cmd010605.Click, cmd010606.Click, cmd010701.Click, cmd010702.Click, cmd010703.Click, cmd010704.Click, cmd010705.Click, cmd010706.Click, cmd010801.Click, cmd010802.Click, cmd010803.Click, cmd010804.Click, cmd010805.Click, cmd010806.Click, cmd020101.Click, cmd020102.Click, cmd020103.Click, cmd020104.Click, cmd020105.Click, cmd020106.Click, cmd020201.Click, cmd020202.Click, cmd020203.Click, cmd020204.Click, cmd020205.Click, cmd020206.Click, cmd020301.Click, cmd020302.Click, cmd020303.Click, cmd020304.Click, cmd020305.Click, cmd020306.Click, cmd020401.Click, cmd020402.Click, cmd020403.Click, cmd020404.Click, cmd020405.Click, cmd020406.Click, cmd020501.Click, cmd020502.Click, cmd020503.Click, cmd020504.Click, cmd020505.Click, cmd020506.Click, cmd020601.Click, cmd020602.Click, cmd020603.Click, cmd020604.Click, cmd020605.Click, cmd020606.Click, cmd020701.Click, cmd020702.Click, cmd020703.Click, cmd020704.Click, cmd020705.Click, cmd020706.Click, cmd020801.Click, cmd020802.Click, cmd020803.Click, cmd020804.Click, cmd020805.Click, cmd020806.Click, cmd030101.Click, cmd030102.Click, cmd030103.Click, cmd030104.Click, cmd030105.Click, cmd030106.Click, cmd030201.Click, cmd030202.Click, cmd030203.Click, cmd030204.Click, cmd030205.Click, cmd030206.Click, cmd030301.Click, cmd030302.Click, cmd030303.Click, cmd030304.Click, cmd030305.Click, cmd030306.Click, cmd030401.Click, cmd030402.Click, cmd030403.Click, cmd030404.Click, cmd030405.Click, cmd030406.Click, cmd030501.Click, cmd030502.Click, cmd030503.Click, cmd030504.Click, cmd030505.Click, cmd030506.Click, cmd030601.Click, cmd030602.Click, cmd030603.Click, cmd030604.Click, cmd030605.Click, cmd030606.Click, cmd030701.Click, cmd030702.Click, cmd030703.Click, cmd030704.Click, cmd030705.Click, cmd030706.Click, cmd030801.Click, cmd030802.Click, cmd030803.Click, cmd030804.Click, cmd030805.Click, cmd030806.Click, cmd040101.Click, cmd040102.Click, cmd040103.Click, cmd040104.Click, cmd040105.Click, cmd040106.Click, cmd040201.Click, cmd040202.Click, cmd040203.Click, cmd040204.Click, cmd040205.Click, cmd040206.Click, cmd040301.Click, cmd040302.Click, cmd040303.Click, cmd040304.Click, cmd040305.Click, cmd040306.Click, cmd040401.Click, cmd040402.Click, cmd040403.Click, cmd040404.Click, cmd040405.Click, cmd040406.Click, cmd040501.Click, cmd040502.Click, cmd040503.Click, cmd040504.Click, cmd040505.Click, cmd040506.Click, cmd040601.Click, cmd040602.Click, cmd040603.Click, cmd040604.Click, cmd040605.Click, cmd040606.Click, cmd040701.Click, cmd040702.Click, cmd040703.Click, cmd040704.Click, cmd040705.Click, cmd040706.Click, cmd040801.Click, cmd040802.Click, cmd040803.Click, cmd040804.Click, cmd040805.Click, cmd040806.Click, cmd050101.Click, cmd050102.Click, cmd050103.Click, cmd050104.Click, cmd050105.Click, cmd050106.Click, cmd050201.Click, cmd050202.Click, cmd050203.Click, cmd050204.Click, cmd050205.Click, cmd050206.Click, cmd050301.Click, cmd050302.Click, cmd050303.Click, cmd050304.Click, cmd050305.Click, cmd050306.Click, cmd050401.Click, cmd050402.Click, cmd050403.Click, cmd050404.Click, cmd050405.Click, cmd050406.Click, cmd050501.Click, cmd050502.Click, cmd050503.Click, cmd050504.Click, cmd050505.Click, cmd050506.Click, cmd050601.Click, cmd050602.Click, cmd050603.Click, cmd050604.Click, cmd050605.Click, cmd050606.Click, cmd050701.Click, cmd050702.Click, cmd050703.Click, cmd050704.Click, cmd050705.Click, cmd050706.Click, cmd050801.Click, cmd050802.Click, cmd050803.Click, cmd050804.Click, cmd050805.Click, cmd050806.Click, cmd060101.Click, cmd060102.Click, cmd060103.Click, cmd060104.Click, cmd060105.Click, cmd060106.Click, cmd060201.Click, cmd060202.Click, cmd060203.Click, cmd060204.Click, cmd060205.Click, cmd060206.Click, cmd060301.Click, cmd060302.Click, cmd060303.Click, cmd060304.Click, cmd060305.Click, cmd060306.Click, cmd060401.Click, cmd060402.Click, cmd060403.Click, cmd060404.Click, cmd060405.Click, cmd060406.Click, cmd060501.Click, cmd060502.Click, cmd060503.Click, cmd060504.Click, cmd060505.Click, cmd060506.Click, cmd060601.Click, cmd060602.Click, cmd060603.Click, cmd060604.Click, cmd060605.Click, cmd060606.Click, cmd060701.Click, cmd060702.Click, cmd060703.Click, cmd060704.Click, cmd060705.Click, cmd060706.Click, cmd060801.Click, cmd060802.Click, cmd060803.Click, cmd060804.Click, cmd060805.Click, cmd060806.Click
+    Private Sub Item_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmd010101.Click, cmd010102.Click, cmd010103.Click, cmd010104.Click, cmd010105.Click, cmd010106.Click, cmd010201.Click, cmd010202.Click, cmd010203.Click, cmd010204.Click, cmd010205.Click, cmd010206.Click, cmd010301.Click, cmd010302.Click, cmd010303.Click, cmd010304.Click, cmd010305.Click, cmd010306.Click, cmd010401.Click, cmd010402.Click, cmd010403.Click, cmd010404.Click, cmd010405.Click, cmd010406.Click, cmd010501.Click, cmd010502.Click, cmd010503.Click, cmd010504.Click, cmd010505.Click, cmd010506.Click, cmd010601.Click, cmd010602.Click, cmd010603.Click, cmd010604.Click, cmd010605.Click, cmd010606.Click, cmd010701.Click, cmd010702.Click, cmd010703.Click, cmd010704.Click, cmd010705.Click, cmd010706.Click, cmd010801.Click, cmd010802.Click, cmd010803.Click, cmd010804.Click, cmd010805.Click, cmd010806.Click, cmd020101.Click, cmd020102.Click, cmd020103.Click, cmd020104.Click, cmd020105.Click, cmd020106.Click, cmd020201.Click, cmd020202.Click, cmd020203.Click, cmd020204.Click, cmd020205.Click, cmd020206.Click, cmd020301.Click, cmd020302.Click, cmd020303.Click, cmd020304.Click, cmd020305.Click, cmd020306.Click, cmd020401.Click, cmd020402.Click, cmd020403.Click, cmd020404.Click, cmd020405.Click, cmd020406.Click, cmd020501.Click, cmd020502.Click, cmd020503.Click, cmd020504.Click, cmd020505.Click, cmd020506.Click, cmd020601.Click, cmd020602.Click, cmd020603.Click, cmd020604.Click, cmd020605.Click, cmd020606.Click, cmd020701.Click, cmd020702.Click, cmd020703.Click, cmd020704.Click, cmd020705.Click, cmd020706.Click, cmd020801.Click, cmd020802.Click, cmd020803.Click, cmd020804.Click, cmd020805.Click, cmd020806.Click, cmd030101.Click, cmd030102.Click, cmd030103.Click, cmd030104.Click, cmd030105.Click, cmd030106.Click, cmd030201.Click, cmd030202.Click, cmd030203.Click, cmd030204.Click, cmd030205.Click, cmd030206.Click, cmd030301.Click, cmd030302.Click, cmd030303.Click, cmd030304.Click, cmd030305.Click, cmd030306.Click, cmd030401.Click, cmd030402.Click, cmd030403.Click, cmd030404.Click, cmd030405.Click, cmd030406.Click, cmd030501.Click, cmd030502.Click, cmd030503.Click, cmd030504.Click, cmd030505.Click, cmd030506.Click, cmd030601.Click, cmd030602.Click, cmd030603.Click, cmd030604.Click, cmd030605.Click, cmd030606.Click, cmd030701.Click, cmd030702.Click, cmd030703.Click, cmd030704.Click, cmd030705.Click, cmd030706.Click, cmd030801.Click, cmd030802.Click, cmd030803.Click, cmd030804.Click, cmd030805.Click, cmd030806.Click, cmd060101.Click, cmd060102.Click, cmd060103.Click, cmd060104.Click, cmd060105.Click, cmd060106.Click, cmd060201.Click, cmd060202.Click, cmd060203.Click, cmd060204.Click, cmd060205.Click, cmd060206.Click, cmd060301.Click, cmd060302.Click, cmd060303.Click, cmd060304.Click, cmd060305.Click, cmd060306.Click, cmd060401.Click, cmd060402.Click, cmd060403.Click, cmd060404.Click, cmd060405.Click, cmd060406.Click, cmd060501.Click, cmd060502.Click, cmd060503.Click, cmd060504.Click, cmd060505.Click, cmd060506.Click, cmd060601.Click, cmd060602.Click, cmd060603.Click, cmd060604.Click, cmd060605.Click, cmd060606.Click, cmd060701.Click, cmd060702.Click, cmd060703.Click, cmd060704.Click, cmd060705.Click, cmd060706.Click, cmd060801.Click, cmd060802.Click, cmd060803.Click, cmd060804.Click, cmd060805.Click, cmd060806.Click
 
         d.AddFoodItem(Active.Ticket, Active.Guest, Mid(sender.Tag, 4, 3))
         Update_Order()
@@ -6240,5 +4931,194 @@ Public Class POS
     Private Sub cmdCloseTable_Click(sender As System.Object, e As System.EventArgs) Handles cmdCloseTable.Click
         Dim formCloseTable As New CloseTableNew
         formCloseTable.ShowDialog()
+    End Sub
+
+    Dim TextToPrint As String = ""
+
+    Public Sub PrintHeader()
+
+        TextToPrint = ""
+
+        'send Business Name
+        Dim StringToPrint As String = "Business Name"
+        Dim LineLen As Integer = StringToPrint.Length
+        Dim spcLen1 As New String(" "c, Math.Round((33 - LineLen) / 2)) 'This line is used to center text in the middle of the receipt
+        TextToPrint &= spcLen1 & StringToPrint & Environment.NewLine
+
+        'send address name
+        StringToPrint = "12345 Street Avenue"
+        LineLen = StringToPrint.Length
+        Dim spcLen2 As New String(" "c, Math.Round((33 - LineLen) / 2))
+        TextToPrint &= spcLen2 & StringToPrint & Environment.NewLine
+
+        ' send city, state, zip
+        StringToPrint = "City, State, Zip code"
+        LineLen = StringToPrint.Length
+        Dim spcLen3 As New String(" "c, Math.Round((33 - LineLen) / 2))
+        TextToPrint &= spcLen3 & StringToPrint & Environment.NewLine
+
+        ' send phone number
+        StringToPrint = "999-999-9999"
+        LineLen = StringToPrint.Length
+        Dim spcLen4 As New String(" "c, Math.Round((33 - LineLen) / 2))
+        TextToPrint &= spcLen4 & StringToPrint & Environment.NewLine
+
+        'send website
+        StringToPrint = "website.com"
+        LineLen = StringToPrint.Length
+        Dim spcLen4b As New String(" "c, Math.Round((33 - LineLen) / 2))
+        TextToPrint &= spcLen4b & StringToPrint & Environment.NewLine
+
+    End Sub
+
+    Public Sub ItemsToBePrinted()
+
+
+        Dim StringToPrint As String = "    " & "1" & " @ " & "3.99" & "         " & "3.99"
+        Dim LineLen As String = StringToPrint.Length
+        Dim spcLen5 As New String(" "c, Math.Round((30 - LineLen)))
+
+
+        TextToPrint &= "Description" & Environment.NewLine
+        TextToPrint &= StringToPrint & Environment.NewLine
+
+    End Sub
+
+    Public Sub printFooter()
+        TextToPrint &= Environment.NewLine & Environment.NewLine
+        Dim globalLengt As Integer = 0
+
+        'SubTotal Amount
+        Dim StringToPrint As String = "Sub Total   " & FormatCurrency("3.99", , , TriState.True, TriState.True)  'Change here to subtotal
+        Dim LineLen As String = StringToPrint.Length
+        globalLengt = StringToPrint.Length
+        Dim spcLen5 As New String(" "c, Math.Round((26 - LineLen)))
+        TextToPrint &= Environment.NewLine & spcLen5 & StringToPrint & Environment.NewLine
+
+        'Tax Amount
+        StringToPrint = "Tax         " & FormatCurrency("0.05", , , TriState.True, TriState.True) 'Change to tax amount
+        LineLen = globalLengt
+        Dim spcLen6 As New String(" "c, Math.Round((26 - LineLen)))
+        If Not StringToPrint = "Tax         $0.00" Then
+            TextToPrint &= spcLen6 & StringToPrint & Environment.NewLine
+        End If
+
+        'Total Amount
+        StringToPrint = "Total       " & "$4.04"
+        LineLen = globalLengt
+        Dim spcLen8 As New String(" "c, Math.Round((26 - LineLen)))
+        TextToPrint &= spcLen8 & StringToPrint & Environment.NewLine & Environment.NewLine
+
+        'Cash Entered Amount
+        StringToPrint = "Cash        " & FormatCurrency("5.00", , , TriState.True, TriState.True)
+        LineLen = globalLengt
+        Dim spcLen9 As New String(" "c, Math.Round((26 - LineLen)))
+        If Not StringToPrint = "Cash        $0.00" Then
+            TextToPrint &= spcLen9 & StringToPrint & Environment.NewLine
+        End If
+
+        'Change Amount
+        StringToPrint = "Change      " & FormatCurrency("0.96", , , TriState.True, TriState.True)
+        LineLen = globalLengt
+        Dim spcLen10 As New String(" "c, Math.Round((26 - LineLen)))
+        TextToPrint &= Environment.NewLine & spcLen10 & StringToPrint & Environment.NewLine
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        Static currentChar As Integer
+        Dim textfont As Font = New Font("Courier New", 10, FontStyle.Bold)
+
+        Dim h, w As Integer
+        Dim left, top As Integer
+        With PrintDocument1.DefaultPageSettings
+            h = 0
+            w = 0
+            left = 0
+            top = 0
+        End With
+
+
+        Dim lines As Integer = CInt(Math.Round(h / 1))
+        Dim b As New Rectangle(left, top, w, h)
+        Dim format As StringFormat
+        format = New StringFormat(StringFormatFlags.LineLimit)
+        Dim line, chars As Integer
+
+
+        e.Graphics.MeasureString(Mid(TextToPrint, currentChar + 1), textfont, New SizeF(w, h), format, chars, line)
+        e.Graphics.DrawString(TextToPrint.Substring(currentChar, chars), New Font("Courier New", 10, FontStyle.Bold), Brushes.Black, b, format)
+
+
+        currentChar = currentChar + chars
+        If currentChar < TextToPrint.Length Then
+            e.HasMorePages = True
+        Else
+            e.HasMorePages = False
+            currentChar = 0
+        End If
+    End Sub
+
+
+
+    Private Sub cmdPrint_Click(sender As System.Object, e As System.EventArgs) Handles cmdPrint.Click
+        PrintDocument1.PrinterSettings.PrinterName = "Receipt1"
+        PrintHeader()
+        ItemsToBePrinted()
+        printFooter()
+        Dim printControl As Printing.StandardPrintController = New Printing.StandardPrintController
+        PrintDocument1.PrintController = printControl
+        Try
+            PrintDocument1.Print()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
+
+    Private Sub cmdRemoveTable_Click(sender As System.Object, e As System.EventArgs) Handles cmdRemoveTable.Click
+        PrintDocument1.PrinterSettings.PrinterName = "Receipt1"
+        PrintAChar(0)
+
+    End Sub
+
+    Private Sub PrintAChar(C As Integer)
+
+        TextToPrint = Chr(C)
+        Dim printControl As Printing.StandardPrintController = New Printing.StandardPrintController
+        PrintDocument1.PrintController = printControl
+        Try
+            PrintDocument1.Print()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        If MsgBox(C & " just printed... Want to keep going?", vbYesNo, "Confirmation") = MsgBoxResult.Yes Then
+            PrintAChar(C + 1)
+        End If
+    End Sub
+
+    Private Sub cmdOpen_Click(sender As System.Object, e As System.EventArgs) Handles cmdOpen.Click
+        'Process.Start("cmd", "/k echo  > COM1")
+        'Dim wsh As Object
+        Dim wsh As Object = CreateObject("WScript.Shell")
+        Dim waitOnReturn As Boolean : waitOnReturn = True
+        Dim windowStyle As Integer : windowStyle = 1
+
+        wsh.Run("cmd.exe /S /C echo " & Chr(7) & " test", windowStyle, waitOnReturn)
+    End Sub
+
+    Public Sub OpenCashdrawer()
+        'Modify DrawerCode to your receipt printer open drawer code
+        Dim DrawerCode As String = Chr(27) & Chr(112) & Chr(48) & Chr(64) & Chr(64)
+        'Modify PrinterName to your receipt printer name
+        Dim PrinterName As String = "Your receipt printer name"
+
+        RawPrinter.PrintRaw(PrinterName, DrawerCode)
+    End Sub
+
+    Private Sub cmdSandwiches_Click(sender As System.Object, e As System.EventArgs) Handles cmdSandwiches.Click
+        Dim printRpt As New printReport
+        printRpt.PrintSammys()
     End Sub
 End Class

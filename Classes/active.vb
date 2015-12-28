@@ -25,7 +25,7 @@ Module Active
         Guests.Clear()
 
         If Computer = "BAR" Then
-            OrderType = "Drinks"
+            OrderType = "Food"
         ElseIf Computer = "SERVER" Then
             OrderType = "Food"
         End If

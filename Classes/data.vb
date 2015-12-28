@@ -1,5 +1,5 @@
 ﻿Module data
-    Private Function ReadFromFile(ByVal FileName As String) As String
+    Public Function ReadFromFile(ByVal FileName As String) As String
         Dim TextLine As String = ""
 
         If System.IO.File.Exists(FileName) = True Then
