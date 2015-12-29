@@ -4704,7 +4704,6 @@ Public Class POS
     End Sub
 
     Private Sub POS_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.WindowState = FormWindowState.Maximized
         data.SetComputerToDefault()
 
         ds = data.GetData("SELECT MENU_ITEMS.MENU_NUM AS MenuNum, MENU_ITEMS.COLUMN AS ItemColumn, MENU_ITEMS.ROW AS ItemRow, MENU_ITEMS.ITEM_NUM AS ItemNum, COLORS.COLOR_NAME AS Color, ITEM.ITEM_NAME AS ItemName FROM COLORS INNER JOIN (ITEM INNER JOIN MENU_ITEMS ON ITEM.[ITEM_NUM] = MENU_ITEMS.[ITEM_NUM]) ON COLORS.COLOR_NUM = MENU_ITEMS.COLOR_NUM ORDER BY MENU_ITEMS.MENU_NUM, MENU_ITEMS.COLUMN, MENU_ITEMS.ROW")
