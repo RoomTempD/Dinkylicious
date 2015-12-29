@@ -5061,7 +5061,7 @@ Public Class POS
 
 
     Private Sub cmdPrint_Click(sender As System.Object, e As System.EventArgs) Handles cmdPrint.Click
-        PrintDocument1.PrinterSettings.PrinterName = "Receipt1"
+        PrintDocument1.PrinterSettings.PrinterName = "Star"
         PrintHeader()
         ItemsToBePrinted()
         printFooter()
@@ -5077,7 +5077,7 @@ Public Class POS
 
 
     Private Sub cmdRemoveTable_Click(sender As System.Object, e As System.EventArgs) Handles cmdRemoveTable.Click
-        PrintDocument1.PrinterSettings.PrinterName = "Receipt1"
+        PrintDocument1.PrinterSettings.PrinterName = "Star"
         PrintAChar(0)
 
     End Sub
