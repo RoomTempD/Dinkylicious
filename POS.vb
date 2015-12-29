@@ -4704,6 +4704,7 @@ Public Class POS
     End Sub
 
     Private Sub POS_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.WindowState = FormWindowState.Maximized
         data.SetComputerToDefault()
 
         ds = data.GetData("SELECT MENU_ITEMS.MENU_NUM AS MenuNum, MENU_ITEMS.COLUMN AS ItemColumn, MENU_ITEMS.ROW AS ItemRow, MENU_ITEMS.ITEM_NUM AS ItemNum, COLORS.COLOR_NAME AS Color, ITEM.ITEM_NAME AS ItemName FROM COLORS INNER JOIN (ITEM INNER JOIN MENU_ITEMS ON ITEM.[ITEM_NUM] = MENU_ITEMS.[ITEM_NUM]) ON COLORS.COLOR_NUM = MENU_ITEMS.COLOR_NUM ORDER BY MENU_ITEMS.MENU_NUM, MENU_ITEMS.COLUMN, MENU_ITEMS.ROW")
@@ -5101,6 +5102,7 @@ Public Class POS
     Private Sub cmdOpen_Click(sender As System.Object, e As System.EventArgs) Handles cmdOpen.Click
         'Process.Start("cmd", "/k echo  > COM1")
         'Dim wsh As Object
+        OpenCashdrawer()
         Dim wsh As Object = CreateObject("WScript.Shell")
         Dim waitOnReturn As Boolean : waitOnReturn = True
         Dim windowStyle As Integer : windowStyle = 1
@@ -5112,7 +5114,7 @@ Public Class POS
         'Modify DrawerCode to your receipt printer open drawer code
         Dim DrawerCode As String = Chr(27) & Chr(112) & Chr(48) & Chr(64) & Chr(64)
         'Modify PrinterName to your receipt printer name
-        Dim PrinterName As String = "Your receipt printer name"
+        Dim PrinterName As String = "Star"
 
         RawPrinter.PrintRaw(PrinterName, DrawerCode)
     End Sub
