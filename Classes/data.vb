@@ -35,7 +35,7 @@
     End Sub
 
     Public Function GetData(ByVal Query As String) As DataSet
-        Console.WriteLine(Query)
+        'Console.WriteLine(Query)
         Dim Connection As OleDb.OleDbConnection = New OleDb.OleDbConnection(GetDBConnectionString)
         Dim ds As New DataSet
         Dim da As New OleDb.OleDbDataAdapter

@@ -4719,19 +4719,19 @@ Public Class POS
                             oControl.Visible = True
                             Select Case DataRow("Color").ToString
                                 Case "Blue"
-                                    oControl.Image = My.Resources.Resource2.Text_Blue
+                                    oControl.Image = My.Resources.Resource1.Text_Blue
                                 Case "Green"
-                                    oControl.Image = My.Resources.Resource2.Text_Green
+                                    oControl.Image = My.Resources.Resource1.Text_Green
                                 Case "Teal"
-                                    oControl.Image = My.Resources.Resource2.Text_Cyan
+                                    oControl.Image = My.Resources.Resource1.Text_Cyan
                                 Case "Red"
-                                    oControl.Image = My.Resources.Resource2.Text_Red
+                                    oControl.Image = My.Resources.Resource1.Text_Red
                                 Case "Yellow"
-                                    oControl.Image = My.Resources.Resource2.Text_Yellow
+                                    oControl.Image = My.Resources.Resource1.Text_Yellow
                                 Case "Orange"
-                                    oControl.Image = My.Resources.Resource2.Text_Orange
+                                    oControl.Image = My.Resources.Resource1.Text_Orange
                                 Case "Purple"
-                                    oControl.Image = My.Resources.Resource2.Text_Purple
+                                    oControl.Image = My.Resources.Resource1.Text_Purple
                             End Select
                         End If
                     End If
@@ -4935,93 +4935,63 @@ Public Class POS
 
     Dim TextToPrint As String = ""
 
-    Public Sub PrintHeader()
-
+    Public Sub PrintHeader(TicketNumber As Integer, GuestNumber As Integer, OrderNumber As Integer)
         TextToPrint = ""
 
         'send Business Name
-        Dim StringToPrint As String = "Business Name"
+        Dim StringToPrint As String = "Dinky Diner"
         Dim LineLen As Integer = StringToPrint.Length
         Dim spcLen1 As New String(" "c, Math.Round((33 - LineLen) / 2)) 'This line is used to center text in the middle of the receipt
         TextToPrint &= spcLen1 & StringToPrint & Environment.NewLine
 
         'send address name
-        StringToPrint = "12345 Street Avenue"
+        StringToPrint = "1999 River St"
         LineLen = StringToPrint.Length
         Dim spcLen2 As New String(" "c, Math.Round((33 - LineLen) / 2))
         TextToPrint &= spcLen2 & StringToPrint & Environment.NewLine
 
         ' send city, state, zip
-        StringToPrint = "City, State, Zip code"
+        StringToPrint = "Rhinelander, WI 54501"
         LineLen = StringToPrint.Length
         Dim spcLen3 As New String(" "c, Math.Round((33 - LineLen) / 2))
         TextToPrint &= spcLen3 & StringToPrint & Environment.NewLine
 
         ' send phone number
-        StringToPrint = "999-999-9999"
+        StringToPrint = "715-362-1981"
         LineLen = StringToPrint.Length
         Dim spcLen4 As New String(" "c, Math.Round((33 - LineLen) / 2))
         TextToPrint &= spcLen4 & StringToPrint & Environment.NewLine
 
-        'send website
-        StringToPrint = "website.com"
-        LineLen = StringToPrint.Length
-        Dim spcLen4b As New String(" "c, Math.Round((33 - LineLen) / 2))
-        TextToPrint &= spcLen4b & StringToPrint & Environment.NewLine
+        TextToPrint &= Environment.NewLine
+
+        TextToPrint &= d.GetTableName(Active.Table) & " - " & GuestNumber & Environment.NewLine
+        TextToPrint &= "Order " & OrderNumber & Environment.NewLine
+
+        TextToPrint &= "_________________________________" & Environment.NewLine
+        TextToPrint &= Environment.NewLine
+    End Sub
+
+    Public Sub PrintItems(TicketNumber As Integer, GuestNumber As Integer, OrderNumber As Integer)
+
+        Dim ItemsList As DataSet
+        ItemsList = data.GetData("SELECT LINE_NUM, ITEM_NAME AS Name, QUOTED_PRICE AS Price FROM OPEN_ORDER INNER JOIN ITEM ON ITEM.ITEM_NUM = OPEN_ORDER.ITEM_NUM WHERE ORDER_NUM = " & OrderNumber)
+
+        For Each DataRow As DataRow In ItemsList.Tables(0).Rows
+            Dim Name As String = DataRow("Name").ToString()
+            Dim Price As String = DataRow("Price").ToString()
+            TextToPrint &= Name & " " & FormatCurrency(Price) & Environment.NewLine
+        Next
 
     End Sub
 
-    Public Sub ItemsToBePrinted()
+    Public Sub PrintFooter(TicketNumber As Integer, GuestNumber As Integer, OrderNumber As Integer)
+        TextToPrint &= Environment.NewLine
+        TextToPrint &= "_________________________________" & Environment.NewLine
+        TextToPrint &= Environment.NewLine
 
-
-        Dim StringToPrint As String = "    " & "1" & " @ " & "3.99" & "         " & "3.99"
-        Dim LineLen As String = StringToPrint.Length
-        Dim spcLen5 As New String(" "c, Math.Round((30 - LineLen)))
-
-
-        TextToPrint &= "Description" & Environment.NewLine
-        TextToPrint &= StringToPrint & Environment.NewLine
-
-    End Sub
-
-    Public Sub printFooter()
-        TextToPrint &= Environment.NewLine & Environment.NewLine
-        Dim globalLengt As Integer = 0
-
-        'SubTotal Amount
-        Dim StringToPrint As String = "Sub Total   " & FormatCurrency("3.99", , , TriState.True, TriState.True)  'Change here to subtotal
-        Dim LineLen As String = StringToPrint.Length
-        globalLengt = StringToPrint.Length
-        Dim spcLen5 As New String(" "c, Math.Round((26 - LineLen)))
-        TextToPrint &= Environment.NewLine & spcLen5 & StringToPrint & Environment.NewLine
-
-        'Tax Amount
-        StringToPrint = "Tax         " & FormatCurrency("0.05", , , TriState.True, TriState.True) 'Change to tax amount
-        LineLen = globalLengt
-        Dim spcLen6 As New String(" "c, Math.Round((26 - LineLen)))
-        If Not StringToPrint = "Tax         $0.00" Then
-            TextToPrint &= spcLen6 & StringToPrint & Environment.NewLine
-        End If
-
-        'Total Amount
-        StringToPrint = "Total       " & "$4.04"
-        LineLen = globalLengt
-        Dim spcLen8 As New String(" "c, Math.Round((26 - LineLen)))
-        TextToPrint &= spcLen8 & StringToPrint & Environment.NewLine & Environment.NewLine
-
-        'Cash Entered Amount
-        StringToPrint = "Cash        " & FormatCurrency("5.00", , , TriState.True, TriState.True)
-        LineLen = globalLengt
-        Dim spcLen9 As New String(" "c, Math.Round((26 - LineLen)))
-        If Not StringToPrint = "Cash        $0.00" Then
-            TextToPrint &= spcLen9 & StringToPrint & Environment.NewLine
-        End If
-
-        'Change Amount
-        StringToPrint = "Change      " & FormatCurrency("0.96", , , TriState.True, TriState.True)
-        LineLen = globalLengt
-        Dim spcLen10 As New String(" "c, Math.Round((26 - LineLen)))
-        TextToPrint &= Environment.NewLine & spcLen10 & StringToPrint & Environment.NewLine
+        TextToPrint &= "                Sub Total " & FormatCurrency(data.GetSingleData("SELECT SUBTOTAL FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)) & Environment.NewLine
+        TextToPrint &= "                      Tax " & FormatCurrency(data.GetSingleData("SELECT TAX FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)) & Environment.NewLine
+        TextToPrint &= "                    Total " & FormatCurrency(data.GetSingleData("SELECT TOTAL FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)) & Environment.NewLine
     End Sub
 
     Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
@@ -5062,16 +5032,35 @@ Public Class POS
 
     Private Sub cmdPrint_Click(sender As System.Object, e As System.EventArgs) Handles cmdPrint.Click
         PrintDocument1.PrinterSettings.PrinterName = "Star"
-        PrintHeader()
-        ItemsToBePrinted()
-        printFooter()
-        Dim printControl As Printing.StandardPrintController = New Printing.StandardPrintController
-        PrintDocument1.PrintController = printControl
-        Try
-            PrintDocument1.Print()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+
+
+
+
+        Dim indGuests As New List(Of Integer)
+        indGuests = d.GetGuestsOfTicket(Active.Ticket)
+
+        For Each indGuest As Integer In indGuests
+            Dim indOrderNumber As Integer = d.GetOrderNumber(Active.Ticket, indGuest)
+            PrintHeader(Active.Ticket, indGuest, indOrderNumber)
+            PrintItems(Active.Ticket, indGuest, indOrderNumber)
+            PrintFooter(Active.Ticket, indGuest, indOrderNumber)
+
+
+            Dim printControl As Printing.StandardPrintController = New Printing.StandardPrintController
+            PrintDocument1.PrintController = printControl
+            Try
+                'Console.Write(TextToPrint)
+                PrintDocument1.Print()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+        Next
+
+
+
+
+       
     End Sub
 
 
@@ -5106,7 +5095,8 @@ Public Class POS
         Dim waitOnReturn As Boolean : waitOnReturn = True
         Dim windowStyle As Integer : windowStyle = 1
 
-        wsh.Run("cmd.exe /S /C echo " & Chr(7) & " test", windowStyle, waitOnReturn)
+        wsh.Run("cmd.exe /k echo " & Chr(7) & " test", windowStyle, waitOnReturn)
+
     End Sub
 
     Public Sub OpenCashdrawer()
