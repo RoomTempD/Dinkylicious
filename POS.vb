@@ -5111,12 +5111,13 @@ Public Class POS
     End Sub
 
     Public Sub OpenCashdrawer()
+        SendKeys.Send("/")
         'Modify DrawerCode to your receipt printer open drawer code
-        Dim DrawerCode As String = Chr(27) & Chr(112) & Chr(48) & Chr(64) & Chr(64)
+        'Dim DrawerCode As String = Chr(27) & Chr(112) & Chr(48) & Chr(64) & Chr(64)
         'Modify PrinterName to your receipt printer name
-        Dim PrinterName As String = "Star"
+        'Dim PrinterName As String = "Star"
 
-        RawPrinter.PrintRaw(PrinterName, DrawerCode)
+        'RawPrinter.PrintRaw(PrinterName, DrawerCode)
     End Sub
 
     Private Sub cmdSandwiches_Click(sender As System.Object, e As System.EventArgs) Handles cmdSandwiches.Click
