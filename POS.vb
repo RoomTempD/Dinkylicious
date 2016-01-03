@@ -4521,7 +4521,7 @@ Public Class POS
         Update_Screen()
     End Sub
 
-    Private Sub Update_Screen()
+    Public Sub Update_Screen()
 
         If Active.OrderType = "Food" Then
             Panel1.Visible = False

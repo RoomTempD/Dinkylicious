@@ -666,6 +666,8 @@ Public Class CloseTableNew
             'MsgBox(dgvGuestList.RowCount)
         Else
             Close()
+            Active.Clear()
+            POS.Update_Screen()
         End If
 
 
