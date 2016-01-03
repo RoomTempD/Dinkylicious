@@ -191,7 +191,7 @@ Module d
     Private Sub CloseTable(ByVal ReTableNumber As Integer)
         If data.GetSingleValue("SELECT COUNT(*) FROM OPEN_TICKET WHERE RETABLE = " & ReTableNumber) = 0 Then
             ' MsgBox("other orders exist for ticket.")
-            data.RunSQL("INSERT INTO CLOSED_TABLEINFO SELECT TABLE_NUM, TABLE_NAME, GUEST_COUNT, EMP_NUM, EMP_NUM2, now(), now(), RETABLE, '0' as STOOL_NUM FROM OPEN_TABLEINFO WHERE RETABLE = " & ReTableNumber)
+            data.RunSQL("INSERT INTO CLOSED_TABLEINFO SELECT TABLE_NUM, TABLE_NAME, GUEST_COUNT, EMP_NUM, EMP_NUM2, now() as [DATE_OUT], now() as [TIME_OUT], RETABLE, '0' as STOOL_NUM FROM OPEN_TABLEINFO WHERE RETABLE = " & ReTableNumber)
 
             data.RunSQL("UPDATE OPEN_TABLEINFO SET AVAILABLE = 1, GUEST_COUNT = 0, EMP_NUM = 0, TICKET_NUM = 0, RETABLE = 0 WHERE RETABLE = " & ReTableNumber)
            
