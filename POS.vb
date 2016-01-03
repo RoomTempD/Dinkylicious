@@ -4939,6 +4939,9 @@ Public Class POS
         TextToPrint = ""
 
         'send Business Name
+        TextToPrint &= Environment.NewLine
+        TextToPrint &= Environment.NewLine
+
         Dim StringToPrint As String = "Dinky Diner"
         Dim LineLen As Integer = StringToPrint.Length
         Dim spcLen1 As New String(" "c, Math.Round((33 - LineLen) / 2)) 'This line is used to center text in the middle of the receipt
@@ -4977,9 +4980,15 @@ Public Class POS
         ItemsList = data.GetData("SELECT LINE_NUM, ITEM_NAME AS Name, QUOTED_PRICE AS Price FROM OPEN_ORDER INNER JOIN ITEM ON ITEM.ITEM_NUM = OPEN_ORDER.ITEM_NUM WHERE ORDER_NUM = " & OrderNumber)
 
         For Each DataRow As DataRow In ItemsList.Tables(0).Rows
+            Dim Print As String = ""
             Dim Name As String = DataRow("Name").ToString()
             Dim Price As String = DataRow("Price").ToString()
-            TextToPrint &= Name & " " & FormatCurrency(Price) & Environment.NewLine
+            Print = Name
+            For k As Integer = 0 To 28 - Name.Length
+                Print &= " "
+            Next
+            Print = Price & Environment.NewLine
+            TextToPrint &= Print
         Next
 
     End Sub
@@ -4992,6 +5001,8 @@ Public Class POS
         TextToPrint &= "                Sub Total " & FormatCurrency(data.GetSingleData("SELECT SUBTOTAL FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)) & Environment.NewLine
         TextToPrint &= "                      Tax " & FormatCurrency(data.GetSingleData("SELECT TAX FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)) & Environment.NewLine
         TextToPrint &= "                    Total " & FormatCurrency(data.GetSingleData("SELECT TOTAL FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)) & Environment.NewLine
+        TextToPrint &= Environment.NewLine
+        TextToPrint &= Environment.NewLine
     End Sub
 
     Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
