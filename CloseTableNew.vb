@@ -653,16 +653,18 @@ Public Class CloseTableNew
     End Sub
 
     Private Sub Update_Guest()
-        dgvGuestList.DataSource = data.GetData("SELECT GUEST_NUM AS Guest, TOTAL AS Total FROM OPEN_TICKET WHERE TICKET_NUM = " & Active.Ticket).Tables(0)
+        If data.GetSingleValue("SELECT GUEST_NUM AS Guest, TOTAL AS Total FROM OPEN_TICKET WHERE TICKET_NUM = " & Active.Ticket) <> 0 Then
+
+            dgvGuestList.DataSource = data.GetData("SELECT GUEST_NUM AS Guest, TOTAL AS Total FROM OPEN_TICKET WHERE TICKET_NUM = " & Active.Ticket).Tables(0)
 
 
 
-        dgvGuestList.Columns("Guest").Width = 175
-        dgvGuestList.Columns("Total").Width = 50
+            dgvGuestList.Columns("Guest").Width = 175
+            dgvGuestList.Columns("Total").Width = 50
 
-        txtGuestOwes.Text = FormatCurrency(d.GetTotalOwed(d.GetOrderNumber(Active.Ticket, dgvGuestList.SelectedRows(0).Cells(0).Value)))
-        MsgBox(dgvGuestList.RowCount)
-        If dgvGuestList.RowCount = 0 Then
+            txtGuestOwes.Text = FormatCurrency(d.GetTotalOwed(d.GetOrderNumber(Active.Ticket, dgvGuestList.SelectedRows(0).Cells(0).Value)))
+            'MsgBox(dgvGuestList.RowCount)
+        Else
             Close()
         End If
 

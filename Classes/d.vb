@@ -155,8 +155,8 @@ Module d
     Public Sub UpdateOrderTotals(ByVal OrderNumber As Integer, ByRef FoodTotal As Double, ByRef BarTotal As Double, ByRef TotalTotal As Double)
         Dim SubTotal As Double = 0
         Dim Tax As Double = 0
-        FoodTotal = Math.Round(data.GetSingleValue("SELECT Sum(QUOTED_PRICE) AS SumOfQUOTED_PRICE FROM OPEN_ORDER WHERE ORDER_NUM = " & OrderNumber & " GROUP BY ORDER_NUM"), 2)
-        BarTotal = Math.Round(data.GetSingleValue("SELECT Sum(QUOTED_PRICE) AS SumOfQUOTED_PRICE FROM OPEN_BAR_ORDER WHERE ORDER_NUM = " & OrderNumber & " GROUP BY ORDER_NUM"), 2)
+        FoodTotal = Math.Round(data.GetSingleValue("SELECT Sum(QUOTED_PRICE) AS SumOfQUOTED_PRICE FROM OPEN_ORDER WHERE ORDER_NUM = " & OrderNumber & " GROUP BY ORDER_NUM"), 2, MidpointRounding.AwayFromZero)
+        BarTotal = Math.Round(data.GetSingleValue("SELECT Sum(QUOTED_PRICE) AS SumOfQUOTED_PRICE FROM OPEN_BAR_ORDER WHERE ORDER_NUM = " & OrderNumber & " GROUP BY ORDER_NUM"), 2, MidpointRounding.AwayFromZero)
         SubTotal = Math.Round(FoodTotal + BarTotal, 2)
         Tax = Math.Round(FoodTotal * 0.055, 2)
         TotalTotal = Math.Round(SubTotal + Tax, 2)
