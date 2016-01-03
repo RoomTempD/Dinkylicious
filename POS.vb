@@ -4967,8 +4967,8 @@ Public Class POS
 
         TextToPrint &= Environment.NewLine
 
-        TextToPrint &= d.GetTableName(Active.Table) & " - " & GuestNumber & Environment.NewLine
-        TextToPrint &= "Order " & OrderNumber & Environment.NewLine
+        TextToPrint &= d.GetTableName(Active.Table) & " - " & GuestNumber
+        TextToPrint &= " -          Order " & OrderNumber & Environment.NewLine
 
         TextToPrint &= "_________________________________" & Environment.NewLine
         TextToPrint &= Environment.NewLine
@@ -5000,9 +5000,9 @@ Public Class POS
 
         TextToPrint &= "                Sub Total " & FormatCurrency(data.GetSingleData("SELECT SUBTOTAL FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)) & Environment.NewLine
         TextToPrint &= "                      Tax " & FormatCurrency(data.GetSingleData("SELECT TAX FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)) & Environment.NewLine
-        TextToPrint &= "                    Total " & FormatCurrency(data.GetSingleData("SELECT TOTAL FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)) & Environment.NewLine
-        TextToPrint &= Environment.NewLine
-        TextToPrint &= Environment.NewLine
+        TextToPrint &= "                    Total " & FormatCurrency(data.GetSingleData("SELECT TOTAL FROM OPEN_TICKET WHERE ORDER_NUM = " & OrderNumber)) & Environment.NewLine & " "
+        TextToPrint &= Environment.NewLine & " "
+        TextToPrint &= Environment.NewLine & " "
     End Sub
 
     Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage

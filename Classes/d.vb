@@ -190,6 +190,7 @@ Module d
 
     Private Sub CloseTable(ByVal ReTableNumber As Integer)
         If data.GetSingleValue("SELECT COUNT(*) FROM OPEN_TICKET WHERE RETABLE = " & ReTableNumber) = 0 Then
+            MsgBox("other orders exist for ticket.")
             'data.RunSQL("INSERT INTO ORDER SELECT ORDER_NUM, LINE_NUM, ITEM_NUM, QUOTED_PRICE, " & ReTableNumber & " as [RETABLE], " & ReTransNumber & " as [RETRANS] FROM OPEN_ORDER WHERE ORDER_NUM = " & OrderNumber)
             'insert data into closed table
 
@@ -200,7 +201,7 @@ Module d
             'reset data in open stool
 
         End If
-
+        MsgBox("ticket should be closed")
         'check to see if retable exists in open_tickets,
         'if not, insert into closedtable and closedstool
     End Sub
