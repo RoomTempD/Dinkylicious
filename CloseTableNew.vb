@@ -661,7 +661,7 @@ Public Class CloseTableNew
         dgvGuestList.Columns("Total").Width = 50
 
         txtGuestOwes.Text = FormatCurrency(d.GetTotalOwed(d.GetOrderNumber(Active.Ticket, dgvGuestList.SelectedRows(0).Cells(0).Value)))
-
+        MsgBox(dgvGuestList.RowCount)
         If dgvGuestList.RowCount = 0 Then
             Close()
         End If
