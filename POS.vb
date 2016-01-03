@@ -4987,7 +4987,7 @@ Public Class POS
             For k As Integer = 0 To 28 - Name.Length
                 Print &= " "
             Next
-            Print = Price & Environment.NewLine
+            Print &= Price & Environment.NewLine
             TextToPrint &= Print
         Next
 
