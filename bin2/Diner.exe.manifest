@@ -62,14 +62,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Diner.exe" size="14856704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Diner.exe" size="14842880">
       <assemblyIdentity name="Diner" version="1.0.5840.32362" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>SRC8k9DDYAEc+WKRFc/j+6n0Ujg=</dsig:DigestValue>
+        <dsig:DigestValue>uTs8/4bQfdMoJKmrALZAcWC30Fo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

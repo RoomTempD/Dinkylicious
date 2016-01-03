@@ -5099,25 +5099,7 @@ Public Class POS
     End Sub
 
     Private Sub cmdOpen_Click(sender As System.Object, e As System.EventArgs) Handles cmdOpen.Click
-        'Process.Start("cmd", "/k echo  > COM1")
-        'Dim wsh As Object
-        OpenCashdrawer()
-        Dim wsh As Object = CreateObject("WScript.Shell")
-        Dim waitOnReturn As Boolean : waitOnReturn = True
-        Dim windowStyle As Integer : windowStyle = 1
-
-        wsh.Run("cmd.exe /k echo " & Chr(7) & " test", windowStyle, waitOnReturn)
-
-    End Sub
-
-    Public Sub OpenCashdrawer()
         SendKeys.Send("/")
-        'Modify DrawerCode to your receipt printer open drawer code
-        'Dim DrawerCode As String = Chr(27) & Chr(112) & Chr(48) & Chr(64) & Chr(64)
-        'Modify PrinterName to your receipt printer name
-        'Dim PrinterName As String = "Star"
-
-        'RawPrinter.PrintRaw(PrinterName, DrawerCode)
     End Sub
 
     Private Sub cmdSandwiches_Click(sender As System.Object, e As System.EventArgs) Handles cmdSandwiches.Click

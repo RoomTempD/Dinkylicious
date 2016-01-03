@@ -449,6 +449,7 @@ Public Class CloseTableNew
                 CHANGE = Val(txtNetDue.Text)
 
                 d.CloseOrder(d.GetOrderNumber(Active.Ticket, dgvGuestList.SelectedRows(0).Cells(0).Value), IIf(txtCHK.Text <> "", txtCHK.Text, 0), IIf(txtCSH.Text <> "", txtCSH.Text, 0), IIf(txtCRD.Text <> "", txtCRD.Text, 0), IIf(txtCRT.Text <> "", txtCRT.Text, 0), CHANGE, IIf(txtGRA.Text <> "", txtGRA.Text, 0))
+                SendKeys.Send("/")
                 MsgBox("Guest was closed. Change is " & CHANGE)
                 Clear_All()
                 'insert all open ticket info (table, ticket, order) into closed ticket orders, with payment methods.
