@@ -4342,6 +4342,7 @@ Public Class POS
         Me.cmdSandwiches.Size = New System.Drawing.Size(136, 48)
         Me.cmdSandwiches.TabIndex = 41
         Me.cmdSandwiches.Text = "Sandwiches"
+        Me.cmdSandwiches.Visible = False
         '
         'POS
         '
@@ -4615,7 +4616,7 @@ Public Class POS
                 cmdRemoveTable.Visible = True
                 cmdRemoveItem.Visible = True
                 cmdFoods.Visible = True
-                cmdDrinks.Visible = True
+                'cmdDrinks.Visible = True
                 dgvOrder.Visible = True
                 lblTotals.Visible = True
                 cmdCustom.Visible = True
@@ -4658,7 +4659,7 @@ Public Class POS
                 cmdRemoveTable.Visible = True
                 cmdRemoveItem.Visible = True
                 cmdFoods.Visible = True
-                cmdDrinks.Visible = True
+                'cmdDrinks.Visible = True
                 dgvOrder.Visible = True
                 lblTotals.Visible = True
                 cmdCustom.Visible = True
@@ -5104,5 +5105,20 @@ Public Class POS
     Private Sub cmdSandwiches_Click(sender As System.Object, e As System.EventArgs) Handles cmdSandwiches.Click
         Dim printRpt As New printReport
         printRpt.PrintSammys()
+    End Sub
+
+    Private Sub cmdCustom_Click(sender As System.Object, e As System.EventArgs) Handles cmdCustom.Click
+        Dim Price As Decimal
+        Dim LineNumber As Integer
+        Dim OrderNumber As Integer
+        Dim ReTableNumber As Integer
+
+        OrderNumber = GetOrderNumber(Active.Ticket, Active.Guest)
+        ReTableNumber = GetReTableNumber(Active.Ticket)
+
+        Price = InputBox("Custom Price...", "Custom Item")
+        LineNumber = data.GetNextNum("LINE_NUM")
+
+        data.RunSQL("INSERT INTO OPEN_ORDER (ORDER_NUM, LINE_NUM, ITEM_NUM, QUOTED_PRICE, RETABLE) VALUES (" & OrderNumber & "," & LineNumber & ",-1," & Price & "," & ReTableNumber & ")")
     End Sub
 End Class
